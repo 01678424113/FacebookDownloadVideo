@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label>Content</label>
-                    <textarea class="form-control" rows="3" name="txt_content"></textarea>
+                    <textarea class="form-control summernote"  rows="3" name="txt_content"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Keyword</label>

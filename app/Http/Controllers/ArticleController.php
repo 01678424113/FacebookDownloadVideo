@@ -9,13 +9,23 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function listArticle()
+    public function listArticle(Request $request)
     {
         $response = [
             'title'=>'Article'
         ];
-        $articles = Article::all();
-        $response['articles'] = $articles;
+        $articles_query = Article::select([
+            'id',
+            'title',
+            'content',
+            'keyword',
+            'create_at'
+        ])->orderBy('create_at','DESC');
+        if ($request->has('title_search') && $request->input('title_search') != "") {
+            $articles_query->where('title', 'LIKE', '%' . $request->input('title_search') . '%');
+        }
+
+        $response['articles'] = $articles_query->paginate(20);
         return view('admin.article.list',$response);
     }
 

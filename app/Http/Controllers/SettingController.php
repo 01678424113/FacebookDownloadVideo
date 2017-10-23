@@ -9,13 +9,20 @@ use Mockery\Exception;
 
 class SettingController extends Controller
 {
-    public function listSetting()
+    public function listSetting(Request $request)
     {
         $response = [
             'title'=>'Setting'
         ];
-        $settings = Setting::all();
-        $response['settings'] = $settings;
+        $settings_query = Setting::select([
+            'id',
+            'key_setting',
+            'value_setting'
+        ]);
+        if( $request->has('key_setting_search') && $request->key_setting_search != ""){
+            $settings_query->where('key_setting','LIKE','%'.$request->key_setting_search.'%');
+        }
+        $response['settings'] = $settings_query->paginate(20);
         return view('admin.setting.list',$response);
     }
 

@@ -32,6 +32,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
 
 </head>
 
@@ -51,7 +52,6 @@
 </div>
 <!-- /#wrapper -->
 @yield('script')
-
 <!-- jQuery -->
 <script src="asset_admin/vendor/jquery/jquery.min.js"></script>
 
@@ -68,7 +68,14 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="asset_admin/dist/js/sb-admin-2.js"></script>
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        })
+    })
+</script>
 </body>
 
 </html>
