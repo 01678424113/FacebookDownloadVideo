@@ -70,11 +70,63 @@
 <script src="asset_admin/dist/js/sb-admin-2.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 <script>
-    $(document).ready(function () {
-        $(document).ready(function() {
-            $('.summernote').summernote();
-        })
-    })
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            height: 200,
+            minHeight: null,
+            maxHeight: null,
+            focus: false,
+            lang: 'vi-VN',
+            toolbar: [
+                ['temp', ['style']],
+                ['style', ['bold', 'italic', 'underline']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['clear', ['codeview', 'clear']]
+            ], popover: {
+                image: [
+                    ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['custom', ['imageAttributes']],
+                    ['remove', ['removeMedia']]
+                ],
+                link: [
+                    ['link', ['linkDialogShow', 'unlink']]
+                ]
+            },
+            disableDragAndDrop: true,
+            callbacks: {
+                onImageUpload: function (files, editor, welEditable) {
+                    uploadImage(files[0], editor, welEditable);
+                }
+            }
+        });
+        function uploadImage(file, editor, welEditable) {
+            var data = new FormData();
+            data.append('_token', '{{ csrf_token() }}');
+            data.append("file-image", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "{{ route('imageUpload') }}",
+                contentType: false,
+                processData: false,
+                error: function (jqXHR, textStatus, errorThrow) {
+                    toastr['error']('Lỗi trong quá trình xử lý dữ liệu');
+                },
+                success: function (data) {
+                    if (data.status_code === 200) {
+                        console.log(data.data);
+                        $('.summernote').summernote('editor.insertImage', data.data);
+                    } else {
+                        toastr['error'](data.message);
+                    }
+                }
+            });
+        }
+    });
 </script>
 </body>
 

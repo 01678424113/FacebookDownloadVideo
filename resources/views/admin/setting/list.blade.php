@@ -41,32 +41,36 @@
                     @endif
                     <table width="100%" class="table table-striped table-bordered table-hover"
                            id="dataTables-example">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Key</th>
-                            <th>Value</th>
-                            <th style="width: 80px">Edit</th>
-                            <th style="width: 80px">Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($settings as $setting)
-                            <tr class="odd gradeX">
-                                <td>{{$setting->id}}</td>
-                                <td>{{$setting->key_setting}}</td>
-                                <td>{{$setting->value_setting}}</td>
-                                <td class="center">
-                                    <a href="{{route('getEditSetting',['setting_id'=>$setting->id])}}"
-                                       class="btn btn-info">Edit</a>
-                                </td>
-                                <td class="center">
-                                    <a href="{{route('deleteSetting',['setting_id'=>$setting->id])}}"
-                                       class="btn btn-danger">Delete</a>
-                                </td>
+                        @if(count($settings)>0)
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Key</th>
+                                <th>Value</th>
+                                <th style="width: 80px">Edit</th>
+                                <th style="width: 80px">Delete</th>
                             </tr>
-                        @endforeach
-                        </tbody>
+                            </thead>
+                            <tbody>
+                            @foreach($settings as $setting)
+                                <tr class="odd gradeX">
+                                    <td>{{$setting->id}}</td>
+                                    <td>{{$setting->key_setting}}</td>
+                                    <td>{{$setting->value_setting}}</td>
+                                    <td class="center">
+                                        <a href="{{route('getEditSetting',['setting_id'=>$setting->id])}}"
+                                           class="btn btn-info">Edit</a>
+                                    </td>
+                                    <td class="center">
+                                        <a href="{{route('deleteSetting',['setting_id'=>$setting->id])}}"
+                                           class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        @else
+                            <p>Không có dữ liệu</p>
+                        @endif
                     </table>
                 {{$settings->links()}}
                 <!-- /.table-responsive -->

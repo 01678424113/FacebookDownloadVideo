@@ -25,6 +25,7 @@ class ArticleRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'txt_description'=>'required',
             'txt_content' => 'required',
         ];
     }
@@ -33,6 +34,7 @@ class ArticleRequest extends FormRequest
     {
         return [
             'title.required' => 'Must not to blank title !',
+            'txt_description.required' => 'Must not to blank description',
             'txt_content.required' => 'Must not to blank content'
         ];
     }

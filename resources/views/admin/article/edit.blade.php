@@ -24,6 +24,10 @@
                     <input class="form-control" placeholder="Enter text" name="title" value="{{$article->title}}">
                 </div>
                 <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control"  rows="3" name="txt_description">{{$article->description}}</textarea>
+                </div>
+                <div class="form-group">
                     <label>Content</label>
                     <textarea class="form-control" rows="3" name="txt_content">{!! $article->content !!}</textarea>
                 </div>

@@ -29,6 +29,9 @@ Route::post('/find-id','PageController@postFindId')->name('postFindId');
 Route::get('/test','HomeController@test')->name('test');
 
 
+Route::post('/image-upload', 'ArticleController@doHandleImage')->name('imageUpload');
+
+
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');
 

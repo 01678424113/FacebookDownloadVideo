@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string content
  * @property string keyword
  * @property string create_at
+ * @property string description
  */
 class Article extends Model
 {

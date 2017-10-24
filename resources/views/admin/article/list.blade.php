@@ -39,36 +39,44 @@
                         </div>
                     @endif
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        @if(count($articles) > 0)
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Content</th>
+                            <th>Description</th>
                             <th>Keyword</th>
                             <th>Create at</th>
                             <th style="width: 80px">Edit</th>
                             <th style="width: 80px">Delete</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($articles as $article)
-                            <tr class="odd gradeX">
-                                <td>{{$article->id}}</td>
-                                <td>{{$article->title}}</td>
-                                <td>{{$article->content}}</td>
-                                <td>{{$article->keyword}}</td>
-                                <td>{{$article->create_at}}</td>
-                                <td class="center">
-                                    <a href="{{route('getEditArticle',['article_id'=>$article->id])}}"
-                                       class="btn btn-info">Edit</a>
-                                </td>
-                                <td class="center">
-                                    <a href="{{route('deleteArticle',['article_id'=>$article->id])}}"
-                                       class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
+
+                            <tbody>
+                            @foreach($articles as $article)
+                                <tr class="odd gradeX">
+                                    <td>{{$article->id}}</td>
+                                    <td>{{$article->title}}</td>
+                                    <td>{{$article->description}}</td>
+                                    <td>{{$article->keyword}}</td>
+                                    <td>
+                                        <div>{!! date('H:i:s', $article->create_at) !!}</div>
+                                        <div>{!! date('d/m/Y', $article->create_at) !!}</div>
+                                    </td>
+                                    <td class="center">
+                                        <a href="{{route('getEditArticle',['article_id'=>$article->id])}}"
+                                           class="btn btn-info">Edit</a>
+                                    </td>
+                                    <td class="center">
+                                        <a href="{{route('deleteArticle',['article_id'=>$article->id])}}"
+                                           class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        @else
+                            <p>Không có dữ liệu</p>
+                        @endif
                     </table>
                 {{$articles->links()}}
                 <!-- /.table-responsive -->
