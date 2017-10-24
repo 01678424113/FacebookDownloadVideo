@@ -60,7 +60,6 @@
                                     <td>{{$article->description}}</td>
                                     <td>{{$article->keyword}}</td>
                                     <td>
-                                        <div>{!! date('H:i:s', $article->create_at) !!}</div>
                                         <div>{!! date('d/m/Y', $article->create_at) !!}</div>
                                     </td>
                                     <td class="center">

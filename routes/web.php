@@ -29,12 +29,10 @@ Route::post('/find-id','PageController@postFindId')->name('postFindId');
 Route::get('/test','HomeController@test')->name('test');
 
 
-Route::post('/image-upload', 'ArticleController@doHandleImage')->name('imageUpload');
-
-
-Route::group(['prefix'=>'admin'],function (){
+Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');
 
+    Route::post('/image-upload', 'ArticleController@doHandleImage')->name('imageUpload');
     //Setting
     Route::get('/list-setting','SettingController@listSetting')->name('listSetting');
     Route::get('/add-setting','SettingController@getAddSetting')->name('getAddSetting');
@@ -51,3 +49,10 @@ Route::group(['prefix'=>'admin'],function (){
     Route::post('/edit-article/{article_id}','ArticleController@postEditArticle')->name('postEditArticle');
     Route::get('/delete-article/{article_id}','ArticleController@deleteArticle')->name('deleteArticle');
 });
+
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('/login','AdminController@getLogin')->name('getLogin');
+    Route::post('/login','AdminController@postLogin')->name('postLogin');
+    Route::get('/logout','AdminController@logout')->name('logout');
+});
+
