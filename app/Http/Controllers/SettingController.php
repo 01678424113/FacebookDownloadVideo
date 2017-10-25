@@ -41,9 +41,9 @@ class SettingController extends Controller
         $setting->value_setting = $request->value_setting;
         try{
             $setting->save();
-            return redirect()->back()->with('success','You have successfully added setting !');
+            return redirect()->route('listSetting')->with('success','You have successfully added setting !');
         }catch (Exception $e){
-            return redirect()->back()->with('error','Error ! Database');
+            return redirect()->route('listSetting')->with('error','Error ! Database');
         }
     }
 

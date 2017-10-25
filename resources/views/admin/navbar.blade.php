@@ -241,6 +241,19 @@
                 <li>
                     <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
+                {{--Account--}}
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Account<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{route('getAddUser')}}">Add account</a>
+                        </li>
+                        <li>
+                            <a href="{{route('listUser')}}">List accounts</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
                 {{--Setting--}}
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Setting<span class="fa arrow"></span></a>

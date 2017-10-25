@@ -50,9 +50,9 @@ class ArticleController extends Controller
 
         try {
             $article->save();
-            return redirect()->back()->with('success', 'You have successfully added article !');
+            return redirect()->route('listArticle')->with('success', 'You have successfully added article !');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Error ! Database');
+            return redirect()->route('listArticle')->with('error', 'Error ! Database');
         }
     }
 

@@ -33,6 +33,14 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');
 
     Route::post('/image-upload', 'ArticleController@doHandleImage')->name('imageUpload');
+    //Account
+    Route::get('/list-user','UserController@listUser')->name('listUser');
+    Route::get('/add-user','UserController@getAddUser')->name('getAddUser');
+    Route::post('/add-user','UserController@postAddUser')->name('postAddUser');
+    Route::get('/edit-user/{setting_id}','UserController@getEditUser')->name('getEditUser');
+    Route::post('/edit-user/{setting_id}','UserController@postEditUser')->name('postEditUser');
+    Route::get('/delete-user/{setting_id}','UserController@deleteUser')->name('deleteUser');
+
     //Setting
     Route::get('/list-setting','SettingController@listSetting')->name('listSetting');
     Route::get('/add-setting','SettingController@getAddSetting')->name('getAddSetting');

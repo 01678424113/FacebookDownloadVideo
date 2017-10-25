@@ -23,10 +23,10 @@ class AdminController extends Controller
         return view('admin.page.login',$response);
     }
 
-    public function postLogin(AdminRequest $request)
+    public function postLogin(Request $request)
     {
         $user = User::where('username',$request->username)->first();
-       if($user->password == $request->password){
+       if($user->password == md5($request->password)){
            $username = $user->name;
            Session::put('username',$username);
            return redirect()->route('admin-home')->with('success','You have successfully login ! ');

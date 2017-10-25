@@ -41,24 +41,24 @@
                     @endif
                     <table width="100%" class="table table-striped table-bordered table-hover"
                            id="dataTables-example">
-                        @if(count($settings)>0)
+                        @if(count($users)>0)
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Key</th>
-                                <th>Value</th>
+                                <th>Username</th>
+                                <th>Name</th>
                                 <th style="width: 80px">Edit</th>
                                 <th style="width: 80px">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($settings as $setting)
+                            @foreach($users as $user)
                                 <tr class="odd gradeX">
-                                    <td>{{$setting->id}}</td>
-                                    <td>{{$setting->key_setting}}</td>
-                                    <td>{{$setting->value_setting}}</td>
+                                    <td>{{$user->id}}</td>
+                                    <td>{{$user->username}}</td>
+                                    <td>{{$user->name}}</td>
                                     <td class="center">
-                                        <a href="{{route('getEditSetting',['setting_id'=>$setting->id])}}"
+                                        <a href="{{route('getEditUser',['user_id'=>$user->id])}}"
                                            class="btn btn-info">Edit</a>
                                     </td>
                                     <td class="center">
@@ -81,7 +81,7 @@
                                                     <p>Are you sure want to delete ?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="{{route('deleteSetting',['setting_id'=>$setting->id])}}"
+                                                    <a href="{{route('deleteUser',['user_id'=>$user->id])}}"
                                                        class="btn btn-danger">Delete</a>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                                         Cancel
@@ -97,7 +97,7 @@
                             <p>Không có dữ liệu</p>
                         @endif
                     </table>
-                {{$settings->links()}}
+                {{$users->links()}}
                 <!-- /.table-responsive -->
                 </div>
                 <!-- /.panel-body -->
