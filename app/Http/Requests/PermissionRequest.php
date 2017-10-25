@@ -24,14 +24,15 @@ class PermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required'
+            'name'=>'required|unique:permissions,name'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'=>'Name can not be empty !'
+            'name.required'=>'Name can not be empty !',
+            'name.unique'=>'Permission already exist !'
         ];
     }
 }

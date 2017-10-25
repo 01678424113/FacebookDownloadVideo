@@ -17,11 +17,20 @@
                     {{session('success')}}
                 </div>
             @endif
-            <form role="form" action="{{route('postEditSetting',['setting_id'=>$setting->id])}}" method="post" id="setting_form">
+            @if(count($errors) > 0)
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
+            <form role="form" action="{{route('postEditSetting',['setting_id'=>$setting->id])}}" method="post"
+                  id="setting_form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Key setting</label>
-                    <input class="form-control" placeholder="Enter text" name="key_setting" value="{{$setting->key_setting}}">
+                    <input class="form-control" placeholder="Enter text" name="key_setting"
+                           value="{{$setting->key_setting}}">
                 </div>
                 <div class="form-group">
                     <label>Value setting</label>

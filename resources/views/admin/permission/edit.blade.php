@@ -17,7 +17,15 @@
                     {{session('success')}}
                 </div>
             @endif
-            <form role="form" action="{{route('postEditPermission',['permission_id'=>$permission->id])}}" method="post" id="permission_form">
+            @if(count($errors) > 0)
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
+            <form role="form" action="{{route('postEditPermission',['permission_id'=>$permission->id])}}" method="post"
+                  id="permission_form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Name</label>

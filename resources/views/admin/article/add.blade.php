@@ -17,6 +17,13 @@
                     {{session('success')}}
                 </div>
             @endif
+            @if(count($errors) > 0)
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
             <form role="form" action="{{route('postAddArticle')}}" method="post" id="article-form">
                 {{csrf_field()}}
                 <div class="form-group">
@@ -48,7 +55,7 @@
 @endsection
 @section('script')
     <script>
-        $("#title").keyup(function(){
+        $("#title").keyup(function () {
             var slug = $(this).val();
             slug = slug.toLowerCase();
             slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
@@ -58,7 +65,7 @@
             slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
             slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
             slug = slug.replace(/đ/gi, 'd');
-            slug = slug.replace(/[^a-zA-Z0-9]+/g,'-');
+            slug = slug.replace(/[^a-zA-Z0-9]+/g, '-');
             $("#slug").val(slug);
         });
         $(document).ready(function () {

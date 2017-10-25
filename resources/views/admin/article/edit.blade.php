@@ -17,7 +17,15 @@
                     {{session('success')}}
                 </div>
             @endif
-            <form role="form" action="{{route('postEditArticle',['article_id'=>$article->id])}}" method="post" id="article-form">
+            @if(count($errors) > 0)
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
+            <form role="form" action="{{route('postEditArticle',['article_id'=>$article->id])}}" method="post"
+                  id="article-form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Title</label>
@@ -25,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control"  rows="3" name="txt_description">{{$article->description}}</textarea>
+                    <textarea class="form-control" rows="3" name="txt_description">{{$article->description}}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Content</label>

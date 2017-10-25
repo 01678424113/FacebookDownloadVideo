@@ -17,11 +17,19 @@
                     {{session('success')}}
                 </div>
             @endif
+            @if(count($errors) > 0)
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
+                @endforeach
+            @endif
             <form role="form" action="{{route('postEditUser',['user_id'=>$user->id])}}" method="post" id="user_form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Username</label>
-                    <input class="form-control" placeholder="Enter text" name="username" value="{{$user->username}}" readonly>
+                    <input class="form-control" placeholder="Enter text" name="username" value="{{$user->username}}"
+                           readonly>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
