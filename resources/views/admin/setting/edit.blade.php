@@ -23,12 +23,11 @@
                     <label>Key setting</label>
                     <input class="form-control" placeholder="Enter text" name="key_setting" value="{{$setting->key_setting}}">
                 </div>
-
                 <div class="form-group">
                     <label>Value setting</label>
                     <textarea class="form-control" rows="3" name="value_setting">{{$setting->value_setting}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Add setting</button>
+                <button type="submit" class="btn btn-default">Edit setting</button>
                 <a href="{{route('listSetting')}}" class="btn btn-default">Return</a>
             </form>
         </div>

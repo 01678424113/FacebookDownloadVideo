@@ -21,11 +21,11 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" placeholder="Enter text" name="txt_title">
+                    <input class="form-control" id="title" placeholder="Enter text" name="txt_title">
                 </div>
                 <div class="form-group">
                     <label>Slug</label>
-                    <input class="form-control" placeholder="Enter text" name="txt_slug">
+                    <input class="form-control" id="slug" placeholder="Enter text" name="txt_slug">
                 </div>
                 <div class="form-group">
                     <label>Description</label>
@@ -48,6 +48,19 @@
 @endsection
 @section('script')
     <script>
+        $("#title").keyup(function(){
+            var slug = $(this).val();
+            slug = slug.toLowerCase();
+            slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+            slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+            slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+            slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+            slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+            slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+            slug = slug.replace(/đ/gi, 'd');
+            slug = slug.replace(/[^a-zA-Z0-9]+/g,'-');
+            $("#slug").val(slug);
+        });
         $(document).ready(function () {
             $('#article-form').validate({
                 errorElement: 'span',
