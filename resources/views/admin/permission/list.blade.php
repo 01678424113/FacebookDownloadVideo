@@ -12,12 +12,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 55px">
                     <div class="col-md-8" style="height: 100%;display: flex;align-items: center;">
-                        List article
+                        List permission
                     </div>
                     <div class="col-md-4">
-                        <form action="{{route('listArticle')}}" method="get">
+                        <form action="{{route('listPermission')}}" method="get">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" name="title_search" placeholder="Search...">
+                                <input type="text" class="form-control" name="name"
+                                       placeholder="Search...">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>
@@ -38,32 +39,24 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        @if(count($articles) > 0)
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Keyword</th>
-                            <th>Create at</th>
-                            <th style="width: 80px">Edit</th>
-                            <th style="width: 80px">Delete</th>
-                        </tr>
-                        </thead>
-
+                    <table width="100%" class="table table-striped table-bordered table-hover"
+                           id="dataTables-example">
+                        @if(count($permissions)>0)
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th style="width: 80px">Edit</th>
+                                <th style="width: 80px">Delete</th>
+                            </tr>
+                            </thead>
                             <tbody>
-                            @foreach($articles as $article)
+                            @foreach($permissions as $permission)
                                 <tr class="odd gradeX">
-                                    <td>{{$article->id}}</td>
-                                    <td>{{$article->title}}</td>
-                                    <td>{{$article->description}}</td>
-                                    <td>{{$article->keyword}}</td>
-                                    <td>
-                                        <div>{!! date('d/m/Y', $article->create_at) !!}</div>
-                                    </td>
+                                    <td>{{$permission->id}}</td>
+                                    <td>{{$permission->name}}</td>
                                     <td class="center">
-                                        <a href="{{route('getEditArticle',['article_id'=>$article->id])}}"
+                                        <a href="{{route('getEditPermission',['permission_id'=>$permission->id])}}"
                                            class="btn btn-info">Edit</a>
                                     </td>
                                     <td class="center">
@@ -86,7 +79,7 @@
                                                     <p>Are you sure want to delete ?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a href="{{route('deleteArticle',['article_id'=>$article->id])}}"
+                                                    <a href="{{route('deletePermission',['permission_id'=>$permission->id])}}"
                                                        class="btn btn-danger">Delete</a>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                                         Cancel
@@ -102,7 +95,7 @@
                             <p>Data empty</p>
                         @endif
                     </table>
-                {{$articles->links()}}
+                {{$permissions->links()}}
                 <!-- /.table-responsive -->
                 </div>
                 <!-- /.panel-body -->

@@ -12,7 +12,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 55px">
                     <div class="col-md-8" style="height: 100%;display: flex;align-items: center;">
-                        List article
+                        List users
                     </div>
                     <div class="col-md-4">
                         <form action="{{route('listSetting')}}" method="get">
@@ -96,7 +96,7 @@
                             @endforeach
                             </tbody>
                         @else
-                            <p>Không có dữ liệu</p>
+                            <p>Data empty</p>
                         @endif
                     </table>
                 {{$users->links()}}

@@ -267,6 +267,19 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                {{--Permission--}}
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Permission<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{route('getAddPermission')}}">Add permission</a>
+                        </li>
+                        <li>
+                            <a href="{{route('listPermission')}}">List permission</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
                 {{--Article--}}
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Article<span class="fa arrow"></span></a>

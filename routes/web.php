@@ -48,6 +48,13 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/edit-setting/{setting_id}','SettingController@getEditSetting')->name('getEditSetting');
     Route::post('/edit-setting/{setting_id}','SettingController@postEditSetting')->name('postEditSetting');
     Route::get('/delete-setting/{setting_id}','SettingController@deleteSetting')->name('deleteSetting');
+    //Permission
+    Route::get('/list-permission','PermissionController@listPermission')->name('listPermission');
+    Route::get('/add-permission','PermissionController@getAddPermission')->name('getAddPermission');
+    Route::post('/add-permission','PermissionController@postAddPermission')->name('postAddPermission');
+    Route::get('/edit-permission/{permission_id}','PermissionController@getEditPermission')->name('getEditPermission');
+    Route::post('/edit-permission/{permission_id}','PermissionController@postEditPermission')->name('postEditPermission');
+    Route::get('/delete-permission/{permission_id}','PermissionController@deletePermission')->name('deletePermission');
 
     //Article
     Route::get('/list-article','ArticleController@listArticle')->name('listArticle');
