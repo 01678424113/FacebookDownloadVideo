@@ -21,7 +21,7 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Username</label>
-                    <input class="form-control" placeholder="Enter text" name="username">
+                    <input class="form-control" placeholder="Enter text" name="username" value="{{$user->username}}" readonly>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
@@ -33,13 +33,21 @@
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input class="form-control" placeholder="Enter text" name="name">
+                    <input class="form-control" placeholder="Enter text" name="name" value="{{$user->name}}">
                 </div>
                 <div class="form-group">
-                    <label>Permission</label>
-                    <input class="form-control" placeholder="Enter text" name="permission">
+                    <label class="control-label">Permission</label>
+                    <select class="form-control" name="permission_id">
+                        @foreach($permissions as $permission)
+                            <option value="{{ $permission->id }}"
+                            @if($user->permission_id == $permission->id)
+                                {{"selected"}}
+                                    @endif
+                            >{!! $permission->name !!}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-default">Add user</button>
+                <button type="submit" class="btn btn-default">Edit user</button>
                 <a href="{{route('listUser')}}" class="btn btn-default">Return</a>
             </form>
         </div>
@@ -56,17 +64,13 @@
                     'username': {
                         required: true
                     },
-                    'password': {
-                        required: true
-                    },
                     'confirm_password': {
-                        required: true,
                         equalTo: "#password"
                     },
                     'name': {
                         required: true
                     },
-                    'permission': {
+                    'permission_id': {
                         required: true
                     }
                 },
@@ -74,17 +78,13 @@
                     'username': {
                         required: "Must not to blank username !"
                     },
-                    'password': {
-                        required: "Must not to blank static password !"
-                    },
                     'confirm_password': {
-                        required: "Must not to blank static confirm password !",
                         equalTo: "Please enter the same password as above !"
                     },
                     'name': {
                         required: "Must not to blank static name !"
                     },
-                    'permission': {
+                    'permission_id': {
                         required: "Must not to blank static permission !"
                     }
                 }

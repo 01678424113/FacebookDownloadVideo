@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AdminRequest;
+use App\Http\Requests\AddUserRequest;
+use App\Http\Requests\EditUserRequest;
+use App\Permission;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -19,7 +21,7 @@ class UserController extends Controller
             'username',
             'password',
             'name',
-            'permission'
+            'permission_id'
         ]);
        /* if( $request->has('key_setting_search') && $request->key_setting_search != ""){
             $settings_query->where('key_setting','LIKE','%'.$request->key_setting_search.'%');
@@ -33,16 +35,19 @@ class UserController extends Controller
         $response = [
             'title'=>'Add user'
         ];
+        $permissions = Permission::all();
+        $response['permissions'] = $permissions;
         return view('admin.user.add',$response);
     }
 
-    public function postAddUser(AdminRequest $request)
+    public function postAddUser(AddUserRequest $request)
     {
         $user = new User();
         $user->username = $request->username;
         $user->password = md5($request->password);
         $user->name = $request->name;
-        $user->permission = $request->permission;
+        $user->permission_id = $request->permission_id;
+
         try{
             $user->save();
             return redirect()->route('listUser')->with('success','You have successfully added user !');
@@ -60,17 +65,18 @@ class UserController extends Controller
             'title'=>'Edit setting'.$user->name
         ];
         $response['user'] = $user;
+        $permissions = Permission::all();
+        $response['permissions'] = $permissions;
         return view('admin.user.edit',$response);
     }
-    public function postEditUser(AdminRequest $request, $user_id)
+    public function postEditUser(EditUserRequest $request, $user_id)
     {
         $user = User::find($user_id);
-        $user->username = $request->username;
         if($request->has('password')){
             $user->password = md5($request->password);
         }
         $user->name = $request->name;
-        $user->permission = $request->permission;
+        $user->permission_id = $request->permission_id;
         try{
             $user->save();
             return redirect()->back()->with('success','You are successfully fixed user !');

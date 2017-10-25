@@ -36,8 +36,12 @@
                     <input class="form-control" placeholder="Enter text" name="name">
                 </div>
                 <div class="form-group">
-                    <label>Permission</label>
-                    <input class="form-control" placeholder="Enter text" name="permission">
+                    <label class="control-label">Permission</label>
+                    <select class="form-control" name="permission_id">
+                        @foreach($permissions as $permission)
+                            <option value="{{ $permission->id }}">{!! $permission->name !!}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-default">Add user</button>
                 <a href="{{route('listUser')}}" class="btn btn-default">Return</a>
@@ -66,7 +70,7 @@
                     'name': {
                         required: true
                     },
-                    'permission': {
+                    'permission_id': {
                         required: true
                     }
                 },
@@ -84,7 +88,7 @@
                     'name': {
                         required: "Must not to blank static name !"
                     },
-                    'permission': {
+                    'permission_id': {
                         required: "Must not to blank static permission !"
                     }
                 }

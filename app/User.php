@@ -27,4 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public $timestamps = false;
+
+    public function permission()
+    {
+        return $this->belongsTo(Permission::class,'permission_id');
+    }
 }

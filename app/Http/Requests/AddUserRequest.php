@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminRequest extends FormRequest
+class AddUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class AdminRequest extends FormRequest
             'password'=>'required|min:5|max:20',
             'confirm_password'=>'required|same:password',
             'name'=>'required',
-            'permission'=>'required'
+            'permission_id'=>'required'
         ];
     }
 
@@ -43,7 +43,7 @@ class AdminRequest extends FormRequest
             'confirm_password.required'=>'Password confirm can not be empty !',
             'confirm_password.same'=>'Password confirm is not same password !',
             'name.required'=>'Name can not be empty !',
-            'permission.required'=>'Permission can not be empty !'
+            'permission_id.required'=>'Permission can not be empty !'
 
         ];
     }

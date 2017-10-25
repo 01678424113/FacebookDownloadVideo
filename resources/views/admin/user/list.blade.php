@@ -47,6 +47,7 @@
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Name</th>
+                                <th>Permission</th>
                                 <th style="width: 80px">Edit</th>
                                 <th style="width: 80px">Delete</th>
                             </tr>
@@ -57,6 +58,7 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->username}}</td>
                                     <td>{{$user->name}}</td>
+                                    <td>{{$user->permission->name}}</td>
                                     <td class="center">
                                         <a href="{{route('getEditUser',['user_id'=>$user->id])}}"
                                            class="btn btn-info">Edit</a>
