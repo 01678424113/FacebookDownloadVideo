@@ -17,7 +17,7 @@
                     {{session('success')}}
                 </div>
             @endif
-            <form role="form" action="{{route('postAddSetting')}}" method="post">
+            <form role="form" action="{{route('postAddSetting')}}" method="post" id="setting_form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Key setting</label>
@@ -33,4 +33,31 @@
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('#setting_form').validate({
+                errorElement: 'span',
+                errorClass: 'help-block',
+                focusInvalid: false,
+                rules: {
+                    'key_setting': {
+                        required: true
+                    },
+                    'value_setting': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'key_setting': {
+                        required: "Must not to blank title !"
+                    },
+                    'value_setting': {
+                        required: "Must not to blank static path !"
+                    }
+                }
+            })
+        });
+    </script>
 @endsection

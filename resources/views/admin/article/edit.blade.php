@@ -17,11 +17,11 @@
                     {{session('success')}}
                 </div>
             @endif
-            <form role="form" action="{{route('postEditArticle',['article_id'=>$article->id])}}" method="post">
+            <form role="form" action="{{route('postEditArticle',['article_id'=>$article->id])}}" method="post" id="article-form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" placeholder="Enter text" name="title" value="{{$article->title}}">
+                    <input class="form-control" placeholder="Enter text" name="txt_title" value="{{$article->title}}">
                 </div>
                 <div class="form-group">
                     <label>Description</label>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label>Keyword</label>
-                    <textarea class="form-control" rows="3" name="keyword">{{$article->keyword}}</textarea>
+                    <textarea class="form-control" rows="3" name="txt_keyword">{{$article->keyword}}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-default">Edit article</button>
@@ -41,4 +41,43 @@
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('#article-form').validate({
+                errorElement: 'span',
+                errorClass: 'help-block',
+                focusInvalid: false,
+                rules: {
+                    'txt_title': {
+                        required: true
+                    },
+                    'txt_slug': {
+                        required: true
+                    },
+                    'txt_description': {
+                        required: true
+                    },
+                    'txt_content': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'txt_title': {
+                        required: "Must not to blank title !"
+                    },
+                    'txt_slug': {
+                        required: "Must not to blank static path !"
+                    },
+                    'txt_description': {
+                        required: "Must not to blank description !"
+                    },
+                    'txt_content': {
+                        required: "Must not to blank content !"
+                    }
+                }
+            })
+        });
+    </script>
 @endsection

@@ -42,10 +42,11 @@ class ArticleController extends Controller
     public function postAddArticle(ArticleRequest $request)
     {
         $article = new Article();
-        $article->title = $request->title;
+        $article->title = $request->txt_title;
+        $article->slug = $request->txt_slug;
         $article->description = $request->txt_description;
         $article->content = $request->txt_content;
-        $article->keyword = $request->keyword;
+        $article->keyword = $request->txt_keyword;
         $article->create_at = round(microtime(true));
 
         try {
@@ -72,10 +73,10 @@ class ArticleController extends Controller
     public function postEditArticle(ArticleRequest $request, $article_id)
     {
         $article = Article::find($article_id);
-        $article->title = $request->title;
+        $article->title = $request->txt_title;
         $article->description = $request->txt_description;
         $article->content = $request->txt_content;
-        $article->keyword = $request->keyword;
+        $article->keyword = $request->txt_keyword;
         $article->update_at = round(microtime(true));
         try {
             $article->save();

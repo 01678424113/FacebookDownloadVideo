@@ -24,7 +24,8 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'txt_title' => 'required',
+            'txt_slug'=>'required',
             'txt_description'=>'required',
             'txt_content' => 'required',
         ];
@@ -33,7 +34,8 @@ class ArticleRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Must not to blank title !',
+            'txt_title.required' => 'Must not to blank title !',
+            'txt_slug.required' => 'Must not to blank slug !',
             'txt_description.required' => 'Must not to blank description',
             'txt_content.required' => 'Must not to blank content'
         ];
