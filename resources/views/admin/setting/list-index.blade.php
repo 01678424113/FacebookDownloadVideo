@@ -11,11 +11,11 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 55px">
-                    <div class="col-md-8" style="height: 100%;display: flex;align-items: center;">
-                        List settings
+                    <div class="col-md-6" style="height: 100%;display: flex;align-items: center;">
+                        List settings index
                     </div>
                     <div class="col-md-4">
-                        <form action="{{route('listSetting')}}" method="get">
+                        <form action="{{route('listSettingIndex')}}" method="get">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" name="key_setting_search"
                                        placeholder="Search...">
@@ -26,6 +26,9 @@
                             </span>
                             </div>
                         </form>
+                    </div>
+                    <div class="col-md-2" style="display: flex;justify-content: center;">
+                        <a href="{{route('getAddSettingIndex')}}" class="btn btn-success">+ Add setting index</a>
                     </div>
                 </div>
                 <!-- /.panel-heading -->

@@ -259,10 +259,8 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Setting<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{route('getAddSetting')}}">Add setting</a>
-                        </li>
-                        <li>
-                            <a href="{{route('listSetting')}}">List setting</a>
+                            <a href="{{route('listSettingIndex')}}">Page index</a>
+                            <a href="{{route('listSettingView')}}">Page view</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

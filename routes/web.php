@@ -41,9 +41,14 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/delete-user/{setting_id}','UserController@deleteUser')->name('deleteUser');
 
     //Setting
-    Route::get('/list-setting','SettingController@listSetting')->name('listSetting');
-    Route::get('/add-setting','SettingController@getAddSetting')->name('getAddSetting');
-    Route::post('/add-setting','SettingController@postAddSetting')->name('postAddSetting');
+    Route::get('/list-setting-index','SettingController@listSettingIndex')->name('listSettingIndex');
+    Route::get('/add-setting-index','SettingController@getAddSettingIndex')->name('getAddSettingIndex');
+    Route::post('/add-setting-index','SettingController@postAddSettingIndex')->name('postAddSettingIndex');
+
+    Route::get('/list-setting-view','SettingController@listSettingView')->name('listSettingView');
+    Route::get('/add-setting-view','SettingController@getAddSettingView')->name('getAddSettingView');
+    Route::post('/add-setting-view','SettingController@postAddSettingView')->name('postAddSettingView');
+
     Route::get('/edit-setting/{setting_id}','SettingController@getEditSetting')->name('getEditSetting');
     Route::post('/edit-setting/{setting_id}','SettingController@postEditSetting')->name('postEditSetting');
     Route::get('/delete-setting/{setting_id}','SettingController@deleteSetting')->name('deleteSetting');
