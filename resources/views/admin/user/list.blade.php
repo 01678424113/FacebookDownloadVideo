@@ -64,34 +64,35 @@
                                            class="btn btn-info">Edit</a>
                                     </td>
                                     <td class="center">
-                                        <button type="button" data-toggle="modal" data-target="#myModal"
+                                        <button type="button" data-toggle="modal" data-target="#myModal-{{$user->id}}"
                                                 class="btn btn-danger">Delete
                                         </button>
-                                    </td>
-
-                                    <!-- Modal delete -->
-                                    <div id="myModal" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;
-                                                    </button>
-                                                    <h4 class="modal-title">Delete</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Are you sure want to delete ?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="{{route('deleteUser',['user_id'=>$user->id])}}"
-                                                       class="btn btn-danger">Delete</a>
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Cancel
-                                                    </button>
+                                        <!-- Modal delete -->
+                                        <div id="myModal-{{$user->id}}" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;
+                                                        </button>
+                                                        <h4 class="modal-title">Delete</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Are you sure want to delete ?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="{{route('deleteUser',['user_id'=>$user->id])}}"
+                                                           class="btn btn-danger">Delete</a>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                            Cancel
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </td>
+
+
                                 </tr>
                             @endforeach
                             </tbody>

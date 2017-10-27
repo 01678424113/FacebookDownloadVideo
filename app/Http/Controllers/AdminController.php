@@ -27,6 +27,8 @@ class AdminController extends Controller
         $user = User::where('username',$request->username)->first();
        if($user->password == md5($request->password)){
            $username = $user->name;
+           $user_id = $user->id;
+           Session::put('user_id',$user_id);
            Session::put('username',$username);
            return redirect()->route('admin-home')->with('success','You have successfully login ! ');
        }else{

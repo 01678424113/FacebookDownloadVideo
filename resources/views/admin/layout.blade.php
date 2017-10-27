@@ -42,7 +42,7 @@
     <!-- Navigation -->
     @include('admin.navbar')
 
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="margin-bottom: 15px;padding-bottom: 15px">
 
         @yield('content')
     </div>

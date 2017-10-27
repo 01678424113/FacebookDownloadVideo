@@ -16,7 +16,7 @@ class PageController extends Controller
         $response = [
             'title' => 'Facebook Download Video Public'
         ];
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('create_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $response['hot_videos'] = $hot_videos;
         return view('page.index', $response);
 
@@ -57,11 +57,13 @@ class PageController extends Controller
 
             $video_hot = HotVideo::where('video_id', $video_id)->first();
             if (!isset($video_hot)) {
+
                 if (!empty($find_source->likes)) {
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
 
-                    if ($likes > 999) {
+                    if ($likes > 400) {
+
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
                         $hot_video->description = $description;
@@ -69,9 +71,10 @@ class PageController extends Controller
                         $hot_video->picture = $picture;
                         $hot_video->length = $length;
                         $hot_video->likes = $likes;
-                        $hot_video->create_at = substr($find_source->created_time, 0, 10);
+                        $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
                         $hot_video->save();
+
                         return redirect()->back()->with('source', $source)
                             ->with('video_id', $video_id);
                     }
@@ -91,7 +94,7 @@ class PageController extends Controller
         $response = [
             'title' => 'Facebook Download Video Private'
         ];
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('create_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $response['hot_videos'] = $hot_videos;
         return view('page.private-video', $response);
 
@@ -143,7 +146,7 @@ class PageController extends Controller
 
     public function getFindId()
     {
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('create_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $response = [
             'title'=>'Find ID Facebook By URL'
         ];

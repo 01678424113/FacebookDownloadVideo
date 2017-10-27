@@ -16,16 +16,19 @@ class UserController extends Controller
         $response = [
             'title'=>'User'
         ];
+
         $users_query = User::select([
             'id',
             'username',
             'password',
             'name',
-            'permission_id'
+            'permission_id',
+            'created_at'
         ]);
        /* if( $request->has('key_setting_search') && $request->key_setting_search != ""){
             $settings_query->where('key_setting','LIKE','%'.$request->key_setting_search.'%');
         }*/
+
         $response['users'] = $users_query->paginate(20);
         return view('admin.user.list',$response);
     }
@@ -47,6 +50,7 @@ class UserController extends Controller
         $user->password = md5($request->password);
         $user->name = $request->name;
         $user->permission_id = $request->permission_id;
+        $user->created_at = round(microtime(true));
 
         try{
             $user->save();
@@ -77,6 +81,7 @@ class UserController extends Controller
         }
         $user->name = $request->name;
         $user->permission_id = $request->permission_id;
+        $user->updated_at = round(microtime(true));
         try{
             $user->save();
             return redirect()->back()->with('success','You are successfully fixed user !');

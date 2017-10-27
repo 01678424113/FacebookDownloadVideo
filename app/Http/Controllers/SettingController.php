@@ -6,6 +6,7 @@ use App\Http\Requests\SettingRequest;
 use App\Setting;
 use Illuminate\Http\Request;
 use Mockery\Exception;
+use Session;
 
 class SettingController extends Controller
 {
@@ -17,7 +18,11 @@ class SettingController extends Controller
         $settings_query = Setting::select([
             'id',
             'key_setting',
-            'value_setting'
+            'value_setting',
+            'created_by',
+            'created_at',
+            'updated_by',
+            'updated_at'
         ]);
         if( $request->has('key_setting_search') && $request->key_setting_search != ""){
             $settings_query->where('key_setting','LIKE','%'.$request->key_setting_search.'%');
@@ -39,6 +44,8 @@ class SettingController extends Controller
         $setting = new Setting();
         $setting->key_setting = $request->key_setting;
         $setting->value_setting = $request->value_setting;
+        $setting->created_by = Session::get('user_id');
+        $setting->created_at = round(microtime(true));
         try{
             $setting->save();
             return redirect()->route('listSetting')->with('success','You have successfully added setting !');
@@ -65,6 +72,8 @@ class SettingController extends Controller
         $setting = Setting::find($setting_id);
         $setting->key_setting = $request->key_setting;
         $setting->value_setting = $request->value_setting;
+        $setting->updated_by = Session::get('user_id');
+        $setting->updated_at = round(microtime(true));
         try{
             $setting->save();
             return redirect()->back()->with('success','You are successfully fixed setting !');

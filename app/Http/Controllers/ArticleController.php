@@ -6,6 +6,7 @@ use App\Article;
 use App\Http\Requests\ArticleRequest;
 use Exception;
 use Illuminate\Http\Request;
+use Session;
 use Validator;
 
 class ArticleController extends Controller
@@ -47,8 +48,9 @@ class ArticleController extends Controller
         $article->description = $request->txt_description;
         $article->content = $request->txt_content;
         $article->keyword = $request->txt_keyword;
-        $article->create_at = round(microtime(true));
 
+        $article->created_by = Session::get('user_id');
+        $article->created_at = round(microtime(true));
         try {
             $article->save();
             return redirect()->route('listArticle')->with('success', 'You have successfully added article !');
@@ -70,6 +72,7 @@ class ArticleController extends Controller
         return view('admin.article.edit', $response);
     }
 
+
     public function postEditArticle(ArticleRequest $request, $article_id)
     {
         $article = Article::find($article_id);
@@ -77,7 +80,9 @@ class ArticleController extends Controller
         $article->description = $request->txt_description;
         $article->content = $request->txt_content;
         $article->keyword = $request->txt_keyword;
-        $article->update_at = round(microtime(true));
+
+        $article->updated_by = Session::get('user_id');
+        $article->updated_at = round(microtime(true));
         try {
             $article->save();
             return redirect()->back()->with('success', 'You have successfully fixed article !');

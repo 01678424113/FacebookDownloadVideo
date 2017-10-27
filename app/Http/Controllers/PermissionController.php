@@ -6,6 +6,7 @@ use App\Http\Requests\PermissionRequest;
 use App\Permission;
 use Exception;
 use Illuminate\Http\Request;
+use Session;
 
 class PermissionController extends Controller
 {
@@ -16,7 +17,11 @@ class PermissionController extends Controller
         ];
         $permissions_query = Permission::select([
             'id',
-            'name'
+            'name',
+            'created_at',
+            'created_by',
+            'updated_at',
+            'updated_by'
         ]);
         if( $request->has('name') && $request->name != ""){
             $permissions_query->where('name','LIKE','%'.$request->name.'%');
@@ -37,6 +42,8 @@ class PermissionController extends Controller
     {
         $permission = new Permission();
         $permission->name = $request->name;
+        $permission->created_by = Session::get('user_id');
+        $permission->created_at = round(microtime(true));
         try{
             $permission->save();
             return redirect()->route('listPermission')->with('success','You have successfully added permission !');
@@ -62,6 +69,8 @@ class PermissionController extends Controller
     {
         $permission = Permission::find($permission_id);
         $permission->name = $request->name;
+        $permission->updated_by = Session::get('user_id');
+        $permission->updated_at = round(microtime(true));
         try{
             $permission->save();
             return redirect()->back()->with('success','You are successfully fixed permission !');

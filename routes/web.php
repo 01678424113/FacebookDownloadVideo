@@ -11,7 +11,9 @@
 |
 */
 
+//Route::get('/{another}','HomeController@index')->where(['another' => '[a-z0-9\-]+'])->name('home');
 Route::get('/','HomeController@index')->name('home');
+Route::get('/404','HomeController@error404');
 
 Route::get('/video/{title_slug}/{video_id}','PageController@showVideo')->name('showVideo');
 Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
@@ -25,9 +27,6 @@ Route::post('/download-private','PageController@postPrivateVideo')->name('postPr
 
 Route::get('/find-id','PageController@getFindId')->name('getFindId');
 Route::post('/find-id','PageController@postFindId')->name('postFindId');
-
-Route::get('/test','HomeController@test')->name('test');
-
 
 Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');
