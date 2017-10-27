@@ -11,21 +11,11 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 55px">
-                    <div class="col-md-8" style="height: 100%;display: flex;align-items: center;">
-                        List users
+                    <div class="col-md-10" style="height: 100%;display: flex;align-items: center;">
+                        List auto article
                     </div>
-                    <div class="col-md-4">
-                        <form action="{{route('listUser')}}" method="get">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" name="key_setting_search"
-                                       placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                        </form>
+                    <div class="col-md-2">
+                        <a href="{{route('getAddAutoArticle')}}" class="btn btn-success">+ Add auto article</a>
                     </div>
                 </div>
                 <!-- /.panel-heading -->
@@ -39,36 +29,40 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <table width="100%" class="table table-striped table-bordered table-hover"
-                           id="dataTables-example">
-                        @if(count($users)>0)
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Username</th>
-                                <th>Name</th>
-                                <th>Permission</th>
-                                <th style="width: 80px">Edit</th>
-                                <th style="width: 80px">Delete</th>
-                            </tr>
-                            </thead>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        @if(count($autoArticles) > 0)
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Keyword</th>
+                            <th>Create at</th>
+                            <th style="width: 80px">Edit</th>
+                            <th style="width: 80px">Delete</th>
+                        </tr>
+                        </thead>
+
                             <tbody>
-                            @foreach($users as $user)
+                            @foreach($autoArticles as $autoArticle)
                                 <tr class="odd gradeX">
-                                    <td>{{$user->id}}</td>
-                                    <td>{{$user->username}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->permission->name}}</td>
+                                    <td>{{$autoArticle->id}}</td>
+                                    <td>{{$autoArticle->title}}</td>
+                                    <td>{{$autoArticle->description}}</td>
+                                    <td>{{$autoArticle->keyword}}</td>
+                                    <td>
+                                        <div>{!! date('d/m/Y', $autoArticle->create_at) !!}</div>
+                                    </td>
                                     <td class="center">
-                                        <a href="{{route('getEditUser',['user_id'=>$user->id])}}"
+                                        <a href="{{route('getEditAutoArticle',['autoArticle_id'=>$autoArticle->id])}}"
                                            class="btn btn-info">Edit</a>
                                     </td>
                                     <td class="center">
-                                        <button type="button" data-toggle="modal" data-target="#myModal-{{$user->id}}"
+                                        <button type="button" data-toggle="modal" data-target="#myModal-{{$autoArticle->id}}"
                                                 class="btn btn-danger">Delete
                                         </button>
                                         <!-- Modal delete -->
-                                        <div id="myModal-{{$user->id}}" class="modal fade" role="dialog">
+                                        <div id="myModal-{{$autoArticle->id}}" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
@@ -81,7 +75,7 @@
                                                         <p>Are you sure want to delete ?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <a href="{{route('deleteUser',['user_id'=>$user->id])}}"
+                                                        <a href="{{route('deleteAutoArticle',['autoArticle_id'=>$autoArticle->id])}}"
                                                            class="btn btn-danger">Delete</a>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                                             Cancel
@@ -92,7 +86,6 @@
                                         </div>
                                     </td>
 
-
                                 </tr>
                             @endforeach
                             </tbody>
@@ -100,7 +93,7 @@
                             <p>Data empty</p>
                         @endif
                     </table>
-                {{$users->links()}}
+                {{$autoArticles->links()}}
                 <!-- /.table-responsive -->
                 </div>
                 <!-- /.panel-body -->

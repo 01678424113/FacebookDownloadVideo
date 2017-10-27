@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function listUser()
+    public function listUser(Request $request)
     {
         $response = [
             'title'=>'User'
@@ -25,10 +25,9 @@ class UserController extends Controller
             'permission_id',
             'created_at'
         ]);
-       /* if( $request->has('key_setting_search') && $request->key_setting_search != ""){
-            $settings_query->where('key_setting','LIKE','%'.$request->key_setting_search.'%');
-        }*/
-
+        if( $request->has('key_setting_search') && $request->key_setting_search != ""){
+            $users_query->where('username','LIKE','%'.$request->key_setting_search.'%');
+        }
         $response['users'] = $users_query->paginate(20);
         return view('admin.user.list',$response);
     }

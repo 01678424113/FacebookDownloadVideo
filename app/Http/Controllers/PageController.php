@@ -35,20 +35,15 @@ class PageController extends Controller
                 return redirect()->back()->with('error', 'Link is invalid or video not public !');
             }
             $id_video = substr($id_video[2], 1, -1);
-
         } else {
             $id_video = substr($id_video[0], 7, -6);
         }
         //Kiểm tra đây là link trang cá nhân hay link page. Link page sẽ không có đuôi perm
         $url_graph = 'https://graph.facebook.com/' . $id_video . '?fields=source,description,length,picture,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
         try {
-
             $find_source = Curl::to($url_graph)->get();
+
             $find_source = json_decode($find_source);
-            if (isset($find_source->error)) {
-                return redirect()->back()->with('error', 'Link is invalid or video not public !');
-            }
-            /** @var string $source */
             $description = $find_source->description;
             $source = $find_source->source;
             $video_id = $find_source->id;
@@ -56,17 +51,16 @@ class PageController extends Controller
             $picture = $find_source->picture;
 
             $video_hot = HotVideo::where('video_id', $video_id)->first();
-            if (!isset($video_hot)) {
 
+            if ($video_hot == null) {
                 if (!empty($find_source->likes)) {
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
 
-                    if ($likes > 400) {
-
+                    if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        $hot_video->description = $description;
+                        $hot_video->description = substr($description,0,70);
                         $hot_video->title_slug = str_slug($description, "-");
                         $hot_video->picture = $picture;
                         $hot_video->length = $length;
@@ -74,7 +68,6 @@ class PageController extends Controller
                         $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
                         $hot_video->save();
-
                         return redirect()->back()->with('source', $source)
                             ->with('video_id', $video_id);
                     }
@@ -85,6 +78,7 @@ class PageController extends Controller
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
         } catch (Exception $e) {
+            dd($e);
             return redirect()->back()->with('error', 'Link is invalid or video not public !');
         }
     }

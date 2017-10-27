@@ -39,4 +39,31 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Permission::class,'permission_id');
     }
+
+    public function articleCreated()
+    {
+        return $this->hasMany(Article::class,'created_by');
+    }
+    public function articleUpdated()
+    {
+        return $this->hasMany(Article::class,'updated_by');
+    }
+
+    public function autoArticleCreated()
+    {
+        return $this->hasMany(Article::class,'created_by');
+    }
+    public function autoArticleUpdated()
+    {
+        return $this->hasMany(Article::class,'updated_by');
+    }
+
+    public function settingCreated()
+    {
+        return $this->hasMany(Article::class,'created_by');
+    }
+    public function settingUpdated()
+    {
+        return $this->hasMany(Article::class,'updated_by');
+    }
 }

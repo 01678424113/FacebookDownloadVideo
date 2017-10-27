@@ -5,15 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string key_setting
- * @property string value_setting
- * @property int created_by
+ * @property string title
+ * @property mixed description
+ * @property mixed keyword
+ * @property mixed created_by
  * @property string created_at
- * @property string setting_page
  */
-class Setting extends Model
+class AutoArticle extends Model
 {
-    protected $table = 'settings';
+    protected $table = 'auto_articles';
     public $timestamps = false;
 
     public function user()

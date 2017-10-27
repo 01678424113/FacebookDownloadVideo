@@ -13,7 +13,6 @@
 
 //Route::get('/{another}','HomeController@index')->where(['another' => '[a-z0-9\-]+'])->name('home');
 Route::get('/','HomeController@index')->name('home');
-Route::get('/404','HomeController@error404');
 
 Route::get('/video/{title_slug}/{video_id}','PageController@showVideo')->name('showVideo');
 Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
@@ -67,6 +66,14 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/edit-article/{article_id}','ArticleController@getEditArticle')->name('getEditArticle');
     Route::post('/edit-article/{article_id}','ArticleController@postEditArticle')->name('postEditArticle');
     Route::get('/delete-article/{article_id}','ArticleController@deleteArticle')->name('deleteArticle');
+
+    //Auto article
+    Route::get('/list-auto-article','AutoArticleController@listAutoArticle')->name('listAutoArticle');
+    Route::get('/add-auto-article','AutoArticleController@getAddAutoArticle')->name('getAddAutoArticle');
+    Route::post('/add-auto-article','AutoArticleController@postAddAutoArticle')->name('postAddAutoArticle');
+    Route::get('/edit-auto-article/{autoArticle_id}','AutoArticleController@getEditAutoArticle')->name('getEditAutoArticle');
+    Route::post('/edit-auto-article/{autoArticle_id}','AutoArticleController@postEditAutoArticle')->name('postEditAutoArticle');
+    Route::get('/delete-auto-article/{autoArticle_id}','AutoArticleController@deleteAutoArticle')->name('deleteAutoArticle');
 });
 
 Route::group(['prefix'=>'admin'],function (){
