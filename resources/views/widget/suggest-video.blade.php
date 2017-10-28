@@ -11,13 +11,10 @@
                         <blockquote
                                 cite="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/"
                                 class="fb-xfbml-parse-ignore"><a
-                                    href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">How
-                                to
-                                Share With Just
-                                Friends</a>
-                            <p>How to share with just friends.</p>Posted by <a
-                                    href="https://www.facebook.com/facebook/">Facebook</a>
-                            on Friday, 5 December 2014
+                                    href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">Baixar videos do facebook</a>
+                            <p>Facebook video indir.</p>Posted by <a
+                                    href="https://www.facebook.com/facebook/">Facebook video downloader</a>
+                            Mp4 video downloader - fbdownloadvideo.net
                         </blockquote>
                     </div>
                     <hr>
