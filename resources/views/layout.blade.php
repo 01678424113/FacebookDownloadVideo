@@ -1,12 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>{{env('TITLE_WEBSITE')}}</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="facebook video downloader,download facebook videos,facebook online downloader, grab facebook online, free facebook video downloader,baixar vídeos do Facebook,baixar facebook,video downloader extension chrome">
-    <meta name="google-site-verification" content="2aqAGGG-5Szz5PEYO9RNg48ycVxJEj1YffdjRGKASKw" />
-    <meta name="google-site-verification" content="hKDmSuXEvM5ZUELvEpu4DsksfXbrX98W5P3inIVeVMQ" />
-    <meta name="alexaVerifyID" content="_6878lGgoQzBKMSMI_kFSAYMJXw" />
+    <link rel="shortcut icon" href="images/logo/logo.ico" />
+    <title>facebook video downloader - fbdownloadvideo.net/</title>
+    <meta name="description" content="Facebook video downloader, downloader video facebook download online. You can download video and save them anywhere.In addition, we also support find your id by URL profile. Facebook downloader video and facebook search id will help you all with facebook !">
+    <meta name="keywords" content="facebook video downloader,fb video downloader,online video downloader,hd video downloader,baixar videos do facebook,mp4 video downloader,facebook video,download video facebook,bajar videos facebook,url video downloader">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <base href="{{asset('')}}">
@@ -23,7 +21,6 @@
 
 @include('layouts.footer')
 @yield('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>

@@ -4,28 +4,28 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu"><span
                         class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.php"><img style="width:160px;margin-top:-5px"
+            <a class="navbar-brand" href="{{route('home')}}"><img style="width: 160px;margin-top:-5px"
                                                           alt="Facebook Video Downloader"
-                                                          src="img/logo-facebook-video-downloader.png"></a>
+                                                          src=""></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav">
                 <li style="display:none">
-                    <a href="http://fbdown.net">Video Downloader</a>
+                    <a href="{{route('home')}}">Download - Video Downloader</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> How to? <span
+                       aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> How to use Facebook Download Video? <span
                                 class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('instructionPublic')}}">How to use Facebook Download?</a></li>
+                        <li><a href="{{route('instructionPublic')}}">How to use download video public?</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{route('instructionPrivate')}}">How to use Private video Downloader?</a></li>
+                        <li><a href="{{route('instructionPrivate')}}">How to use download video private?</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> More <span
+                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Download video private <span
                                 class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -37,7 +37,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Find ID FB <span
+                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Find Facebook ID<span
                                 class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -48,9 +48,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {{-- <li>
-                     <a href="#" onclick="chrome.webstore.install()" id="install-button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <img src="img/chrome.png" style="width:24px;"> Chrome Extension</a>
-                 </li>--}}
+
             </ul>
         </div>
     </div>
