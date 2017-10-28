@@ -6,13 +6,13 @@
                     <a class="btn btn-default" href="{{route('getPrivateVideo')}}">Return download video another.</a>
                 @endif
                 <center>
-                    <a href="index.php"><img class="img-responsive" src="img/fbdown.png" alt="Download Facebook Videos"
-                                             title="Facebook Video Downloader Online" width="300px"></a>
+                    <a href="index.php"><img class="img-responsive" src="images/logo/logo.ico" alt="Download - Online video downloader"
+                                             title="Facebook Video Downloader - Facebook Download " width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
-                        Facebook Video Downloader
+                        Facebook Video Downloader - Video Downloader
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
-                        <small>Download Facebook Videos Online</small>
+                        <small>Download Video - Facebook Download Online</small>
                     </h2>
                     <br/><br/>
                     @if(!session('source'))
@@ -37,7 +37,7 @@
                 <div class="col-md-4 col-md-offset-4">
                     <div class="card">
                         <img class="card-img-top" src="{{--{{session('picture')}}--}}" style="width: 100%;height: 200px"
-                             alt="Card image cap">
+                             alt="Download Video Facebook">
                         <div class="card-block">
                             <p class="card-text">{{session('description')}} - {{session('view')}} Views</p>
                             <a href="{{session('source')}}" class="btn btn-success btn-block" download="">Download
