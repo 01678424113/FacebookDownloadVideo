@@ -6,13 +6,13 @@
                 <a class="btn btn-default" href="{{route('getPublicVideo')}}">Return download video another.</a>
                 @endif
                 <center>
-                    <a href="index.php"><img class="img-responsive" src="img/fbdown.png" alt="Download Facebook Videos"
-                                             title="Facebook Video Downloader Online" width="300px"></a>
+                    <a href="{{route('home')}}"><img class="img-responsive" src="images/logo/logo.ico" style="width: 70px" alt="Download - Online video downloader"
+                                             title="Facebook Video Downloader - Facebook Download "></a>
                     <h1 style="font-size:24px;margin-top:1%;">
-                        Facebook Video Downloader
+                        Facebook Video Downloader - Video Downloader
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
-                        <small>Download Facebook Videos Online</small>
+                        <small>Download Video - Facebook Download Online</small>
                     </h2>
                     <br/><br/>
                     @if(!session('source'))
@@ -38,12 +38,10 @@
                          data-width="400" data-height="250" data-show-text="false">
                         <blockquote cite="https://www.facebook.com/facebook/videos/{{session('video_id')}}/"
                                     class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">How to
-                                Share With Just
-                                Friends</a>
-                            <p>How to share with just friends.</p>Posted by <a
-                                    href="https://www.facebook.com/facebook/">Facebook</a>
-                            on Friday, 5 December 2014
+                                    href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Baixar videos do facebook</a>
+                            <p>facebook video indir.</p>Posted by <a
+                                    href="https://www.facebook.com/facebook/">Facebook video downloader</a>
+                            Mp4 video downloader.
                         </blockquote>
                     </div>
                     <a class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px" href="{{session('source')}}"
