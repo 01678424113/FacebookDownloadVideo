@@ -28,14 +28,14 @@
                 <div class="row">
                     <h3 style="margin-top: 20px">Bước 3:</h3>
                     <ul>
-                        <li>Click button "Download Now below video."</li>
+                        <li>Click button "Download Now" below video.</li>
                     </ul>
                     <img src="images/instruction/step3.png" width="100%" alt="">
                 </div>
                 <div class="row">
                     <h3 style="margin-top: 20px">Bước 4:</h3>
                     <ul>
-                        <li>Waiting and watch result.</li>
+                        <li>Waiting and watch result. Facebook Video Downloader - Mp4 Video Downloader </li>
                     </ul>
                 </div>
             </div>
