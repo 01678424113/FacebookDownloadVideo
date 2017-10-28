@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
     @include('widget.form-download')
-
     <div class="container">
         <div class="row">
             <div class="single-video">
@@ -14,22 +13,18 @@
                              style="max-width:800px" data-height="400" data-show-text="false">
                             <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_id}}/"
                                         class="fb-xfbml-parse-ignore"><a
-                                        href="https://www.facebook.com/facebook/videos/{{$video_id}}/">How to
-                                    Share With Just
-                                    Friends</a>
-                                <p>How to share with just friends.</p>Posted by <a
-                                        href="https://www.facebook.com/facebook/">Facebook</a>
-                                on Friday, 5 December 2014
+                                        href="https://www.facebook.com/facebook/videos/{{$video_id}}/">Baixar videos do facebook</a>
+                                <p>Facebook video indir.</p>Posted by <a
+                                        href="https://www.facebook.com/facebook/">Facebook video downloader</a>
+                                Mp4 video downloader - fbdownloadvideo.net
                             </blockquote>
                         </div>
                         <h3><a href="#">[{{$created_time}}] {{$description}}</a></h3>
                         <hr>
                     </div>
                     <div class="row">
-
                         <div class="fb-comments" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"
                              data-numposts="5" data-width="100%"></div>
-
                     </div>
                 </div>
                 {{--End single video--}}

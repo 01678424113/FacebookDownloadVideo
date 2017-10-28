@@ -39,7 +39,7 @@
                         <blockquote cite="https://www.facebook.com/facebook/videos/{{session('video_id')}}/"
                                     class="fb-xfbml-parse-ignore"><a
                                     href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Baixar videos do facebook</a>
-                            <p>facebook video indir.</p>Posted by <a
+                            <p>Facebook video indir.</p>Posted by <a
                                     href="https://www.facebook.com/facebook/">Facebook video downloader</a>
                             Mp4 video downloader - fbdownloadvideo.net
                         </blockquote>
