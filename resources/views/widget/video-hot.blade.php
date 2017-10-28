@@ -1,5 +1,5 @@
 <div class="row-fluid container">
-    <h3>Video hot</h3>
+    <h3>Video - Free video downloader on FB</h3>
     <hr>
     @if(count($hot_videos)>0)
         <ul class="list-unstyled video-list-thumbs row">
@@ -9,12 +9,10 @@
                          data-width="500" data-height="400" data-show-text="false" data-show-captions="true">
                         <blockquote cite="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/"
                                     class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/">How to
-                                Share With Just
-                                Friends</a>
-                            <p>How to share with just friends.</p>Posted by <a
-                                    href="https://www.facebook.com/facebook/">Facebook</a>
-                            on Friday, 5 December 2014
+                                    href="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/">Video downloader</a>
+                            <p>Facebook video downloader online</p>Posted by <a
+                                    href="https://www.facebook.com/facebook/">Facebook video downloader :</a>
+                            Mp4 video downloader - fbdownloadvideo.net
                         </blockquote>
                     </div>
                     <a target="_blank"
