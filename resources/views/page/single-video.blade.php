@@ -15,8 +15,8 @@
                                         class="fb-xfbml-parse-ignore"><a
                                         href="https://www.facebook.com/facebook/videos/{{$video_id}}/">Baixar videos do facebook</a>
                                 <p>Facebook video indir.</p>Posted by <a
-                                        href="https://www.facebook.com/facebook/">Facebook video downloader</a>
-                                Mp4 video downloader - fbdownloadvideo.net
+                                        href="{{route('home')}}">Facebook video downloader</a>
+                                Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
                             </blockquote>
                         </div>
                         <h3><a href="#">[{{$created_time}}] {{$description}}</a></h3>

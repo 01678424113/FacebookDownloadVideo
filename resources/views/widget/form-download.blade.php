@@ -40,8 +40,8 @@
                                     class="fb-xfbml-parse-ignore"><a
                                     href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Baixar videos do facebook</a>
                             <p>Facebook video indir.</p>Posted by <a
-                                    href="https://www.facebook.com/facebook/">Facebook video downloader</a>
-                            Mp4 video downloader - fbdownloadvideo.net
+                                    href="{{route('home')}}">Facebook video downloader</a>
+                            Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
                         </blockquote>
                     </div>
                     <a class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px" href="{{session('source')}}"

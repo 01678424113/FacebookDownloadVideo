@@ -6,8 +6,8 @@
                     <a class="btn btn-default" href="{{route('getFindId')}}">Return find id another.</a>
                 @endif
                 <center>
-                    <a href="index.php"><img class="img-responsive" src="img/fbdown.png" alt="Download Facebook Videos"
-                                             title="Facebook Video Downloader Online" width="300px"></a>
+                    <a href="{{route('home')}}"><img class="img-responsive" src="images/logo/logo.ico" alt="Find FB ID - Download Facebook Videos"
+                                             title="Find Facebook ID" width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
                         Facebook Find ID By URL
                     </h1>
