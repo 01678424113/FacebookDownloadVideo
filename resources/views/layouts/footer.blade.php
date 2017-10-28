@@ -34,8 +34,7 @@
 <div id="extension" class="row-fluid container">
     <div class="well col-md-12">
         <center>
-            <strong>Facebook Video Downloader Online </strong> <br /> <a href="privacy.php">Privacy Policy</a> | <a href="contact.php">Contact us</a> | <a href="about.php">About</a><br />
-            More from FBDOWN.net >>: <a href="http://twdown.net/index.php"><strong>Twitter Video Downloader</strong></a>
+            <strong>Facebook Video Downloader - Video Downloader </strong> <br /> <a href="">Privacy Policy</a> | <a href="">Contact us</a> | <a href="">About</a><br />
         </center>
     </div>
 </div>
