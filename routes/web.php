@@ -82,3 +82,5 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/logout','AdminController@logout')->name('logout');
 });
 
+Route::get('/test','HomeController@test');
+

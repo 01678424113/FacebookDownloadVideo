@@ -57,7 +57,7 @@ class PageController extends Controller
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
 
-                    if ($likes > 50) {
+                    if ($likes > 300) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
                         $hot_video->description = substr($description,0,70);
