@@ -17,13 +17,13 @@ class HomeController extends Controller
     }
     public function index()
     {
+
         $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
         return view('page.index',['hot_videos'=>$hot_videos]);
     }
 
     public function instructionPublic()
     {
-
         $response = [
             'title'=>'Instruction Public'
         ];
