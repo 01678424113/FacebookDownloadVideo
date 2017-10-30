@@ -16,24 +16,28 @@ class AdminController extends Controller
 
     public function getLogin()
     {
+
+        if (Session::has('username')) {
+            return redirect()->route('admin-home');
+        }
         $response = [
-            'title'=>'Facebook download videos'
+            'title' => 'Facebook download videos'
         ];
-        return view('admin.page.login',$response);
+        return view('admin.page.login', $response);
     }
 
     public function postLogin(Request $request)
     {
-        $user = User::where('username',$request->username)->first();
-       if($user->password == md5($request->password)){
-           $username = $user->name;
-           $user_id = $user->id;
-           Session::put('user_id',$user_id);
-           Session::put('username',$username);
-           return redirect()->route('admin-home')->with('success','You have successfully login ! ');
-       }else{
-           return redirect()->back()->with('error','Wrong username or password !');
-       }
+        $user = User::where('username', $request->username)->first();
+        if ($user->password == md5($request->password)) {
+            $username = $user->name;
+            $user_id = $user->id;
+            Session::put('user_id', $user_id);
+            Session::put('username', $username);
+            return redirect()->route('admin-home')->with('success', 'You have successfully login ! ');
+        } else {
+            return redirect()->back()->with('error', 'Wrong username or password !');
+        }
     }
 
     public function logout()

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <link rel="shortcut icon" href="images/logo/logo.ico" />
-    <title>facebook video downloader - fbdownloadvideo.net/</title>
-    <meta name="description" content="Facebook video downloader, downloader video facebook download online. You can download video and save them anywhere.In addition, we also support find your id by URL profile. Facebook downloader video and facebook search id will help you all with facebook !">
-    <meta name="keywords" content="facebook video downloader,fb video downloader,online video downloader,hd video downloader,baixar videos do facebook,mp4 video downloader,facebook video,download video facebook,bajar videos facebook,url video downloader">
+    <title>{{$settings[0]->value_setting}}</title>
+    <meta name="description" content="{{$settings[1]->value_setting}}">
+    <meta name="keywords" content="{{$settings[2]->value_setting}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <base href="{{asset('')}}">

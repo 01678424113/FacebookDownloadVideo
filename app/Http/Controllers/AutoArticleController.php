@@ -70,6 +70,8 @@ class AutoArticleController extends Controller
     {
         $AutoArticle = AutoArticle::find($autoArticle_id);
         $AutoArticle->title = $request->txt_title;
+        $AutoArticle->description = $request->txt_description;
+        $AutoArticle->keyword = $request->txt_keyword;
         $AutoArticle->updated_by = Session::get('user_id');
         $AutoArticle->updated_at = round(microtime(true));
         try{

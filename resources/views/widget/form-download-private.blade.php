@@ -22,7 +22,7 @@
                             <div class="input-group col-lg-6">
                                 <textarea name="html_page_video" class="form-control" id="" cols="20"
                                           rows="5"></textarea>
-                                <button class="btn btn-primary input-lg" id="btn-download" style="margin-top: 10px"
+                                <button class="btn btn-primary input-lg" id="btn-download" style="height: 50px;margin-top: 10px"
                                         type="submit">Download now
                                 </button>
                             </div>

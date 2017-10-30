@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HotVideo;
+use App\Setting;
 use Exception;
 use Illuminate\Http\Request;
 use Ixudra\Curl\Facades\Curl;
@@ -10,7 +11,11 @@ use Sunra\PhpSimple\HtmlDomParser;
 
 class PageController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $settings = Setting::where('setting_page','index')->get();
+        view()->share('settings',$settings);
+    }
     public function getPublicVideo()
     {
         $response = [
@@ -57,7 +62,7 @@ class PageController extends Controller
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
 
-                    if ($likes > 50) {
+                    if ($likes > 300) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
                         $hot_video->description = substr($description,0,70);
@@ -119,7 +124,7 @@ class PageController extends Controller
 
     public function showVideo($title_slug, $video_id)
     {
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('create_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $resource['hot_videos'] = $hot_videos;
 
         $url_graph = 'https://graph.facebook.com/' . $video_id . '?fields=source,description,length,picture,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
