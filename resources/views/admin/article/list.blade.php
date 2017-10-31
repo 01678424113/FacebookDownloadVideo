@@ -60,7 +60,7 @@
                                     <td>{{$article->description}}</td>
                                     <td>{{$article->keyword}}</td>
                                     <td>
-                                        <div>{!! date('d/m/Y', $article->create_at) !!}</div>
+                                        <div>{!! date('d/m/Y', $article->created_at) !!}</div>
                                     </td>
                                     <td class="center">
                                         <a href="{{route('getEditArticle',['article_id'=>$article->id])}}"

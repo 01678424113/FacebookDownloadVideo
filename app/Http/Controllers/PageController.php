@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AutoArticle;
 use App\HotVideo;
 use App\Setting;
 use Exception;
@@ -124,6 +125,22 @@ class PageController extends Controller
 
     public function showVideo($title_slug, $video_id)
     {
+        $autoArticle = AutoArticle::all();
+        $titles = explode(';',$autoArticle[0]->title);
+        $descriptions = explode(';',$autoArticle[0]->description);
+        $keywords = explode(';',$autoArticle[0]->keyword);
+
+        $rd_title = random_int(0,count($titles));
+        $rd_description = random_int(0,count($descriptions));
+        $rd_keyword = random_int(0,count($keywords));
+        $article_seo_video_title = trim($titles[$rd_title]);
+        $article_seo_video_description = trim($descriptions[$rd_description]);
+        $article_seo_video_keyword = trim($keywords[$rd_keyword]);
+        //$article_seo_video = trim($titles[$rd_title])." ".trim($descriptions[$rd_description])." ".trim($keywords[$rd_keyword]);
+        $resource['article_seo_video_title'] = $article_seo_video_title;
+        $resource['article_seo_video_description'] = $article_seo_video_description;
+        $resource['article_seo_video_keyword'] = $article_seo_video_keyword;
+
         $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $resource['hot_videos'] = $hot_videos;
 

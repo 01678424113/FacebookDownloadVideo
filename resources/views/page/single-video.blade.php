@@ -21,6 +21,8 @@
                         </div>
                         <h3><a href="#">[{{$created_time}}] {{$description}}</a></h3>
                         <hr>
+                        <p>{{$article_seo_video_title ." \"". $description ."\" ". $article_seo_video_keyword }}</p>
+                        <p>{{$article_seo_video_description ." \"". $description ."\" ". $article_seo_video_keyword }}</p>
                     </div>
                     <div class="row">
                         <div class="fb-comments" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"

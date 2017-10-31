@@ -50,7 +50,6 @@ class HomeController extends Controller
             ->get();
         echo $response;*/
         $autoArticle = AutoArticle::all();
-       dd($autoArticle);
         $titles = explode(';',$autoArticle[0]->title);
         $descriptions = explode(';',$autoArticle[0]->description);
         $keywords = explode(';',$autoArticle[0]->keyword);

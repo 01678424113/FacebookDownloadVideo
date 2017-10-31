@@ -22,8 +22,8 @@ class ArticleController extends Controller
             'content',
             'description',
             'keyword',
-            'create_at'
-        ])->orderBy('create_at', 'DESC');
+            'created_at'
+        ])->orderBy('created_at', 'DESC');
         if ($request->has('title_search') && $request->input('title_search') != "") {
             $articles_query->where('title', 'LIKE', '%' . $request->input('title_search') . '%');
         }
