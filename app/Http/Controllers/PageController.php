@@ -64,10 +64,43 @@ class PageController extends Controller
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
 
-                    if ($likes > 300) {
+                    if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        $hot_video->description = substr($description,0,70);
+                        $description = substr($description, 0, 70);
+                        $hot_video->description = $description;
+
+                        //Create auto h1 video
+                        $settings_title= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','title_view')->get();
+                        $settings_description = Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','description_view')->get();
+                        $settings_h1= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','h1_view')->get();
+                        $settings_content= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','content_view')->get();
+
+                        $settings_title = $settings_title[0]->value_setting;
+                        $settings_description = $settings_description[0]->value_setting;
+                        $settings_h1 = $settings_h1[0]->value_setting;
+                        $settings_content = $settings_content[0]->value_setting;
+
+                        $titles = explode(';',$settings_title);
+                        $descriptions = explode(';',$settings_description);
+                        $h1s = explode(';',$settings_h1);
+                        $contents = explode(';',$settings_content);
+
+                        $rd_number_title = random_int(0,count($titles));
+                        $rd_number_description = random_int(0,count($descriptions));
+                        $rd_number_h1 = random_int(0,count($h1s));
+                        $rd_number_content = random_int(0,count($contents));
+
+                        $rd_title = trim($titles[$rd_number_title]);
+                        $rd_description = trim($titles[$rd_number_description]);
+                        $rd_h1 = trim($titles[$rd_number_h1]);
+                        $rd_content = trim($titles[$rd_number_content]);
+
+                        $hot_video->h1_video = $description." ".$rd_h1;
+
+                        $hot_video->content_video = "<a href='{{route('home')}}' >".$rd_title."</a>"." help you download video \" ".$description." \".".$rd_description.$rd_content.".";
+
+
                         $hot_video->title_slug = str_slug($description, "-");
                         $hot_video->picture = $picture;
                         $hot_video->length = $length;

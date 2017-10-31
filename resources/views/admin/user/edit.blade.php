@@ -7,7 +7,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-5">
             @if(session('error'))
                 <div class="alert alert-danger">
                     {{session('error')}}

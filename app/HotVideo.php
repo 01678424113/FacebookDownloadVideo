@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int likes
  * @property bool|string created_at
  * @property bool|string download_at
+ * @property string h1_video
+ * @property mixed content_video
  */
 class HotVideo extends Model
 {

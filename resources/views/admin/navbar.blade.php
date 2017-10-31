@@ -239,7 +239,7 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="{{route('admin-home')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 {{--Account--}}
                 <li>
