@@ -23,8 +23,10 @@
                     <h5>
                         <a href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">{{$hot_video->description}}</a>
                     </h5>
-                    <small>{{$hot_video->create_at}}</small>
+                    <small>{{$hot_video->created_at}}</small>
+                    <br>
                     <small>{!! DateAgo::handle($hot_video->download_at) !!}</small>
+                    <p><a href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">View and Download now!</a></p>
                 </div>
             </div>
         @endforeach

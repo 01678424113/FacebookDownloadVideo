@@ -19,10 +19,11 @@
                                 Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
                             </blockquote>
                         </div>
-                        <h3><a href="#">[{{$created_time}}] {{$description}}</a></h3>
+                        <h3><a href="#">[{{$created_time}}] {!! str_limit($description,100,'...') !!}</a></h3>
+                        Post by <a href="{{route('home')}}">Admin</a>
                         <hr>
-                        <p>{{$article_seo_video_title ." \"". $description ."\" ". $article_seo_video_keyword }}</p>
-                        <p>{{$article_seo_video_description ." \"". $description ."\" ". $article_seo_video_keyword }}</p>
+                        You can read more: <p><a href="{{route('home')}}">{{$article_seo_video_title}}</a> "{{$description}}" {{$article_seo_video_keyword}}.</p>
+                        <p>{{$article_seo_video_description}} "{{$description}}" <a href="{{route('home')}}">{{$article_seo_video_keyword}}</a>.</p>
                     </div>
                     <div class="row">
                         <div class="fb-comments" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"
