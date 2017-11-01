@@ -15,7 +15,7 @@
                         List settings view
                     </div>
                     <div class="col-md-4">
-                        <form action="{{route('listSettingView')}}" method="get">
+                        <form action="{{route('listSettingKeyword1')}}" method="get">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" name="key_setting_search"
                                        placeholder="Search...">

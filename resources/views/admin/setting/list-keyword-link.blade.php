@@ -15,7 +15,7 @@
                         List settings view
                     </div>
                     <div class="col-md-4">
-                        <form action="{{route('listSettingKeyword2')}}" method="get">
+                        <form action="{{route('listSettingKeywordLink')}}" method="get">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" name="key_setting_search"
                                        placeholder="Search...">
@@ -28,7 +28,7 @@
                         </form>
                     </div>
                     <div class="col-md-2" style="display: flex;justify-content: center;">
-                        <a href="{{route('getAddSettingKeyword2')}}" class="btn btn-success">+ Add setting keyword 2</a>
+                        <a href="{{route('getAddSettingKeywordLink')}}" class="btn btn-success">+ Add setting keyword link</a>
                     </div>
                 </div>
                 <!-- /.panel-heading -->

@@ -246,6 +246,54 @@ class SettingController extends Controller
         }
     }
 
+    //Setting keyword link
+
+    public function listSettingKeywordLink(Request $request)
+    {
+        $response = [
+            'title' => 'Setting keyword link'
+        ];
+        $settings_query = Setting::select([
+            'id',
+            'setting_page',
+            'key_setting',
+            'value_setting',
+            'created_by',
+            'created_at',
+            'updated_by',
+            'updated_at'
+        ])->where('setting_page', 'keyword_link');
+        if ($request->has('key_setting_search') && $request->key_setting_search != "") {
+            $settings_query->where('key_setting', 'LIKE', '%' . $request->key_setting_search . '%');
+        }
+        $response['settings'] = $settings_query->paginate(20);
+        return view('admin.setting.list-keyword-link', $response);
+    }
+
+    public function getAddSettingKeywordLink()
+    {
+        $response = [
+            'title' => 'Add setting keyword link'
+        ];
+        return view('admin.setting.add-keyword-link', $response);
+    }
+
+    public function postAddSettingKeywordLink(SettingRequest $request)
+    {
+        $setting = new Setting();
+        $setting->setting_page = $request->setting_page;
+        $setting->key_setting = $request->key_setting;
+        $setting->value_setting = $request->value_setting;
+        $setting->created_by = Session::get('user_id');
+        $setting->created_at = round(microtime(true));
+        try {
+            $setting->save();
+            return redirect()->route('listSettingKeywordLink')->with('success', 'You have successfully added setting keyword link !');
+        } catch (Exception $e) {
+            return redirect()->route('listSettingKeywordLink')->with('error', 'Error ! Database');
+        }
+    }
+
     //Dùng chung
 
     public function getEditSetting($setting_id)
@@ -255,7 +303,7 @@ class SettingController extends Controller
             return redirect()->back()->with('error', 'Setting is not exist !');
         }
         $response = [
-            'title' => 'Edit setting' . $setting->key_setting
+            'title' => 'Edit setting: ' . $setting->key_setting
         ];
         $response['setting'] = $setting;
         return view('admin.setting.edit', $response);

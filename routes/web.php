@@ -60,6 +60,10 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/add-setting-keyword-2','SettingController@getAddSettingKeyword2')->name('getAddSettingKeyword2');
     Route::post('/add-setting-keyword-2','SettingController@postAddSettingKeyword2')->name('postAddSettingKeyword2');
 
+    Route::get('/list-setting-keyword-link','SettingController@listSettingKeywordLink')->name('listSettingKeywordLink');
+    Route::get('/add-setting-keyword-link','SettingController@getAddSettingKeywordLink')->name('getAddSettingKeywordLink');
+    Route::post('/add-setting-keyword-link','SettingController@postAddSettingKeywordLink')->name('postAddSettingKeywordLink');
+
     Route::get('/edit-setting/{setting_id}','SettingController@getEditSetting')->name('getEditSetting');
     Route::post('/edit-setting/{setting_id}','SettingController@postEditSetting')->name('postEditSetting');
     Route::get('/delete-setting/{setting_id}','SettingController@deleteSetting')->name('deleteSetting');
