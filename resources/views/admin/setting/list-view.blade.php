@@ -47,7 +47,6 @@
                         @if(count($settings)>0)
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Key</th>
                                 <th>Value</th>
                                 <th style="width: 80px">Edit</th>
@@ -57,7 +56,6 @@
                             <tbody>
                             @foreach($settings as $setting)
                                 <tr class="odd gradeX">
-                                    <td>{{$setting->id}}</td>
                                     <td>{{$setting->key_setting}}</td>
                                     <td>{{$setting->value_setting}}</td>
                                     <td class="center">

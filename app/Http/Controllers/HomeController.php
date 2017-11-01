@@ -49,16 +49,12 @@ class HomeController extends Controller
             ->withOption('USERAGENT', 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25')
             ->get();
         echo $response;*/
-        $autoArticle = AutoArticle::all();
-        $titles = explode(';',$autoArticle[0]->title);
-        $descriptions = explode(';',$autoArticle[0]->description);
-        $keywords = explode(';',$autoArticle[0]->keyword);
-
-        $rd_title = random_int(0,count($titles));
-        $rd_description = random_int(0,count($descriptions));
-        $rd_keyword = random_int(0,count($keywords));
-        $text = trim($titles[$rd_title])." ".trim($descriptions[$rd_description])." ".trim($keywords[$rd_keyword]);
-        dd($text);
+        $link = 'https://www.youtube.com/watch?v=tt2k8PGm-TI&list=RDMMtt2k8PGm-TI';
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $link, $id);
+        if (!empty($id)) {
+            return $id = $id[0];
+        }
+        return $link;
 
 
     }

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool|string download_at
  * @property string h1_video
  * @property mixed content_video
+ * @property  string thumbnails
  */
 class HotVideo extends Model
 {

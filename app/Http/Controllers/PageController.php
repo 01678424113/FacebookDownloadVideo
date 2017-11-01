@@ -46,7 +46,7 @@ class PageController extends Controller
             $id_video = substr($id_video[0], 7, -6);
         }
         //Kiểm tra đây là link trang cá nhân hay link page. Link page sẽ không có đuôi perm
-        $url_graph = 'https://graph.facebook.com/' . $id_video . '?fields=source,description,length,picture,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
+        $url_graph = 'https://graph.facebook.com/' . $id_video . '?fields=source,description,length,picture,thumbnails,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
         try {
             $find_source = Curl::to($url_graph)->get();
 
@@ -56,6 +56,8 @@ class PageController extends Controller
             $video_id = $find_source->id;
             $length = $find_source->length;
             $picture = $find_source->picture;
+            $thumbnails = $find_source->thumbnails;
+            dd($thumbnails);
 
             $video_hot = HotVideo::where('video_id', $video_id)->first();
 
@@ -103,13 +105,18 @@ class PageController extends Controller
 
                         $hot_video->title_slug = str_slug($description, "-");
                         $hot_video->picture = $picture;
+                        $hot_video->thumbnails = $thumbnails[0];
                         $hot_video->length = $length;
                         $hot_video->likes = $likes;
                         $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
-                        $hot_video->save();
-                        return redirect()->back()->with('source', $source)
-                            ->with('video_id', $video_id);
+                        try{
+                            $hot_video->save();
+                            return redirect()->back()->with('source', $source)
+                                ->with('video_id', $video_id);
+                        }catch (Exception $e){
+
+                        }
                     }
                 } else {
                     $likes = 0;
@@ -118,7 +125,6 @@ class PageController extends Controller
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
         } catch (Exception $e) {
-            dd($e);
             return redirect()->back()->with('error', 'Link is invalid or video not public !');
         }
     }
@@ -175,7 +181,10 @@ class PageController extends Controller
         $html = Curl::to($url_graph)->get();
         $html = json_decode($html);
         $facebook_id = $html->id;
-        return redirect()->back()->with('facebook_id',$facebook_id);
+       if(!empty($facebook_id)){
+           return redirect()->back()->with('facebook_id',$facebook_id);
+       }
+       return redirect()->back()->with('error','Link error!');
 
     }
 }

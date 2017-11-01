@@ -292,7 +292,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 {{--Auto article--}}
-                <li>
+               {{-- <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Auto create articles<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -300,7 +300,7 @@
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
-                </li>
+                </li>--}}
                 {{--Setting--}}
             </ul>
         </div>

@@ -1,8 +1,57 @@
-body{
-  .instruction{
-    img{
+body {
+  .instruction {
+    img {
       margin: auto;
       display: flex;
     }
   }
+  .card-hot-video {
+    .card-block {
+      .card-text {
+        position: absolute;
+        bottom: 45px;
+        color: white;
+        font-weight: 600;
+        font-size: 17px;
+        background: #0000005e;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: calc(100% - 30px);
+        cursor: pointer;
+        .btn-play{
+
+        }
+      }
+    }
+  }
+
+ .list-video-suggest{
+   a{
+     img{
+
+     }
+     .btn-play {
+       position: absolute;
+       height: 100%;
+       top: 0;
+       width: calc(100% - 30px);
+       display: none;
+       i {
+         font-size: 50px;
+         color: white;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100%;
+         background: #00000038;
+       }
+     }
+     &:hover{
+       .btn-play{
+         display: block;
+         transition: 1s;
+       }
+     }
+   }
+ }
 }

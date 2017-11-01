@@ -6,9 +6,9 @@
             <div class="single-video">
                 {{--Single video--}}
                 <div class="col-md-7">
+                    <h2 style="font-size: 30px">Video</h2>
+                    <hr>
                     <div class="row">
-                        <a class="btn btn-success" style="border-radius: 0 " href="{{$source}}"
-                           download="">Click download now</a>
                         <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"
                              style="max-width:800px" data-height="400" data-show-text="false">
                             <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_id}}/"
@@ -19,6 +19,9 @@
                                 Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
                             </blockquote>
                         </div>
+                        <a class="btn btn-success" style="border-radius: 0 " href="{{$source}}"
+                           download="">Click download now</a>
+                        <div style="float: right;margin-top: 5px;" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
                         <h3><a href="#">[{{$created_time}}] {!! str_limit($video_show->h1_video,100,'...') !!}</a></h3>
                         Post by <a href="{{route('home')}}">Admin</a>
                         <hr>

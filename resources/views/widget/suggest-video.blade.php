@@ -4,20 +4,13 @@
         <hr>
         @foreach($hot_videos as $hot_video)
             <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="fb-video"
-                         data-href="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/"
-                         data-width="500" data-height="300" data-show-text="false">
-                        <blockquote
-                                cite="https://www.facebook.com/facebook/videos/{{$hot_video->video_id}}/"
-                                class="fb-xfbml-parse-ignore"><a
-                                    href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">Baixar videos do facebook</a>
-                            <p>Facebook video indir.</p>Posted by <a
-                                    href="{{route('home')}}">Facebook video downloader</a>
-                            Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
-                        </blockquote>
-                    </div>
-                    <hr>
+                <div class="col-md-6 col-sm-6 list-video-suggest">
+                    <a target="_blank" href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
+                        <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%" alt="Card image cap">
+                        <div class="btn-play">
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <h5>
@@ -29,6 +22,7 @@
                     <p><a href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">View and Download now!</a></p>
                 </div>
             </div>
+        <hr>
         @endforeach
 </div>
 {{--End Video suggest--}}
