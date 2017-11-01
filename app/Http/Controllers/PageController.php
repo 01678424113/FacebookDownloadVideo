@@ -14,8 +14,8 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $settings = Setting::where('setting_page','index')->get();
-        view()->share('settings',$settings);
+        $settings = Setting::where('setting_page', 'index')->get();
+        view()->share('settings', $settings);
     }
 
     public function getPublicVideo()
@@ -23,7 +23,7 @@ class PageController extends Controller
         $response = [
             'title' => 'Facebook Download Video Public'
         ];
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
         $response['hot_videos'] = $hot_videos;
         return view('page.index', $response);
 
@@ -63,56 +63,166 @@ class PageController extends Controller
                 if (!empty($find_source->likes)) {
                     $likes = $find_source->likes;
                     $likes = count($likes->data);
-
                     if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
                         $description = substr($description, 0, 70);
-                        $hot_video->description = $description;
+                        $hot_video->meta_title = $description;
+                        $hot_video->title_slug = str_slug($description, "-");
+                        $description = nl2br($description);
 
-                        //Create auto h1 video
-                        $settings_title= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','title_view')->get();
-                        $settings_description = Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','description_view')->get();
-                        $settings_h1= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','h1_view')->get();
-                        $settings_content= Setting::select(['value_setting'])->where('setting_page','view')->where('key_setting','content_view')->get();
+                        //Create auto title and content video
+                        //Get value form database
+                        $settings_title = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'title_view')->get();
+                        $settings_h1 = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'h1_view')->get();
+                        $settings_content_top = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'content_view_top')->get();
+                        $settings_content_bot = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'content_view_bot')->get();
+                        $settings_description = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'description_view')->get();
+
+                        $settings_domain = Setting::select(['value_setting'])->where('setting_page', 'domain')->where('key_setting', 'domain')->get();
+                        $settings_keyword_1 = Setting::select(['value_setting'])->where('setting_page', 'keyword_1')->where('key_setting', 'keyword_1')->get();
+                        $settings_keyword_2 = Setting::select(['value_setting'])->where('setting_page', 'keyword_2')->where('key_setting', 'keyword_2')->get();
+                        $settings_keyword_link = Setting::select(['value_setting'])->where('setting_page', 'keyword_link')->where('key_setting', 'keyword_link')->get();
 
                         $settings_title = $settings_title[0]->value_setting;
-                        $settings_description = $settings_description[0]->value_setting;
                         $settings_h1 = $settings_h1[0]->value_setting;
-                        $settings_content = $settings_content[0]->value_setting;
+                        $settings_content_top = $settings_content_top[0]->value_setting;
+                        $settings_content_bot = $settings_content_bot[0]->value_setting;
+                        $settings_description = $settings_description[0]->value_setting;
 
-                        $titles = explode(';',$settings_title);
-                        $descriptions = explode(';',$settings_description);
-                        $h1s = explode(';',$settings_h1);
-                        $contents = explode(';',$settings_content);
+                        $settings_domain = $settings_domain[0]->value_setting;
+                        $settings_keyword_1 = $settings_keyword_1[0]->value_setting;
+                        $settings_keyword_2 = $settings_keyword_2[0]->value_setting;
+                        $settings_keyword_link = $settings_keyword_link[0]->value_setting;
 
-                        $rd_number_title = random_int(0,count($titles));
-                        $rd_number_description = random_int(0,count($descriptions));
-                        $rd_number_h1 = random_int(0,count($h1s));
-                        $rd_number_content = random_int(0,count($contents));
+                        //Split data form text to array
+                        $titles = explode(';', $settings_title);
+                        $h1s = explode(';', $settings_h1);
+                        $contents_top = explode(';', $settings_content_top);
+                        $contents_bot = explode(';', $settings_content_bot);
+                        $descriptions = explode(';', $settings_description);
 
+                        $domains = explode(';', $settings_domain);
+                        $keyword_1s = explode(';', $settings_keyword_1);
+                        $keyword_2s = explode(';', $settings_keyword_2);
+                        $keyword_links = explode(';', $settings_keyword_link);
+
+                        //Random numerical order in array
+                        $rd_number_title = random_int(0, count($titles)-1);
+                        $rd_number_h1 = random_int(0, count($h1s)-1);
+                        $rd_number_content_top = random_int(0, count($contents_top)-1);
+                        $rd_number_content_bot = random_int(0, count($contents_bot)-1);
+                        $rd_number_description = random_int(0, count($descriptions)-1);
+
+                        //Take element in array
                         $rd_title = trim($titles[$rd_number_title]);
-                        $rd_description = trim($titles[$rd_number_description]);
-                        $rd_h1 = trim($titles[$rd_number_h1]);
-                        $rd_content = trim($titles[$rd_number_content]);
+                        $rd_h1 = trim($h1s[$rd_number_h1]);
+                        $rd_content_top = trim($contents_top[$rd_number_content_top]);
+                        $rd_content_bot = trim($contents_bot[$rd_number_content_bot]);
+                        $rd_description = trim($descriptions[$rd_number_description]);
 
-                        $hot_video->h1_video = $description." ".$rd_h1;
+                        //Auto create title
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
 
-                        $hot_video->content_video = "<a href='{{route('home')}}' >".$rd_title."</a>"." help you download video \" ".$description." \".".$rd_description.$rd_content.".";
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $title_rp_name = str_replace('%name%', $description, $rd_title);
+                        $title_rp_domain = str_replace('%domainname%', $rd_domain, $title_rp_name);
+                        $title_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $title_rp_domain);
+                        $title_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $title_rp_keyword_1);
+                        $title = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $title_rp_keyword_2);
+
+                        //Auto create h1
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $h1_rp_name = str_replace('%name%', $description, $rd_h1);
+                        $h1_rp_domain = str_replace('%domainname%', $rd_domain, $h1_rp_name);
+                        $h1_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $h1_rp_domain);
+                        $h1_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $h1_rp_keyword_1);
+                        $h1 = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $h1_rp_keyword_2);
+
+                        //Auto create content top
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $content_top_rp_name = str_replace('%name%', $description, $rd_content_top);
+                        $content_top_rp_domain = str_replace('%domainname%', $rd_domain, $content_top_rp_name);
+                        $content_top_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $content_top_rp_domain);
+                        $content_top_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $content_top_rp_keyword_1);
+                        $content_top = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $content_top_rp_keyword_2);
+
+                        //Auto create content bot
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $content_bot_rp_name = str_replace('%name%', $description, $rd_content_bot);
+                        $content_bot_rp_domain = str_replace('%domainname%', $rd_domain, $content_bot_rp_name);
+                        $content_bot_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $content_bot_rp_domain);
+                        $content_bot_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $content_bot_rp_keyword_1);
+                        $content_bot = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $content_bot_rp_keyword_2);
+
+                        //Auto create description
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $description_rp_name = str_replace('%name%', $description, $rd_description);
+                        $description_rp_domain = str_replace('%domainname%', $rd_domain, $description_rp_name);
+                        $description_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $description_rp_domain);
+                        $description_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $description_rp_keyword_1);
+                        $description = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $description_rp_keyword_2);
 
 
-                        $hot_video->title_slug = str_slug($description, "-");
+                        $hot_video->title_video = $title;
+                        $hot_video->h1_video = $h1;
+                        $hot_video->content_top_video = $content_top;
+                        $hot_video->content_bot_video = $content_bot;
+                        $hot_video->description = $description;
                         $hot_video->picture = $picture;
-                        $hot_video->thumbnails = $thumbnails[0];
+                        $hot_video->thumbnails = $thumbnails->data[0]->uri;
                         $hot_video->length = $length;
                         $hot_video->likes = $likes;
                         $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
-                        try{
+                        try {
                             $hot_video->save();
                             return redirect()->back()->with('source', $source)
                                 ->with('video_id', $video_id);
-                        }catch (Exception $e){
+                        } catch (Exception $e) {
 
                         }
                     }
@@ -127,62 +237,66 @@ class PageController extends Controller
         }
     }
 
-    public function getPrivateVideo()
+    public
+    function getPrivateVideo()
     {
         $response = [
             'title' => 'Facebook Download Video Private'
         ];
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
         $response['hot_videos'] = $hot_videos;
         return view('page.private-video', $response);
 
     }
 
-    public function postPrivateVideo(Request $request)
+    public
+    function postPrivateVideo(Request $request)
     {
         $html = $request->html_page_video;
         if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
             $source = $matches[1][0];
             $find_description = HtmlDomParser::str_get_html($html);
-            $description = $find_description->find('#pageTitle',0)->text();
+            $description = $find_description->find('#pageTitle', 0)->text();
 
-            preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/",$html,$result);
-            if(!empty($result[1][0])){
+            preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/", $html, $result);
+            if (!empty($result[1][0])) {
                 $view = $result[1][0];
-            }else{
+            } else {
                 $view = "...";
             }
 
 
-            return redirect()->back()->with('source',$source)
-                                    ->with('description',$description)
-                                    ->with('view',$view);
+            return redirect()->back()->with('source', $source)
+                ->with('description', $description)
+                ->with('view', $view);
         }
         return redirect()->back()->with('error', 'Source is invalid!');
     }
 
-    public function getFindId()
+    public
+    function getFindId()
     {
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
         $response = [
-            'title'=>'Find ID Facebook By URL'
+            'title' => 'Find ID Facebook By URL'
         ];
         $response['hot_videos'] = $hot_videos;
-        return view('page.find-id-facebook',$response);
+        return view('page.find-id-facebook', $response);
     }
 
-    public function postFindId(Request $request)
+    public
+    function postFindId(Request $request)
     {
         $url = $request->url_find_id;
-        $username = substr($url,25);
-        $url_graph = 'https://graph.facebook.com/' . $username . '?access_token='. env('ACCESS_TOKEN_FULL');
+        $username = substr($url, 25);
+        $url_graph = 'https://graph.facebook.com/' . $username . '?access_token=' . env('ACCESS_TOKEN_FULL');
         $html = Curl::to($url_graph)->get();
         $html = json_decode($html);
-        if(!empty($html->id)){
+        if (!empty($html->id)) {
             $facebook_id = $html->id;
-            return redirect()->back()->with('facebook_id',$facebook_id);
+            return redirect()->back()->with('facebook_id', $facebook_id);
         }
-       return redirect()->back()->with('error','Link error!');
+        return redirect()->back()->with('error', 'Link error!');
 
     }
 }

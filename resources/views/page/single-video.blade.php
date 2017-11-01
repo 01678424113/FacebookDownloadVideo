@@ -9,11 +9,11 @@
                     <h2 style="font-size: 30px">Video</h2>
                     <hr>
                     <div class="row">
-                        <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"
+                        <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                              style="max-width:800px" data-height="400" data-show-text="false">
-                            <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_id}}/"
+                            <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                                         class="fb-xfbml-parse-ignore"><a
-                                        href="https://www.facebook.com/facebook/videos/{{$video_id}}/">Baixar videos do facebook</a>
+                                        href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/">Baixar videos do facebook</a>
                                 <p>Facebook video indir.</p>Posted by <a
                                         href="{{route('home')}}">Facebook video downloader</a>
                                 Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
@@ -26,11 +26,12 @@
                         Post by <a href="{{route('home')}}">Admin</a>
                         <hr>
                         <p>Description :</p>
-                        <p>{!! $video_show->content_video !!}</p>
+                        <p>{!! $video_show->content_top_video !!}</p>
+                        <p>{!! $video_show->content_bot_video !!}</p>
 
                     </div>
                     <div class="row">
-                        <div class="fb-comments" data-href="https://www.facebook.com/facebook/videos/{{$video_id}}/"
+                        <div class="fb-comments" data-href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                              data-numposts="5" data-width="100%"></div>
                     </div>
                 </div>

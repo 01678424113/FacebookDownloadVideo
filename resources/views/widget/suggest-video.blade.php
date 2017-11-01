@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <h5>
-                        <a href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">{{$hot_video->description}}</a>
+                        <a href="{{route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">{{$hot_video->meta_title}}</a>
                     </h5>
                     <small>{{$hot_video->created_at}}</small>
                     <br>

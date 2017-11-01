@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <link rel="shortcut icon" href="images/logo/logo.ico" />
-    <title>{{$video_show->h1_video}}</title>
-    <meta name="description" content="{{$video_show->content_video}}">
+    <title>{{$video_show->title_video}}</title>
+    <meta name="description" content="{{$video_show->description}}">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">

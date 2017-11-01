@@ -32,12 +32,10 @@ class ChildPageController extends Controller
         $find_source = json_decode($find_source);
 
         /** @var string $source */
-        $resource['description'] = $find_source->description;
         $created_time = substr($find_source->created_time, 0, 10);
         $resource['created_time'] = $created_time;
         $resource['source'] = $find_source->source;
-        $resource['video_id'] = $video_id;
-        $resource['title_slug'] = $title_slug;
+        $resource['description'] = $find_source->description;
         return view('page.single-video', $resource);
     }
 }
