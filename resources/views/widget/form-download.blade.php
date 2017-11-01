@@ -26,7 +26,7 @@
                             </div>
                         </form>
                         <br>
-                        <p style="font-size: 20.3px;">Example: https://www.facebook.com/theanh28.page/videos/1666456930066887/</p>
+                        <p class="hidden-xs" style="font-size: 20.3px;">Example: https://www.facebook.com/theanh28.page/videos/1666456930066887/</p>
                     @endif
                 </center>
             </div>

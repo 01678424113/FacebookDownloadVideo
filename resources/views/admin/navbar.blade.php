@@ -259,6 +259,9 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Setting<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
+                            <a href="{{route('listSettingDomain')}}">Domain</a>
+                            <a href="{{route('listSettingKeyword1')}}">Keyword 1</a>
+                            <a href="{{route('listSettingKeyword2')}}">Keyword 2</a>
                             <a href="{{route('listSettingIndex')}}">Page index</a>
                             <a href="{{route('listSettingView')}}">Page view</a>
                         </li>

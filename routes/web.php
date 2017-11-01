@@ -40,6 +40,10 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/delete-user/{setting_id}','UserController@deleteUser')->name('deleteUser');
 
     //Setting
+    Route::get('/list-setting-domain','SettingController@listSettingDomain')->name('listSettingDomain');
+    Route::get('/add-setting-domain','SettingController@getAddSettingDomain')->name('getAddSettingDomain');
+    Route::post('/add-setting-domain','SettingController@postAddSettingDomain')->name('postAddSettingDomain');
+
     Route::get('/list-setting-index','SettingController@listSettingIndex')->name('listSettingIndex');
     Route::get('/add-setting-index','SettingController@getAddSettingIndex')->name('getAddSettingIndex');
     Route::post('/add-setting-index','SettingController@postAddSettingIndex')->name('postAddSettingIndex');
@@ -47,6 +51,14 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/list-setting-view','SettingController@listSettingView')->name('listSettingView');
     Route::get('/add-setting-view','SettingController@getAddSettingView')->name('getAddSettingView');
     Route::post('/add-setting-view','SettingController@postAddSettingView')->name('postAddSettingView');
+
+    Route::get('/list-setting-keyword-1','SettingController@listSettingKeyword1')->name('listSettingKeyword1');
+    Route::get('/add-setting-keyword-1','SettingController@getAddSettingKeyword1')->name('getAddSettingKeyword1');
+    Route::post('/add-setting-keyword-1','SettingController@postAddSettingKeyword1')->name('postAddSettingKeyword1');
+
+    Route::get('/list-setting-keyword-2','SettingController@listSettingKeyword2')->name('listSettingKeyword2');
+    Route::get('/add-setting-keyword-2','SettingController@getAddSettingKeyword2')->name('getAddSettingKeyword2');
+    Route::post('/add-setting-keyword-2','SettingController@postAddSettingKeyword2')->name('postAddSettingKeyword2');
 
     Route::get('/edit-setting/{setting_id}','SettingController@getEditSetting')->name('getEditSetting');
     Route::post('/edit-setting/{setting_id}','SettingController@postEditSetting')->name('postEditSetting');

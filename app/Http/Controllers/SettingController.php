@@ -10,6 +10,51 @@ use Session;
 
 class SettingController extends Controller
 {
+    //Setting domain
+    public function listSettingDomain(Request $request)
+    {
+        $response = [
+            'title' => 'Setting domain'
+        ];
+        $settings_query = Setting::select([
+            'id',
+            'setting_page',
+            'key_setting',
+            'value_setting',
+            'created_by',
+            'created_at',
+            'updated_by',
+            'updated_at'
+        ])->where('setting_page', 'domain');
+
+        $response['settings'] = $settings_query->paginate(20);
+        return view('admin.setting.list-index', $response);
+    }
+
+    public function getAddSettingDomain()
+    {
+        $response = [
+            'title' => 'Add setting domain'
+        ];
+        return view('admin.setting.add-domain', $response);
+    }
+
+    public function postAddSettingDomain(SettingRequest $request)
+    {
+        $setting = new Setting();
+        $setting->setting_page = $request->setting_page;
+        $setting->key_setting = $request->key_setting;
+        $setting->value_setting = $request->value_setting;
+        $setting->created_by = Session::get('user_id');
+        $setting->created_at = round(microtime(true));
+        try {
+            $setting->save();
+            return redirect()->route('listSettingDomain')->with('success', 'You have successfully added setting domain !');
+        } catch (Exception $e) {
+            return redirect()->route('listSettingDomain')->with('error', 'Error ! Database');
+        }
+    }
+
     //Setting index
     public function listSettingIndex(Request $request)
     {
@@ -102,6 +147,102 @@ class SettingController extends Controller
             return redirect()->route('listSettingView')->with('success', 'You have successfully added setting view !');
         } catch (Exception $e) {
             return redirect()->route('listSettingView')->with('error', 'Error ! Database');
+        }
+    }
+
+    //Setting keyword 1
+
+    public function listSettingKeyword1(Request $request)
+    {
+        $response = [
+            'title' => 'Setting keyword 1'
+        ];
+        $settings_query = Setting::select([
+            'id',
+            'setting_page',
+            'key_setting',
+            'value_setting',
+            'created_by',
+            'created_at',
+            'updated_by',
+            'updated_at'
+        ])->where('setting_page', 'keyword_1');
+        if ($request->has('key_setting_search') && $request->key_setting_search != "") {
+            $settings_query->where('key_setting', 'LIKE', '%' . $request->key_setting_search . '%');
+        }
+        $response['settings'] = $settings_query->paginate(20);
+        return view('admin.setting.list-keyword-1', $response);
+    }
+
+    public function getAddSettingKeyword1()
+    {
+        $response = [
+            'title' => 'Add setting keyword 1 '
+        ];
+        return view('admin.setting.add-keyword-1', $response);
+    }
+
+    public function postAddSettingKeyword1(SettingRequest $request)
+    {
+        $setting = new Setting();
+        $setting->setting_page = $request->setting_page;
+        $setting->key_setting = $request->key_setting;
+        $setting->value_setting = $request->value_setting;
+        $setting->created_by = Session::get('user_id');
+        $setting->created_at = round(microtime(true));
+        try {
+            $setting->save();
+            return redirect()->route('listSettingKeyword1')->with('success', 'You have successfully added setting keyword 1 !');
+        } catch (Exception $e) {
+            return redirect()->route('listSettingKeyword1')->with('error', 'Error ! Database');
+        }
+    }
+
+    //Setting keyword 2
+
+    public function listSettingKeyword2(Request $request)
+    {
+        $response = [
+            'title' => 'Setting keyword 2'
+        ];
+        $settings_query = Setting::select([
+            'id',
+            'setting_page',
+            'key_setting',
+            'value_setting',
+            'created_by',
+            'created_at',
+            'updated_by',
+            'updated_at'
+        ])->where('setting_page', 'keyword_2');
+        if ($request->has('key_setting_search') && $request->key_setting_search != "") {
+            $settings_query->where('key_setting', 'LIKE', '%' . $request->key_setting_search . '%');
+        }
+        $response['settings'] = $settings_query->paginate(20);
+        return view('admin.setting.list-keyword-2', $response);
+    }
+
+    public function getAddSettingKeyword2()
+    {
+        $response = [
+            'title' => 'Add setting keyword 2'
+        ];
+        return view('admin.setting.add-keyword-2', $response);
+    }
+
+    public function postAddSettingKeyword2(SettingRequest $request)
+    {
+        $setting = new Setting();
+        $setting->setting_page = $request->setting_page;
+        $setting->key_setting = $request->key_setting;
+        $setting->value_setting = $request->value_setting;
+        $setting->created_by = Session::get('user_id');
+        $setting->created_at = round(microtime(true));
+        try {
+            $setting->save();
+            return redirect()->route('listSettingKeyword2')->with('success', 'You have successfully added setting keyword 2 !');
+        } catch (Exception $e) {
+            return redirect()->route('listSettingKeyword2')->with('error', 'Error ! Database');
         }
     }
 

@@ -57,8 +57,6 @@ class PageController extends Controller
             $length = $find_source->length;
             $picture = $find_source->picture;
             $thumbnails = $find_source->thumbnails;
-            dd($thumbnails);
-
             $video_hot = HotVideo::where('video_id', $video_id)->first();
 
             if ($video_hot == null) {
@@ -180,10 +178,10 @@ class PageController extends Controller
         $url_graph = 'https://graph.facebook.com/' . $username . '?access_token='. env('ACCESS_TOKEN_FULL');
         $html = Curl::to($url_graph)->get();
         $html = json_decode($html);
-        $facebook_id = $html->id;
-       if(!empty($facebook_id)){
-           return redirect()->back()->with('facebook_id',$facebook_id);
-       }
+        if(!empty($html->id)){
+            $facebook_id = $html->id;
+            return redirect()->back()->with('facebook_id',$facebook_id);
+        }
        return redirect()->back()->with('error','Link error!');
 
     }
