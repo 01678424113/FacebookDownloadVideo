@@ -37,6 +37,7 @@
                     <textarea class="form-control" rows="3" name="value_setting">{{$setting->value_setting}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Edit setting</button>
+                {{--<a href="http://localhost/FacebookDownload/public/manage-admin/{{$route_return}}" class="btn btn-default">Return</a>--}}
                 <a href="{{URL::previous()}}" class="btn btn-default">Return</a>
             </form>
         </div>

@@ -305,6 +305,26 @@ class SettingController extends Controller
         $response = [
             'title' => 'Edit setting: ' . $setting->key_setting
         ];
+        switch ($setting->setting_page){
+            case 'index':
+                $response['route_return'] = "list-setting-index";
+                break;
+            case 'view':
+                $response['route_return'] = "list-setting-view";
+                break;
+            case 'domain':
+                $response['route_return'] = "list-setting-domain";
+                break;
+            case 'keyword_1':
+                $response['route_return'] = "list-setting-keyword-1";
+                break;
+            case 'keyword_2':
+                $response['route_return'] = "list-setting-keyword-2";
+                break;
+            case 'keyword_link':
+                $response['route_return'] = "list-setting-keyword-link";
+                break;
+        }
         $response['setting'] = $setting;
         return view('admin.setting.edit', $response);
     }

@@ -23,7 +23,7 @@ class PageController extends Controller
         $response = [
             'title' => 'Facebook Download Video Public'
         ];
-        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
         $response['hot_videos'] = $hot_videos;
         return view('page.index', $response);
 
@@ -66,7 +66,9 @@ class PageController extends Controller
                     if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        $description = substr($description, 0, 70);
+                        if(strlen($description) > 70){
+                            $description = substr($description, 0, 70);
+                        }
                         $hot_video->meta_title = $description;
                         $hot_video->title_slug = str_slug($description, "-");
                         $description = nl2br($description);
@@ -107,12 +109,13 @@ class PageController extends Controller
                         $keyword_2s = explode(';', $settings_keyword_2);
                         $keyword_links = explode(';', $settings_keyword_link);
 
+
                         //Random numerical order in array
-                        $rd_number_title = random_int(0, count($titles)-1);
+                        $rd_number_title = random_int(0, count($titles)-2);
                         $rd_number_h1 = random_int(0, count($h1s)-1);
-                        $rd_number_content_top = random_int(0, count($contents_top)-1);
-                        $rd_number_content_bot = random_int(0, count($contents_bot)-1);
-                        $rd_number_description = random_int(0, count($descriptions)-1);
+                        $rd_number_content_top = random_int(0, count($contents_top)-2);
+                        $rd_number_content_bot = random_int(0, count($contents_bot)-2);
+                        $rd_number_description = random_int(0, count($descriptions)-2);
 
                         //Take element in array
                         $rd_title = trim($titles[$rd_number_title]);
@@ -123,9 +126,10 @@ class PageController extends Controller
 
                         //Auto create title
                         $rd_number_domain = random_int(0, count($domains) - 1);
-                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
-                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
-                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
+
 
                         $rd_domain = trim($domains[$rd_number_domain]);
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
@@ -140,9 +144,9 @@ class PageController extends Controller
 
                         //Auto create h1
                         $rd_number_domain = random_int(0, count($domains) - 1);
-                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
-                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
-                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
 
                         $rd_domain = trim($domains[$rd_number_domain]);
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
@@ -157,14 +161,16 @@ class PageController extends Controller
 
                         //Auto create content top
                         $rd_number_domain = random_int(0, count($domains) - 1);
-                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
-                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
-                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
 
                         $rd_domain = trim($domains[$rd_number_domain]);
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
                         $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
                         $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+                        $rd_keyword_link = ucfirst($rd_keyword_link);
+
 
                         $content_top_rp_name = str_replace('%name%', $description, $rd_content_top);
                         $content_top_rp_domain = str_replace('%domainname%', $rd_domain, $content_top_rp_name);
@@ -174,9 +180,9 @@ class PageController extends Controller
 
                         //Auto create content bot
                         $rd_number_domain = random_int(0, count($domains) - 1);
-                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
-                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
-                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
 
                         $rd_domain = trim($domains[$rd_number_domain]);
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
@@ -191,9 +197,9 @@ class PageController extends Controller
 
                         //Auto create description
                         $rd_number_domain = random_int(0, count($domains) - 1);
-                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 1);
-                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 1);
-                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
 
                         $rd_domain = trim($domains[$rd_number_domain]);
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
@@ -233,6 +239,7 @@ class PageController extends Controller
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
         } catch (Exception $e) {
+            dd($e);
             return redirect()->back()->with('error', 'Link is invalid or video not public !');
         }
     }

@@ -57,7 +57,7 @@
                             @foreach($settings as $setting)
                                 <tr class="odd gradeX">
                                     <td>{{$setting->key_setting}}</td>
-                                    <td>{{$setting->value_setting}}</td>
+                                    <td>{{str_limit($setting->value_setting,500,'...')}}</td>
                                     <td class="center">
                                         <a href="{{route('getEditSetting',['setting_id'=>$setting->id])}}"
                                            class="btn btn-info">Edit</a>

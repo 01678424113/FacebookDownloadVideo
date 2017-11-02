@@ -29,5 +29,10 @@ body .list-video-suggest a .btn-play {
 body .list-video-suggest a:hover .btn-play {
   display: block;
   transition: 1s; }
+body .pagination {
+  display: flex;
+  justify-content: center; }
+  body .pagination li {
+    margin-right: 5px; }
 
 /*# sourceMappingURL=style.css.map */

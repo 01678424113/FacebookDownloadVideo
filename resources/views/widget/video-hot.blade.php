@@ -4,7 +4,7 @@
     @if(count($hot_videos)>0)
         <ul class="list-unstyled video-list-thumbs row">
             @foreach($hot_videos as $hot_video)
-                <li class="col-md-4 col-sm-6 col-xs-12">
+                <li class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px">
                     <div class="card card-hot-video">
                         <a target="_blank"
                            href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
@@ -25,5 +25,8 @@
                 </li>
             @endforeach
         </ul>
+
+        {{$hot_videos->links()}}
+
     @endif
 </div>
