@@ -4,9 +4,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu"><span
                         class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="{{route('home')}}"><img style="width: 160px;margin-top:-5px"
-                                                          alt="Facebook Video Downloader"
-                                                          src=""></a>
+            <a class="navbar-brand" href="{{route('home')}}">{{$brand}}</a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav">

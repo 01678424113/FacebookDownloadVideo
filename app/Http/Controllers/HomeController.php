@@ -12,13 +12,16 @@ class HomeController extends Controller
 {
     public function __construct()
     {
+        $brand_setting = Setting::where('setting_page','domain')->get();
+        $brand_setting = $brand_setting[0]->value_setting;
+        view()->share('brand',$brand_setting);
         $settings = Setting::where('setting_page','index')->get();
         view()->share('settings',$settings);
     }
     public function index()
     {
 
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(3);
         return view('page.index',['hot_videos'=>$hot_videos]);
     }
 

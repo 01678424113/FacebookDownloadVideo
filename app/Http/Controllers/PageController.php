@@ -14,6 +14,9 @@ class PageController extends Controller
 {
     public function __construct()
     {
+        $brand_setting = Setting::where('setting_page','domain')->get();
+        $brand_setting = $brand_setting[0]->value_setting;
+        view()->share('brand',$brand_setting);
         $settings = Setting::where('setting_page', 'index')->get();
         view()->share('settings', $settings);
     }
@@ -88,7 +91,6 @@ class PageController extends Controller
                             $description = explode('#', $description);
                             $description = $description[0];
                         }
-
                         $hot_video->meta_title = $description;
                         $hot_video->title_slug = str_slug($description, "-");
 
@@ -271,6 +273,7 @@ class PageController extends Controller
                             $hot_video->save();
                             return redirect()->back()->with('source', $source)
                                 ->with('video_id', $video_id);
+                            //return redirect()->route('showVideo',['title_slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id]);
                         } catch (Exception $e) {
 
                         }

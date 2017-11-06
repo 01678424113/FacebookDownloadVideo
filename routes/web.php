@@ -12,6 +12,7 @@
 */
 
 //Route::get('/{another}','HomeController@index')->where(['another' => '[a-z0-9\-]+'])->name('home');
+
 Route::get('/','HomeController@index')->name('home');
 
 Route::get('/video/{title_slug}/{video_id}','ChildPageController@showVideo')->name('showVideo');
@@ -27,7 +28,7 @@ Route::post('/download-private','PageController@postPrivateVideo')->name('postPr
 Route::get('/find-id','PageController@getFindId')->name('getFindId');
 Route::post('/find-id','PageController@postFindId')->name('postFindId');
 
-Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');
 
     Route::post('/image-upload', 'ArticleController@doHandleImage')->name('imageUpload');
@@ -92,11 +93,10 @@ Route::group(['prefix'=>'manage-admin','middleware'=>'admin'],function (){
     Route::get('/delete-auto-article/{autoArticle_id}','AutoArticleController@deleteAutoArticle')->name('deleteAutoArticle');
 });
 
-Route::group(['prefix'=>'admin'],function (){
-    Route::get('/login','AdminController@getLogin')->name('getLogin');
-    Route::post('/login','AdminController@postLogin')->name('postLogin');
-    Route::get('/logout','AdminController@logout')->name('logout');
-});
+
+Route::get('/login','AdminController@getLogin')->name('getLogin');
+Route::post('/login','AdminController@postLogin')->name('postLogin');
+Route::get('/logout','AdminController@logout')->name('logout');
 
 Route::get('/test','HomeController@test');
 

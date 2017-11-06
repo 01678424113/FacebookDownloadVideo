@@ -14,7 +14,6 @@
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Download Video - Facebook Download Online</small>
                     </h2>
-                    <br/><br/>
                     @if(!session('source'))
                         <form action="{{route('postPublicVideo')}}" method="post">
                             {{csrf_field()}}
