@@ -15,7 +15,7 @@
                         List settings view
                     </div>
                     <div class="col-md-4">
-                        <form action="{{route('listSettingKeyword1')}}" method="get">
+                        <form action="{{route('listSettingKeyword')}}" method="get">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" name="key_setting_search"
                                        placeholder="Search...">
@@ -26,9 +26,6 @@
                             </span>
                             </div>
                         </form>
-                    </div>
-                    <div class="col-md-2" style="display: flex;justify-content: center;">
-                        <a href="{{route('getAddSettingKeyword1')}}" class="btn btn-success">+ Add setting keyword 1</a>
                     </div>
                 </div>
                 <!-- /.panel-heading -->
@@ -64,7 +61,7 @@
                                     </td>
                                     <td class="center">
                                         <button type="button" data-toggle="modal" data-target="#myModal-{{$setting->id}}"
-                                                class="btn btn-danger">Delete
+                                                class="btn btn-danger" disabled>Delete
                                         </button>
                                         <!-- Modal delete -->
                                         <div id="myModal-{{$setting->id}}" class="modal fade" role="dialog">
@@ -81,7 +78,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a href="{{route('deleteSetting',['setting_id'=>$setting->id])}}"
-                                                           class="btn btn-danger">Delete</a>
+                                                           class="btn btn-danger" disabled="" >Delete</a>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                                             Cancel
                                                         </button>

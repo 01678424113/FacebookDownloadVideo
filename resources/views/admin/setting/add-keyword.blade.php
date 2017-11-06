@@ -25,13 +25,13 @@
                 @endforeach
             @endif
             <div class="row">
-                <form role="form" action="{{route('postAddSettingKeywordLink')}}" method="post" id="setting_form">
+                <form role="form" action="{{route('postAddSettingKeyword')}}" method="post" id="setting_form">
                     {{csrf_field()}}
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Setting page</label>
                             <select name="setting_page" class="form-control">
-                                <option value="keyword_link">Keyword link</option>
+                                <option value="keyword">Keyword</option>
                             </select>
                         </div>
                     </div>

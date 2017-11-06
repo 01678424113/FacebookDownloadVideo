@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>FB Admin - Bootstrap Admin Theme</title>
     <base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="asset_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

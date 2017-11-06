@@ -53,17 +53,9 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     Route::get('/add-setting-view','SettingController@getAddSettingView')->name('getAddSettingView');
     Route::post('/add-setting-view','SettingController@postAddSettingView')->name('postAddSettingView');
 
-    Route::get('/list-setting-keyword-1','SettingController@listSettingKeyword1')->name('listSettingKeyword1');
-    Route::get('/add-setting-keyword-1','SettingController@getAddSettingKeyword1')->name('getAddSettingKeyword1');
-    Route::post('/add-setting-keyword-1','SettingController@postAddSettingKeyword1')->name('postAddSettingKeyword1');
-
-    Route::get('/list-setting-keyword-2','SettingController@listSettingKeyword2')->name('listSettingKeyword2');
-    Route::get('/add-setting-keyword-2','SettingController@getAddSettingKeyword2')->name('getAddSettingKeyword2');
-    Route::post('/add-setting-keyword-2','SettingController@postAddSettingKeyword2')->name('postAddSettingKeyword2');
-
-    Route::get('/list-setting-keyword-link','SettingController@listSettingKeywordLink')->name('listSettingKeywordLink');
-    Route::get('/add-setting-keyword-link','SettingController@getAddSettingKeywordLink')->name('getAddSettingKeywordLink');
-    Route::post('/add-setting-keyword-link','SettingController@postAddSettingKeywordLink')->name('postAddSettingKeywordLink');
+    Route::get('/list-setting-keyword','SettingController@listSettingKeyword')->name('listSettingKeyword');
+    Route::get('/add-setting-keyword','SettingController@getAddSettingKeyword')->name('getAddSettingKeyword');
+    Route::post('/add-setting-keyword','SettingController@postAddSettingKeyword')->name('postAddSettingKeyword');
 
     Route::get('/edit-setting/{setting_id}','SettingController@getEditSetting')->name('getEditSetting');
     Route::post('/edit-setting/{setting_id}','SettingController@postEditSetting')->name('postEditSetting');

@@ -64,7 +64,7 @@
                                     </td>
                                     <td class="center">
                                         <button type="button" data-toggle="modal" data-target="#myModal-{{$setting->id}}"
-                                                class="btn btn-danger">Delete
+                                                class="btn btn-danger" disabled>Delete
                                         </button>
                                         <!-- Modal delete -->
                                         <div id="myModal-{{$setting->id}}" class="modal fade" role="dialog">
@@ -81,7 +81,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a href="{{route('deleteSetting',['setting_id'=>$setting->id])}}"
-                                                           class="btn btn-danger">Delete</a>
+                                                           class="btn btn-danger" disabled="">Delete</a>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                                             Cancel
                                                         </button>

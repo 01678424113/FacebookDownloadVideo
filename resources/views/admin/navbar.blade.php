@@ -260,9 +260,7 @@
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="{{route('listSettingDomain')}}">Domain</a>
-                            <a href="{{route('listSettingKeyword1')}}">Keyword 1</a>
-                            <a href="{{route('listSettingKeyword2')}}">Keyword 2</a>
-                            <a href="{{route('listSettingKeywordLink')}}">Keyword link</a>
+                            <a href="{{route('listSettingKeyword')}}">Keyword</a>
                             <a href="{{route('listSettingIndex')}}">Page index</a>
                             <a href="{{route('listSettingView')}}">Page view</a>
                         </li>
