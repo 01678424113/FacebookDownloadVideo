@@ -6,6 +6,7 @@
     <meta name="description" content="{{$settings[1]->value_setting}}">
     <meta name="keywords" content="{{$settings[2]->value_setting}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{--<meta name="google-site-verification" content="V1AYqLy68tH-AGCmjUTcHcWivg3xaeRnJITrbgsO8gA" />--}}
     <meta charset="utf-8">
     <base href="{{asset('')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

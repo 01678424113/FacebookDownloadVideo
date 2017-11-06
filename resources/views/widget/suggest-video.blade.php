@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 list-video-suggest">
                     <a target="_blank" href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
-                        <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%" alt="Card image cap">
+                        <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%" alt="{{strip_tags($hot_video->alt)}}">
                         <div class="btn-play">
                             <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                         </div>

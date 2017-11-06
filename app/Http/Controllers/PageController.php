@@ -66,12 +66,32 @@ class PageController extends Controller
                     if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        if(strlen($description) > 70){
-                            $description = substr($description, 0, 70);
+                        if (strlen($description) > 70) {
+                            if(strpos($description, '.' )){
+                                $description = explode('.', $description);
+                                $description = $description[0];
+                            }elseif(strpos($description, ',' )){
+                                $description = explode(',', $description);
+                                $description = $description[0];
+                            }elseif (strpos($description, ':' )){
+                                $description = explode(':', $description);
+                                $description = $description[0];
+                            }elseif (strpos($description, '#' )){
+                                $description = explode('#', $description);
+                                $description = $description[0];
+                            } else{
+                                $description = explode(' ', $description);
+                                $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
+                            }
                         }
+                        if(strpos($description, '#' )){
+                            $description = explode('#', $description);
+                            $description = $description[0];
+                        }
+
                         $hot_video->meta_title = $description;
                         $hot_video->title_slug = str_slug($description, "-");
-                        $description = nl2br($description);
+
 
                         //Create auto title and content video
                         //Get value form database
@@ -80,6 +100,7 @@ class PageController extends Controller
                         $settings_content_top = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'content_view_top')->get();
                         $settings_content_bot = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'content_view_bot')->get();
                         $settings_description = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'description_view')->get();
+                        $settings_alt = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'alt')->get();
 
                         $settings_domain = Setting::select(['value_setting'])->where('setting_page', 'domain')->where('key_setting', 'domain')->get();
                         $settings_keyword_1 = Setting::select(['value_setting'])->where('setting_page', 'keyword_1')->where('key_setting', 'keyword_1')->get();
@@ -91,6 +112,7 @@ class PageController extends Controller
                         $settings_content_top = $settings_content_top[0]->value_setting;
                         $settings_content_bot = $settings_content_bot[0]->value_setting;
                         $settings_description = $settings_description[0]->value_setting;
+                        $settings_alt = $settings_alt[0]->value_setting;
 
                         $settings_domain = $settings_domain[0]->value_setting;
                         $settings_keyword_1 = $settings_keyword_1[0]->value_setting;
@@ -103,6 +125,7 @@ class PageController extends Controller
                         $contents_top = explode(';', $settings_content_top);
                         $contents_bot = explode(';', $settings_content_bot);
                         $descriptions = explode(';', $settings_description);
+                        $alts = explode(';', $settings_alt);
 
                         $domains = explode(';', $settings_domain);
                         $keyword_1s = explode(';', $settings_keyword_1);
@@ -111,11 +134,12 @@ class PageController extends Controller
 
 
                         //Random numerical order in array
-                        $rd_number_title = random_int(0, count($titles)-2);
-                        $rd_number_h1 = random_int(0, count($h1s)-1);
-                        $rd_number_content_top = random_int(0, count($contents_top)-2);
-                        $rd_number_content_bot = random_int(0, count($contents_bot)-2);
-                        $rd_number_description = random_int(0, count($descriptions)-2);
+                        $rd_number_title = random_int(0, count($titles) - 2);
+                        $rd_number_h1 = random_int(0, count($h1s) - 1);
+                        $rd_number_content_top = random_int(0, count($contents_top) - 2);
+                        $rd_number_content_bot = random_int(0, count($contents_bot) - 2);
+                        $rd_number_description = random_int(0, count($descriptions) - 2);
+                        $rd_number_alt = random_int(0, count($alts) - 2);
 
                         //Take element in array
                         $rd_title = trim($titles[$rd_number_title]);
@@ -123,6 +147,7 @@ class PageController extends Controller
                         $rd_content_top = trim($contents_top[$rd_number_content_top]);
                         $rd_content_bot = trim($contents_bot[$rd_number_content_bot]);
                         $rd_description = trim($descriptions[$rd_number_description]);
+                        $rd_alt = trim($alts[$rd_number_alt]);
 
                         //Auto create title
                         $rd_number_domain = random_int(0, count($domains) - 1);
@@ -172,7 +197,7 @@ class PageController extends Controller
                         $rd_keyword_link = ucfirst($rd_keyword_link);
 
 
-                        $content_top_rp_name = str_replace('%name%', $description, $rd_content_top);
+                        $content_top_rp_name = str_replace('%name%', $find_source->description, $rd_content_top);
                         $content_top_rp_domain = str_replace('%domainname%', $rd_domain, $content_top_rp_name);
                         $content_top_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $content_top_rp_domain);
                         $content_top_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $content_top_rp_keyword_1);
@@ -212,12 +237,30 @@ class PageController extends Controller
                         $description_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $description_rp_keyword_1);
                         $description = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $description_rp_keyword_2);
 
+                        //Auto create description
+                        $rd_number_domain = random_int(0, count($domains) - 1);
+                        $rd_number_keyword_1 = random_int(0, count($keyword_1s) - 2);
+                        $rd_number_keyword_2 = random_int(0, count($keyword_2s) - 2);
+                        $rd_number_keyword_link = random_int(0, count($keyword_links) - 2);
+
+                        $rd_domain = trim($domains[$rd_number_domain]);
+                        $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
+                        $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
+                        $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
+                        $alt_rp_name = str_replace('%name%', $description, $rd_alt);
+                        //$alt_rp_domain = str_replace('%domainname%', $rd_domain, $alt_rp_name);
+                        $alt_rp_keyword_1 = str_replace('%kw1%', $rd_keyword_1, $alt_rp_name);
+                        $alt_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $alt_rp_keyword_1);
+                        //$alt = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $alt_rp_keyword_2);
+                        $alt = $alt_rp_keyword_2;
 
                         $hot_video->title_video = $title;
                         $hot_video->h1_video = $h1;
                         $hot_video->content_top_video = $content_top;
                         $hot_video->content_bot_video = $content_bot;
                         $hot_video->description = $description;
+                        $hot_video->alt = $alt;
                         $hot_video->picture = $picture;
                         $hot_video->thumbnails = $thumbnails->data[0]->uri;
                         $hot_video->length = $length;
@@ -238,72 +281,73 @@ class PageController extends Controller
             }
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
-        } catch (Exception $e) {
-            dd($e);
-            return redirect()->back()->with('error', 'Link is invalid or video not public !');
+        } catch (Exception $e)
+{
+dd($e);
+return redirect()->back()->with('error', 'Link is invalid or video not public !');
+}
+}
+
+public
+function getPrivateVideo()
+{
+    $response = [
+        'title' => 'Facebook Download Video Private'
+    ];
+    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
+    $response['hot_videos'] = $hot_videos;
+    return view('page.private-video', $response);
+
+}
+
+public
+function postPrivateVideo(Request $request)
+{
+    $html = $request->html_page_video;
+    if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
+        $source = $matches[1][0];
+        $find_description = HtmlDomParser::str_get_html($html);
+        $description = $find_description->find('#pageTitle', 0)->text();
+
+        preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/", $html, $result);
+        if (!empty($result[1][0])) {
+            $view = $result[1][0];
+        } else {
+            $view = "...";
         }
+
+
+        return redirect()->back()->with('source', $source)
+            ->with('description', $description)
+            ->with('view', $view);
     }
+    return redirect()->back()->with('error', 'Source is invalid!');
+}
 
-    public
-    function getPrivateVideo()
-    {
-        $response = [
-            'title' => 'Facebook Download Video Private'
-        ];
-        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
-        $response['hot_videos'] = $hot_videos;
-        return view('page.private-video', $response);
+public
+function getFindId()
+{
+    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
+    $response = [
+        'title' => 'Find ID Facebook By URL'
+    ];
+    $response['hot_videos'] = $hot_videos;
+    return view('page.find-id-facebook', $response);
+}
 
+public
+function postFindId(Request $request)
+{
+    $url = $request->url_find_id;
+    $username = substr($url, 25);
+    $url_graph = 'https://graph.facebook.com/' . $username . '?access_token=' . env('ACCESS_TOKEN_FULL');
+    $html = Curl::to($url_graph)->get();
+    $html = json_decode($html);
+    if (!empty($html->id)) {
+        $facebook_id = $html->id;
+        return redirect()->back()->with('facebook_id', $facebook_id);
     }
+    return redirect()->back()->with('error', 'Link error!');
 
-    public
-    function postPrivateVideo(Request $request)
-    {
-        $html = $request->html_page_video;
-        if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
-            $source = $matches[1][0];
-            $find_description = HtmlDomParser::str_get_html($html);
-            $description = $find_description->find('#pageTitle', 0)->text();
-
-            preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/", $html, $result);
-            if (!empty($result[1][0])) {
-                $view = $result[1][0];
-            } else {
-                $view = "...";
-            }
-
-
-            return redirect()->back()->with('source', $source)
-                ->with('description', $description)
-                ->with('view', $view);
-        }
-        return redirect()->back()->with('error', 'Source is invalid!');
-    }
-
-    public
-    function getFindId()
-    {
-        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
-        $response = [
-            'title' => 'Find ID Facebook By URL'
-        ];
-        $response['hot_videos'] = $hot_videos;
-        return view('page.find-id-facebook', $response);
-    }
-
-    public
-    function postFindId(Request $request)
-    {
-        $url = $request->url_find_id;
-        $username = substr($url, 25);
-        $url_graph = 'https://graph.facebook.com/' . $username . '?access_token=' . env('ACCESS_TOKEN_FULL');
-        $html = Curl::to($url_graph)->get();
-        $html = json_decode($html);
-        if (!empty($html->id)) {
-            $facebook_id = $html->id;
-            return redirect()->back()->with('facebook_id', $facebook_id);
-        }
-        return redirect()->back()->with('error', 'Link error!');
-
-    }
+}
 }

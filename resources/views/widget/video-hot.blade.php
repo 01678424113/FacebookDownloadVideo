@@ -9,7 +9,7 @@
                         <a target="_blank"
                            href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
                             <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%"
-                                 alt="Card image cap">
+                                 alt="{{strip_tags($hot_video->alt)}}">
                         </a>
                         <div class="card-block">
                             <a target="_blank"

@@ -6,7 +6,7 @@
                 <a class="btn btn-default" href="{{route('getPublicVideo')}}">Return download video another.</a>
                 @endif
                 <center>
-                    <a href="{{route('home')}}"><img class="img-responsive" src="images/logo/logo.ico" style="width: 70px" alt="Download - Online video downloader"
+                    <a href="{{route('home')}}"><img class="img-responsive" src="images/logo/logo.ico" style="width: 70px" alt="Facebook Video Downloader - Online video downloader"
                                              title="Facebook Video Downloader - Facebook Download "></a>
                     <h1 style="font-size:24px;margin-top:1%;">
                         Facebook Video Downloader - Video Downloader
