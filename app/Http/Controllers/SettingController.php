@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use ImageUpload;
 use App\Http\Requests\SettingRequest;
 use App\Setting;
 use Illuminate\Http\Request;
-use Mockery\Exception;
+use Exception;
 use Session;
 
 class SettingController extends Controller
@@ -25,7 +26,7 @@ class SettingController extends Controller
             'created_at',
             'updated_by',
             'updated_at'
-        ])->where('setting_page', 'domain');
+        ])->where('setting_page', 'domain')->orWhere('setting_page','logo');
 
         $response['settings'] = $settings_query->paginate(20);
         return view('admin.setting.list-index', $response);
@@ -209,7 +210,7 @@ class SettingController extends Controller
         $response = [
             'title' => 'Edit setting: ' . $setting->key_setting
         ];
-        switch ($setting->setting_page){
+       /* switch ($setting->setting_page){
             case 'index':
                 $response['route_return'] = "list-setting-index";
                 break;
@@ -222,7 +223,7 @@ class SettingController extends Controller
             case 'keyword':
                 $response['route_return'] = "list-setting-keyword";
                 break;
-        }
+        }*/
         $response['setting'] = $setting;
         return view('admin.setting.edit', $response);
     }
@@ -231,7 +232,17 @@ class SettingController extends Controller
     {
         $setting = Setting::find($setting_id);
         $setting->key_setting = $request->key_setting;
-        $setting->value_setting = $request->value_setting;
+
+        
+        if ($request->has('txt-featured-type')) {
+            if ($request->hasFile('file-featured') && $request->input('txt-featured-type') == 'file') {
+                $setting->value_setting = ImageUpload::image($request->file('file-featured'), md5('logo_' . $setting->article_title . time()));
+            } elseif ($request->input('txt-featured') != "" && $request->input('txt-featured-type') == 'url') {
+                $setting->value_setting = ImageUpload::image($request->input('txt-featured'), md5('logo_' . $setting->article_title . time()));
+            }
+        }else{
+            $setting->value_setting = $request->value_setting;
+        }
         $setting->updated_by = Session::get('user_id');
         $setting->updated_at = round(microtime(true));
         try {

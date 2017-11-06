@@ -25,7 +25,6 @@ class SettingRequest extends FormRequest
     {
         return [
             'key_setting' => 'required',
-            'value_setting' => 'required'
         ];
     }
 
@@ -33,7 +32,6 @@ class SettingRequest extends FormRequest
     {
         return [
             'key_setting.required' => 'Must not to blank key_setting !',
-            'value_setting.required' => 'Must not to blank value_setting !'
         ];
     }
 }

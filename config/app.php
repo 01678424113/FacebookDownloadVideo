@@ -177,6 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -228,6 +229,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Curl'          => Ixudra\Curl\Facades\Curl::class,
         'DateAgo' => App\Helpers\DateAgo::class,
+        'ImageUpload' => App\Helpers\ImageUpload::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
