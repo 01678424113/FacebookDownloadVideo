@@ -21,7 +21,7 @@
                             <div class="input-group col-lg-8">
                                 <input name="url_video" class="form-control input-lg"
                                        placeholder="Enter Facebook Video URL ..." type="url">
-                                <span class="input-group-btn"><button class="btn btn-primary input-lg" id="btn-download"
+                                <span class="input-group-btn"><button class="btn btn-info input-lg" id="btn-download"
                                                                       type="submit">Download now</button></span>
                             </div>
                         </form>

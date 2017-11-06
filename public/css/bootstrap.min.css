@@ -1333,12 +1333,11 @@ button, input, select, textarea {
 }
 
 a {
-    color: #18bc9c;
+
     text-decoration: none
 }
 
 a:focus, a:hover {
-    color: #18bc9c;
     text-decoration: underline
 }
 
@@ -3652,7 +3651,7 @@ tbody.collapse.in {
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
     text-decoration: none;
     color: #fff;
-    background-color: #2c3e50
+    background-color: #4267B2;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
@@ -4551,7 +4550,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-    color: #18bc9c;
+    color: #c8d8dc;
     background-color: transparent
 }
 
@@ -4564,7 +4563,8 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-    color: #18bc9c;
+    color: #c8d8dc;
+    font-weight: 500;
     background-color: transparent
 }
 
@@ -4595,7 +4595,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-    background-color: #1a242f;
+    background-color: #325396;
     color: #fff
 }
 

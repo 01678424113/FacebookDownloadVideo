@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,MAAM;EACJ,OAAO,EAAE,eAAc",
-"sources": ["single-video.scss"],
+"mappings": "AAAA,MAAM;EACJ,OAAO,EAAE,eAAc;;ACAzB,OAAO;EACL,UAAU,EAAE,OAAO;EAGf,8BAAS;IACP,UAAU,EAAE,kBAAiB",
+"sources": ["single-video.scss","main.scss"],
 "names": [],
 "file": "main.css"
 }

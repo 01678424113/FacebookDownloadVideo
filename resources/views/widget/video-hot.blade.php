@@ -8,7 +8,7 @@
                     <div class="card card-hot-video">
                         <a target="_blank"
                            href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
-                            <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%"
+                            <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="width: 100%;height: 210px;"
                                  alt="{{strip_tags($hot_video->alt)}}">
                         </a>
                         <div class="card-block">
@@ -19,7 +19,7 @@
                             </a>
                             <a target="_blank"
                                href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}"
-                               class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px">Watching Now</a>
+                               class="btn btn-info btn-block" style="border-radius: 0 0 2px 2px">Download Now</a>
                         </div>
                     </div>
                 </li>

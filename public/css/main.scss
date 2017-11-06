@@ -1,1 +1,11 @@
 @import "single-video";
+.navbar{
+  background: #4267B2;
+  .navbar-nav{
+    li{
+      &:visited{
+        background: #4267B2!important;
+      }
+    }
+  }
+}

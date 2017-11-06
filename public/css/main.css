@@ -1,4 +1,9 @@
 #u_0_p {
   display: none !important; }
 
+.navbar {
+  background: #4267B2; }
+  .navbar .navbar-nav li:visited {
+    background: #4267B2 !important; }
+
 /*# sourceMappingURL=main.css.map */
