@@ -105,9 +105,9 @@ class PageController extends Controller
                         $settings_alt = Setting::select(['value_setting'])->where('setting_page', 'view')->where('key_setting', 'alt')->get();
 
                         $settings_domain = Setting::select(['value_setting'])->where('setting_page', 'domain')->where('key_setting', 'domain')->get();
-                        $settings_keyword_1 = Setting::select(['value_setting'])->where('setting_page', 'keyword_1')->where('key_setting', 'keyword_1')->get();
-                        $settings_keyword_2 = Setting::select(['value_setting'])->where('setting_page', 'keyword_2')->where('key_setting', 'keyword_2')->get();
-                        $settings_keyword_link = Setting::select(['value_setting'])->where('setting_page', 'keyword_link')->where('key_setting', 'keyword_link')->get();
+                        $settings_keyword_1 = Setting::select(['value_setting'])->where('key_setting', 'keyword_1')->get();
+                        $settings_keyword_2 = Setting::select(['value_setting'])->where('key_setting', 'keyword_2')->get();
+                        $settings_keyword_link = Setting::select(['value_setting'])->where('key_setting', 'keyword_link')->get();
 
                         $settings_title = $settings_title[0]->value_setting;
                         $settings_h1 = $settings_h1[0]->value_setting;
