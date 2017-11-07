@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="images/logo/logo.ico" />
+    <link rel="shortcut icon" href="{{$logo}}" />
     <title>{{$video_show->title_video}}</title>
     <meta name="description" content="{{$video_show->description}}">
     <meta name="keywords" content="">

@@ -20,6 +20,9 @@ class ChildPageController extends Controller
         $brand_setting = Setting::where('setting_page','domain')->get();
         $brand_setting = $brand_setting[0]->value_setting;
         view()->share('brand',$brand_setting);
+        $logo_setting = Setting::where('setting_page','logo')->get();
+        $logo_setting = $logo_setting[0]->value_setting;
+        view()->share('logo',$logo_setting);
     }
 
     public function showVideo($title_slug, $video_id)

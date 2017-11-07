@@ -21,28 +21,28 @@
                         <li><a href="{{route('instructionPrivate')}}">How to use download video private?</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Download video private <span
+                <li {{--class="dropdown"--}}>
+                    <a href="{{route('getPrivateVideo')}}" {{--class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Download video private <span
                                 class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                 {{--   <ul class="dropdown-menu">
                         <li>
                             <a href="{{route('getPrivateVideo')}}"><span
                                         class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> Private Video
                                 Downloader</a>
                         </li>
-                    </ul>
+                    </ul>--}}
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Find Facebook ID<span
+                <li {{--class="dropdown"--}}>
+                    <a href="{{route('getFindId')}}" {{--class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Find Facebook ID<span
                                 class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                   {{-- <ul class="dropdown-menu">
                         <li>
                             <a href="{{route('getFindId')}}"><span
                                         class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> Find ID By URL</a>
                         </li>
-                    </ul>
+                    </ul>--}}
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

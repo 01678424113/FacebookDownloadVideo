@@ -6,7 +6,7 @@
                     <a class="btn btn-default" href="{{route('getPrivateVideo')}}">Return download video another.</a>
                 @endif
                 <center>
-                    <a href="{{route('home')}}"><img class="img-responsive" src="images/logo/logo.ico" alt="Facebook Video Private Downloader - Download Video "
+                    <a href="{{route('home')}}"><img class="img-responsive" src="{{$logo}}" alt="Facebook Video Private Downloader - Download Video "
                                              title="Facebook Video Downloader - Facebook Download " width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
                         Facebook Video Downloader - Video Downloader
@@ -14,7 +14,6 @@
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Download Video - Facebook Download Online</small>
                     </h2>
-                    <br/><br/>
                     @if(!session('source'))
                         <div></div>
                         <form action="{{route('postPrivateVideo')}}" method="post">

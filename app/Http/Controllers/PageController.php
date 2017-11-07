@@ -17,6 +17,9 @@ class PageController extends Controller
         $brand_setting = Setting::where('setting_page','domain')->get();
         $brand_setting = $brand_setting[0]->value_setting;
         view()->share('brand',$brand_setting);
+        $logo_setting = Setting::where('setting_page','logo')->get();
+        $logo_setting = $logo_setting[0]->value_setting;
+        view()->share('logo',$logo_setting);
         $settings = Setting::where('setting_page', 'index')->get();
         view()->share('settings', $settings);
     }
@@ -291,13 +294,12 @@ return redirect()->back()->with('error', 'Link is invalid or video not public !'
 }
 }
 
-public
-function getPrivateVideo()
+public function getPrivateVideo()
 {
     $response = [
         'title' => 'Facebook Download Video Private'
     ];
-    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
+    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
     $response['hot_videos'] = $hot_videos;
     return view('page.private-video', $response);
 

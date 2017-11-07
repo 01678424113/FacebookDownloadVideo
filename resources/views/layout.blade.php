@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="images/logo/logo.ico" />
+    <link rel="shortcut icon" href="{{$logo}}" />
     <title>{{$settings[0]->value_setting}}</title>
     <meta name="description" content="{{$settings[1]->value_setting}}">
     <meta name="keywords" content="{{$settings[2]->value_setting}}">

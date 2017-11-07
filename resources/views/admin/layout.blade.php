@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>FB Admin - Bootstrap Admin Theme</title>
+    <link rel="shortcut icon" href="images/logo/logo.ico" />
+    <title>Admin - FBDownloadVideo</title>
     <base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="asset_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

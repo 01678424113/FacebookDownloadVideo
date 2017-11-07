@@ -35,7 +35,7 @@
                 @if($setting->key_setting != "logo")
                 <div class="form-group">
                     <label>Value setting</label>
-                    <textarea class="form-control" rows="3" name="value_setting">{{$setting->value_setting}}</textarea>
+                    <textarea class="form-control" rows="15" name="value_setting">{{$setting->value_setting}}</textarea>
                 </div>
                 @else
                 <div class="form-group">
@@ -120,7 +120,7 @@
             $('#setting_form').find('input[name="file-featured"]').change(function () {
                 var files = $('#featured-modal').find('input[name="file-featured"]').prop('files');
                 if (files.length) {
-                    var regex_type = /^(image\/jpeg|image\/png|image\/gif)$/;
+                    var regex_type = /^(image\/jpeg|image\/png|image\/gif|image\/ico)$/;
                     $.each(files, function (key, file) {
                         if (regex_type.test(file.type)) {
                             var fr = new FileReader();
@@ -143,7 +143,7 @@
             });
             $('#btn-featured').click(function () {
                 var url = $('#featured-modal').find('input[name="txt-featured"]').val();
-                var regex_url = /(https?:\/\/(.*)\.(png|jpg|jpeg|gif))/i;
+                var regex_url = /(https?:\/\/(.*)\.(png|jpg|jpeg|gif|ico))/i;
                 if (url !== "" && regex_url.test(url)) {
                     $('#featured-img').attr('src', url);
                     $('#setting_form').find('input[name="txt-featured-type"]').val('url');
