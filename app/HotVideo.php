@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed title_video
  * @property mixed content_top_video
  * @property mixed content_bot_video
- * @property bool|string meta_title
+ * @property string meta_title
  * @property mixed alt
  */
 class HotVideo extends Model

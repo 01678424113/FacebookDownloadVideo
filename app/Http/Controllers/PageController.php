@@ -72,16 +72,29 @@ class PageController extends Controller
                     if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        if (strlen($description) > 70) {
+                        /*if (strlen($description) > 70) {
                             if(strpos($description, '.' )){
                                 $description = explode('.', $description);
-                                $description = $description[0];
+                                if (strlen($description[0]) > 70){
+                                    $description = explode(' ', $description[0]);
+                                    $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
+                                }else{
+                                    $description = $description[0]." ".$description[1];
+                                }
                             }elseif(strpos($description, ',' )){
                                 $description = explode(',', $description);
-                                $description = $description[0];
+                                if (strlen($description[0]) > 70){
+                                    $description = $description[0];
+                                }else{
+                                    $description = $description[0]." ".$description[1];
+                                }
                             }elseif (strpos($description, ':' )){
                                 $description = explode(':', $description);
-                                $description = $description[0];
+                                if (strlen($description[0]) > 70){
+                                    $description = $description[0];
+                                }else{
+                                    $description = $description[0]." ".$description[1];
+                                }
                             }elseif (strpos($description, '#' )){
                                 $description = explode('#', $description);
                                 $description = $description[0];
@@ -89,12 +102,17 @@ class PageController extends Controller
                                 $description = explode(' ', $description);
                                 $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
                             }
+                        }*/
+                        if(str_word_count($description) > 10){
+                            $description = explode(" ",$description);
+                            $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6]." ".$description[7]." ".$description[8]." ".$description[9]." ...";
                         }
                         if(strpos($description, '#' )){
                             $description = explode('#', $description);
                             $description = $description[0];
                         }
-                        $hot_video->meta_title = $description;
+
+                        $hot_video->meta_title = strip_tags($description);
                         $hot_video->title_slug = str_slug($description, "-");
 
 
@@ -259,7 +277,6 @@ class PageController extends Controller
                         $alt_rp_keyword_2 = str_replace('%kw2%', $rd_keyword_2, $alt_rp_keyword_1);
                         //$alt = str_replace('%link%', "<a href='http://fbdownloadvideo.net' target='_blank'>" . $rd_keyword_link . "</a>", $alt_rp_keyword_2);
                         $alt = $alt_rp_keyword_2;
-
                         $hot_video->title_video = $title;
                         $hot_video->h1_video = $h1;
                         $hot_video->content_top_video = $content_top;
@@ -273,6 +290,7 @@ class PageController extends Controller
                         $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
                         try {
+
                             $hot_video->save();
                             return redirect()->back()->with('source', $source)
                                 ->with('video_id', $video_id);

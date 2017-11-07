@@ -24,13 +24,13 @@ class HomeController extends Controller
     public function index()
     {
 
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(3);
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
         return view('page.index',['hot_videos'=>$hot_videos]);
     }
     public function error404()
     {
 
-        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(3);
+        $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
         return view('page.404',['hot_videos'=>$hot_videos]);
     }
 
