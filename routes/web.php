@@ -14,6 +14,7 @@
 //Route::get('/{another}','HomeController@index')->where(['another' => '[a-z0-9\-]+'])->name('home');
 
 Route::get('/','HomeController@index')->name('home');
+Route::get('/404','HomeController@error404')->name('404');
 
 Route::get('/video/{title_slug}/{video_id}.html','ChildPageController@showVideo')->name('showVideo');
 Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
