@@ -5,10 +5,24 @@
     <title>{{$video_show->title_video}}</title>
     <meta name="description" content="{{$video_show->description}}">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{--<meta name="google-site-verification" content="V1AYqLy68tH-AGCmjUTcHcWivg3xaeRnJITrbgsO8gA" />--}}
     <meta charset="utf-8">
     <base href="{{asset('')}}">
+
+    <meta itemprop="url" content="{{route('showVideo')}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="1 days">
+    <link rel="canonical" href="{{route('showVideo')}}" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:image" content="images/logo/image-header.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{$video_show->title_video}}" />
+    <meta property="og:description" content="{{$video_show->description}}" />
+    <meta property="og:url" content="{{route('showVideo')}}" />
+    <meta property="og:site_name" content="Facebook Video Downloader 2017" />
+    <meta name="DC.title" content="{{$video_show->title_video}}" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -7,7 +7,7 @@
         <h3>Question and Answer</h3>
         <hr>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="QandA">
                     <div class="panel-group" id="accordion">
                         <div class="panel panel-success">
