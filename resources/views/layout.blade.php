@@ -23,6 +23,7 @@
 
 @include('layouts.footer')
 @yield('script')
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>

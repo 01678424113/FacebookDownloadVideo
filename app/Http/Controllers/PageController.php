@@ -14,12 +14,12 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $brand_setting = Setting::where('setting_page','domain')->get();
+        $brand_setting = Setting::where('setting_page', 'domain')->get();
         $brand_setting = $brand_setting[0]->value_setting;
-        view()->share('brand',$brand_setting);
-        $logo_setting = Setting::where('setting_page','logo')->get();
+        view()->share('brand', $brand_setting);
+        $logo_setting = Setting::where('setting_page', 'logo')->get();
         $logo_setting = $logo_setting[0]->value_setting;
-        view()->share('logo',$logo_setting);
+        view()->share('logo', $logo_setting);
         $settings = Setting::where('setting_page', 'index')->get();
         view()->share('settings', $settings);
     }
@@ -103,16 +103,16 @@ class PageController extends Controller
                                 $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
                             }
                         }*/
-                        if(str_word_count($description) > 10){
-                            $description = explode(" ",$description);
-                            $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6]." ".$description[7]." ".$description[8]." ".$description[9]." ...";
+                        if (str_word_count($description) > 10) {
+                            $description = explode(" ", $description);
+                            $description = $description[0] . " " . $description[1] . " " . $description[2] . " " . $description[3] . " " . $description[4] . " " . $description[5] . " " . $description[6] . " " . $description[7] . " " . $description[8] . " " . $description[9] . " ...";
                         }
-                        if(strpos($description, '#' )){
+                        if (strpos($description, '#')) {
                             $description = explode('#', $description);
                             $description = $description[0];
                         }
 
-                        $hot_video->meta_title = strip_tags($description);
+                        $hot_video->meta_title = html_entity_decode($description);
                         $hot_video->title_slug = str_slug($description, "-");
 
 
@@ -290,7 +290,6 @@ class PageController extends Controller
                         $hot_video->created_at = substr($find_source->created_time, 0, 10);
                         $hot_video->download_at = microtime(true);
                         try {
-
                             $hot_video->save();
                             return redirect()->back()->with('source', $source)
                                 ->with('video_id', $video_id);
@@ -305,72 +304,71 @@ class PageController extends Controller
             }
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
-        } catch (Exception $e)
-{
-dd($e);
-return redirect()->back()->with('error', 'Link is invalid or video not public !');
-}
-}
+        } catch (Exception $e) {
 
-public function getPrivateVideo()
-{
-    $response = [
-        'title' => 'Facebook Download Video Private'
-    ];
-    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
-    $response['hot_videos'] = $hot_videos;
-    return view('page.private-video', $response);
-
-}
-
-public
-function postPrivateVideo(Request $request)
-{
-    $html = $request->html_page_video;
-    if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
-        $source = $matches[1][0];
-        $find_description = HtmlDomParser::str_get_html($html);
-        $description = $find_description->find('#pageTitle', 0)->text();
-
-        preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/", $html, $result);
-        if (!empty($result[1][0])) {
-            $view = $result[1][0];
-        } else {
-            $view = "...";
+            return redirect()->back()->with('error', 'Link is invalid or video not public !');
         }
-
-
-        return redirect()->back()->with('source', $source)
-            ->with('description', $description)
-            ->with('view', $view);
     }
-    return redirect()->back()->with('error', 'Source is invalid!');
-}
 
-public
-function getFindId()
-{
-    $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
-    $response = [
-        'title' => 'Find ID Facebook By URL'
-    ];
-    $response['hot_videos'] = $hot_videos;
-    return view('page.find-id-facebook', $response);
-}
+    public function getPrivateVideo()
+    {
+        $response = [
+            'title' => 'Facebook Download Video Private'
+        ];
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
+        $response['hot_videos'] = $hot_videos;
+        return view('page.private-video', $response);
 
-public
-function postFindId(Request $request)
-{
-    $url = $request->url_find_id;
-    $username = substr($url, 25);
-    $url_graph = 'https://graph.facebook.com/' . $username . '?access_token=' . env('ACCESS_TOKEN_FULL');
-    $html = Curl::to($url_graph)->get();
-    $html = json_decode($html);
-    if (!empty($html->id)) {
-        $facebook_id = $html->id;
-        return redirect()->back()->with('facebook_id', $facebook_id);
     }
-    return redirect()->back()->with('error', 'Link error!');
 
-}
+    public
+    function postPrivateVideo(Request $request)
+    {
+        $html = $request->html_page_video;
+        if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
+            $source = $matches[1][0];
+            $find_description = HtmlDomParser::str_get_html($html);
+            $description = $find_description->find('#pageTitle', 0)->text();
+
+            preg_match_all("/<span class=\"fcg\">(\d+) Views<\/span>/", $html, $result);
+            if (!empty($result[1][0])) {
+                $view = $result[1][0];
+            } else {
+                $view = "...";
+            }
+
+
+            return redirect()->back()->with('source', $source)
+                ->with('description', $description)
+                ->with('view', $view);
+        }
+        return redirect()->back()->with('error', 'Source is invalid!');
+    }
+
+    public
+    function getFindId()
+    {
+        $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
+        $response = [
+            'title' => 'Find ID Facebook By URL'
+        ];
+        $response['hot_videos'] = $hot_videos;
+        return view('page.find-id-facebook', $response);
+    }
+
+    public
+    function postFindId(Request $request)
+    {
+        $url = $request->url_find_id;
+        $username = substr($url, 25);
+        $url_graph = 'https://graph.facebook.com/' . $username . '?access_token=' . env('ACCESS_TOKEN_FULL');
+        $html = Curl::to($url_graph)->get();
+        $html = json_decode($html);
+        if (!empty($html->id)) {
+            $facebook_id = $html->id;
+            return redirect()->back()->with('facebook_id', $facebook_id);
+        }
+        return redirect()->back()->with('error', 'Link error!');
+
+    }
 }

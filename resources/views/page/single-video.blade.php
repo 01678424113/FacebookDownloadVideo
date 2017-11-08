@@ -8,9 +8,19 @@
                 <div class="col-md-7">
                     <hr>
                     <div class="row">
-                        <div style="float: right;margin-bottom: 5px;" class="fb-like"
-                             data-href="http://fbdownloadvideo.net" data-layout="button_count"
-                             data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+                        <div class="col-md-12" style="margin-bottom: 5px">
+                            <div class="row"  style="display: flex;float: right;align-items: center;justify-content: flex-end;">
+                                <g:plusone></g:plusone>
+                                {{--          <div style="float: right;margin-bottom: 5px;" class="fb-like"
+                                               data-href="http://fbdownloadvideo.net" data-layout="button_count"
+                                               data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>--}}
+                                <div style="margin-left: 5px" class="fb-share-button" data-href="http://fbdownloadvideo.net"
+                                     data-layout="button" data-size="large" data-mobile-iframe="true"><a
+                                            class="fb-xfbml-parse-ignore" target="_blank"
+                                            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="fb-video"
                              data-href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                              style="max-width:800px" data-height="400" data-show-text="false">
