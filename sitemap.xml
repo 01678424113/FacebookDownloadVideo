@@ -1,24 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>http://fbdownloadvideo.net/</loc>
-</url>
-<url>
-  <loc>http://fbdownloadvideo.net/instruction</loc>
-</url>
-<url>
-  <loc>http://fbdownloadvideo.net/instruction-private</loc>
-</url>
-<url>
-  <loc>http://fbdownloadvideo.net/find-id</loc>
-</url>
-<url>
-  <loc>http://fbdownloadvideo.net/video/our-new-episode-94please-subscribe-to-my-you-tube-channel-for-more/1788444714743917</loc>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!--
+   created with Free Online Sitemap Generator www.xml-sitemaps.com
+  -->
+  <url>
+    <loc>http://fbdownloadvideo.net/</loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://fbdownloadvideo.net/instruction</loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://fbdownloadvideo.net/instruction-private</loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://fbdownloadvideo.net/download-private</loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://fbdownloadvideo.net/find-id</loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>
+      http://fbdownloadvideo.net/video/so-happy-to-share-my-new-song-alone-with-you/1309162342481188.html
+    </loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>
+      http://fbdownloadvideo.net/video/ven-man-ao-thuat-xem-cac-ong-danh-nhau-ma-vui-nhu-tet-like-welax-video-neu-ban-thay-vui/2003638586561025.html
+    </loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>
+      http://fbdownloadvideo.net/video/random-bullshit-ep/2003373553254195.html
+    </loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>
+      http://fbdownloadvideo.net/video/this-video-will-make-you-laugh-till-next-week/1925827591005628.html
+    </loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
+  <url>
+    <loc>
+      http://fbdownloadvideo.net/video/our-new-episode-94please-subscribe-to-my-you-tube-channel-for-more/1788444714743917.html
+    </loc>
+    <lastmod>2017-11-08T02:38:10+00:00</lastmod>
+  </url>
 </urlset>
