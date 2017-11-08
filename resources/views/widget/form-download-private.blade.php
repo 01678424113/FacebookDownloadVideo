@@ -12,7 +12,7 @@
                         Facebook Video Downloader - Video Downloader
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
-                        <small>Download Video - Facebook Download Online</small>
+                        <small>Facebook Private Video Downloader</small>
                     </h2>
                     @if(!session('source'))
                         <div></div>
