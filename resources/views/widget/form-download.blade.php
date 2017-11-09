@@ -9,10 +9,10 @@
                     <a href="{{route('home')}}"><img class="img-responsive" src="{{$logo}}" style="width: 70px" alt="Facebook Video Downloader - Online video downloader"
                                              title="Facebook Video Downloader - Facebook Download "></a>
                     <h1 style="font-size:24px;margin-top:1%;">
-                        Facebook Video Downloader - Download Video 2017
+                        Facebook Video Downloader - Download Videos 2017
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
-                        <small>Download Video - Facebook Download Online</small>
+                        <small>Download Clip - Facebook Download Online</small>
                         <br>
                     </h2>
                     @if(!session('source'))
@@ -39,10 +39,10 @@
                          data-width="400" data-height="250" data-show-text="false">
                         <blockquote cite="https://www.facebook.com/facebook/videos/{{session('video_id')}}/"
                                     class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Facebook video downloader software free</a>
+                                    href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Facebook videos downloader software free</a>
                             <p>Facebook private video downloader.</p>Posted by <a
                                     href="{{route('home')}}">Facebook video downloader</a>
-                            Facebook video downloader app - <a href="{{route('home')}}">FbDownloadVideo.Net</a>
+                            FB video downloader free download - <a href="{{route('home')}}">FbDownloadVideo.Net</a>
                         </blockquote>
                     </div>
                     <a class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px" href="{{session('source')}}"

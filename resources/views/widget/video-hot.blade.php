@@ -1,5 +1,5 @@
 <div class="row-fluid container">
-    <h3>Video - Free video downloader on FB</h3>
+    <h3>Download video - Free clip downloader on FB</h3>
     <hr>
     @if(count($hot_videos)>0)
         <ul class="list-unstyled video-list-thumbs row">

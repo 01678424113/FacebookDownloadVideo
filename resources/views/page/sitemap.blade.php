@@ -4,26 +4,52 @@
     -->
     <url>
         <loc>http://fbdownloadvideo.net/</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://fbdownloadvideo.net/instruction</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://fbdownloadvideo.net/instruction-private</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://fbdownloadvideo.net/download-private</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://fbdownloadvideo.net/find-id</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
     <url>
-        <loc>http://fbdownloadvideo.net/404</loc>
-        <lastmod>2017-11-08T04:58:33+00:00</lastmod>
+        <loc>
+            http://fbdownloadvideo.net/video/1309162342481188/so-happy-to-share-my-new-song-alone-with-you.html
+        </loc>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://fbdownloadvideo.net/video/2003638586561025/ven-man-ao-thuat-xem-cac-ong-danh-nhau-ma-vui-nhu-tet-like-welax-video-neu-ban-thay-vui.html
+        </loc>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://fbdownloadvideo.net/video/2003373553254195/random-bullshit-ep.html
+        </loc>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://fbdownloadvideo.net/video/1925827591005628/this-video-will-make-you-laugh-till-next-week.html
+        </loc>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://fbdownloadvideo.net/video/1788444714743917/our-new-episode-94please-subscribe-to-my-you-tube-channel-for-more.html
+        </loc>
+        <lastmod>2017-11-09T03:34:05+00:00</lastmod>
     </url>
 </urlset>
