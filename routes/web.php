@@ -19,7 +19,7 @@ Route::get('/sitemap.xml',function (){
    return view('page.sitemap');
 })->name('sitemap');
 
-Route::get('/video/{video_id}/{title_slug}.html','ChildPageController@showVideo')->name('showVideo');
+Route::get('/video/{video_id}/{title_slug}','ChildPageController@showVideo')->name('showVideo');
 Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
 Route::get('/instruction-private','HomeController@instructionPrivate')->name('instructionPrivate');
 

@@ -8,18 +8,18 @@
     <meta charset="utf-8">
     <base href="{{asset('')}}">
 
-    <meta itemprop="url" content="{{route('showVideo')}}"/>
+    <meta itemprop="url" content="{{asset('video/'.$video_show->video_id.'/'.$video_show->title_slug.'.html')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="robots" content="index, follow">
     <meta name="revisit-after" content="1 days">
-    <link rel="canonical" href="{{route('showVideo')}}" />
+    <link rel="canonical" href="{{asset('video/'.$video_show->video_id.'/'.$video_show->title_slug.'.html')}}" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:image" content="images/logo/image-header.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{$video_show->title_video}}" />
     <meta property="og:description" content="{{$video_show->description}}" />
-    <meta property="og:url" content="{{route('showVideo')}}" />
+    <meta property="og:url" content="{{asset('video/'.$video_show->video_id.'/'.$video_show->title_slug.'.html')}}" />
     <meta property="og:site_name" content="Facebook Video Downloader 2017" />
     <meta name="DC.title" content="{{$video_show->title_video}}" />
 

@@ -27,21 +27,19 @@ class ChildPageController extends Controller
 
     public function showVideo($video_id,$title_slug)
     {
-
         $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
         $video_show = HotVideo::where('video_id',$video_id)->first();
         $resource['video_show'] = $video_show;
         $resource['hot_videos'] = $hot_videos;
-
         $url_graph = 'https://graph.facebook.com/' . $video_id . '?fields=source,description,length,picture,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
         $find_source = Curl::to($url_graph)->get();
-        dd($find_source);
         $find_source = json_decode($find_source);
         /** @var string $source */
         $created_time = substr($find_source->created_time, 0, 10);
         $resource['created_time'] = $created_time;
         $resource['source'] = $find_source->source;
         $resource['description'] = $find_source->description;
+
         return view('page.single-video', $resource);
     }
 }

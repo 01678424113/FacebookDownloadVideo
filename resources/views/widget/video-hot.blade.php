@@ -7,18 +7,18 @@
                 <li class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px">
                     <div class="card card-hot-video">
                         <a
-                           href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}">
+                           href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}">
                             <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="width: 100%;height: 210px;"
                                  alt="{{strip_tags($hot_video->alt)}}">
                         </a>
                         <div class="card-block">
                             <a
-                               href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}"
+                               href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}"
                                class="card-text">
                                 <p>{{str_limit($hot_video->h1_video,50,'...')}}</p>
                             </a>
                             <a
-                               href="{{route('showVideo',['title-slug'=>$hot_video->title_slug,'video_id'=>$hot_video->video_id])}}"
+                               href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}"
                                class="btn btn-info btn-block" style="border-radius: 0 0 2px 2px">Download Now</a>
                         </div>
                     </div>
