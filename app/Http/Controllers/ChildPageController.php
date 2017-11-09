@@ -25,7 +25,7 @@ class ChildPageController extends Controller
         view()->share('logo',$logo_setting);
     }
 
-    public function showVideo($title_slug, $video_id)
+    public function showVideo($video_id,$title_slug)
     {
 
         $hot_videos = HotVideo::where('id','>',0)->orderBy('created_at','DESC')->take(6)->get();
@@ -35,8 +35,8 @@ class ChildPageController extends Controller
 
         $url_graph = 'https://graph.facebook.com/' . $video_id . '?fields=source,description,length,picture,created_time,likes.limit(999999999)&access_token=' . env('ACCESS_TOKEN_FULL');
         $find_source = Curl::to($url_graph)->get();
+        dd($find_source);
         $find_source = json_decode($find_source);
-
         /** @var string $source */
         $created_time = substr($find_source->created_time, 0, 10);
         $resource['created_time'] = $created_time;

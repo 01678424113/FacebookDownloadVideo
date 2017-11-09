@@ -17,7 +17,7 @@ Route::get('/','HomeController@index')->name('home');
 Route::get('/404','HomeController@error404')->name('404');
 Route::get('/sitemap.xml',function (){
    return view('page.sitemap');
-});
+})->name('sitemap');
 
 Route::get('/video/{video_id}/{title_slug}.html','ChildPageController@showVideo')->name('showVideo');
 Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
