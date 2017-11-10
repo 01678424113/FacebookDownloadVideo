@@ -293,6 +293,19 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                {{--Hot video--}}
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Hot video<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                      {{--  <li>
+                            <a href="{{route('getAddHotVideo')}}">Add hot video</a>
+                        </li>--}}
+                        <li>
+                            <a href="{{route('listHotVideo')}}">List hot videos</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
                 {{--Auto article--}}
                {{-- <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Auto create articles<span class="fa arrow"></span></a>

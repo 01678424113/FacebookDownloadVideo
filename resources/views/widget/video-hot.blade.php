@@ -1,5 +1,5 @@
 <div class="row-fluid container">
-    <h3>Download video, clip HOT on Facebook</h3>
+    <h3>Video, clip HOT on Facebook</h3>
     <hr>
     @if(count($hot_videos)>0)
         <ul class="list-unstyled video-list-thumbs row">
@@ -15,7 +15,7 @@
                             <a
                                href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}"
                                class="card-text">
-                                <p>{{str_limit($hot_video->h1_video,50,'...')}}</p>
+                                <h4>{{str_limit($hot_video->h1_video,50,'...')}}</h4>
                             </a>
                             <a
                                href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}"

@@ -73,6 +73,14 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     Route::post('/edit-permission/{permission_id}','PermissionController@postEditPermission')->name('postEditPermission');
     Route::get('/delete-permission/{permission_id}','PermissionController@deletePermission')->name('deletePermission');
 
+    //Hot video
+    Route::get('/list-hot-video','HotVideoController@listHotVideo')->name('listHotVideo');
+    Route::get('/add-hot-video','HotVideoController@getAddHotVideo')->name('getAddHotVideo');
+    Route::post('/add-hot-video','HotVideoController@postAddHotVideo')->name('postAddHotVideo');
+    Route::get('/edit-hot-video/{hot_video_id}','HotVideoController@getEditHotVideo')->name('getEditHotVideo');
+    Route::post('/edit-hot-video/{hot_video_id}','HotVideoController@postEditHotVideo')->name('postEditHotVideo');
+    Route::get('/delete-hot-video/{hot_video_id}','HotVideoController@deleteHotVideo')->name('deleteHotVideo');
+
     //Article
     Route::get('/list-article','ArticleController@listArticle')->name('listArticle');
     Route::get('/add-article','ArticleController@getAddArticle')->name('getAddArticle');
