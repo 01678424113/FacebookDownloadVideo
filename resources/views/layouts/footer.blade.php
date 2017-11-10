@@ -31,7 +31,7 @@
     }
 </script>
 
-<div id="extension" class="row-fluid container">
+<div id="extension" class="row-fluid container" style="margin-top: 20px">
     <div class="well col-md-12">
         <center>
             <strong>Facebook Video Downloader - Video Downloader </strong> <br /> <a href="">Privacy Policy</a> | <a href="">Contact us</a> | <a href="{{route('sitemap')}}">Sitemap</a><br />

@@ -19,6 +19,8 @@
                         <li><a href="{{route('instructionPublic')}}">How to use download video public?</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{route('instructionPrivate')}}">How to use download video private?</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('instructionLinkMobile')}}">How to copy link video facebook on mobile?</a></li>
                     </ul>
                 </li>
                 <li {{--class="dropdown"--}}>

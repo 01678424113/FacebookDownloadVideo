@@ -6,10 +6,12 @@
                     <a class="btn btn-default" href="{{route('getPrivateVideo')}}">Return download video another.</a>
                 @endif
                 <center>
-                    <a href="{{route('home')}}"><img class="img-responsive" src="{{$logo}}" alt="Facebook Video Private Downloader - Download Video "
-                                             title="Facebook Video Downloader - Facebook Download " width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
-                    {{$h1_index->value_setting}}
+                        <a href="{{route('home')}}">
+                            <img src="{{$logo}}" style="max-width: 25px"
+                                 alt="Facebook Video Downloader - Online video downloader"
+                                 title="Facebook Video Downloader - Facebook Download "></a>
+                        {{$h1_index->value_setting}}
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Facebook Private Video Downloader</small>

@@ -68,6 +68,16 @@ class HomeController extends Controller
         return view('howToUse.instruction-private',$response);
     }
 
+    public function instructionLinkMobile()
+    {
+        $response = [
+            'title'=>'Instruction copy link video on mobile'
+        ];
+        $hot_videos = HotVideo::all();
+        $response['hot_videos'] = $hot_videos;
+        return view('howToUse.instruction-link-mobile',$response);
+    }
+
      public function test(Request $request)
     {
         /*$url = $request->test;

@@ -9,12 +9,11 @@
                     <a href="{{route('home')}}"><img class="img-responsive" src="{{$logo}}" alt="Find FB ID - Download Facebook Videos"
                                              title="Find Facebook ID" width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
-                        Facebook Find ID By URL
+                        Facebook Find ID By URL - Facebook Video Downloader
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Find ID Facebook Now</small>
                     </h2>
-                    <br/><br/>
                     @if(!session('facebook_id'))
                         <form action="{{route('postFindId')}}" method="post">
                             {{csrf_field()}}

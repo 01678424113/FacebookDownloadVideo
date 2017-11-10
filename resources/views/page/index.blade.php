@@ -84,10 +84,22 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Video facebook hot !</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">How to copy link video on mobile ?</a>
                                 </h4>
                             </div>
                             <div id="collapse5" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>You can <a href="{{route('instructionLinkMobile')}}">click here</a> to see the gif guild to copy link on mobile.!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Video facebook hot !</a>
+                                </h4>
+                            </div>
+                            <div id="collapse6" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>You can see videos hot above. This is videos facebook public. Thank you for reading !</p>
                                 </div>

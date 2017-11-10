@@ -22,6 +22,7 @@ Route::get('/sitemap.xml',function (){
 Route::get('/video-facebook/{video_id}/{title_slug}','ChildPageController@showVideo')->name('showVideo');
 Route::get('/instruction-download-video-facebook-public','HomeController@instructionPublic')->name('instructionPublic');
 Route::get('/instruction-download-video-facebook-private','HomeController@instructionPrivate')->name('instructionPrivate');
+Route::get('/instruction-copy-link-mobile','HomeController@instructionLinkMobile')->name('instructionLinkMobile');
 
 Route::get('/download-video-facebook-public','PageController@getPublicVideo')->name('getPublicVideo');
 Route::post('/download-video-facebook-public','PageController@postPublicVideo')->name('postPublicVideo');
