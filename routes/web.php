@@ -19,18 +19,18 @@ Route::get('/sitemap.xml',function (){
    return view('page.sitemap');
 })->name('sitemap');
 
-Route::get('/video/{video_id}/{title_slug}','ChildPageController@showVideo')->name('showVideo');
-Route::get('/instruction','HomeController@instructionPublic')->name('instructionPublic');
-Route::get('/instruction-private','HomeController@instructionPrivate')->name('instructionPrivate');
+Route::get('/video-facebook/{video_id}/{title_slug}','ChildPageController@showVideo')->name('showVideo');
+Route::get('/instruction-download-video-facebook-public','HomeController@instructionPublic')->name('instructionPublic');
+Route::get('/instruction-download-video-facebook-private','HomeController@instructionPrivate')->name('instructionPrivate');
 
-Route::get('/download-public','PageController@getPublicVideo')->name('getPublicVideo');
-Route::post('/download-public','PageController@postPublicVideo')->name('postPublicVideo');
+Route::get('/download-video-facebook-public','PageController@getPublicVideo')->name('getPublicVideo');
+Route::post('/download-video-facebook-public','PageController@postPublicVideo')->name('postPublicVideo');
 
-Route::get('/download-private','PageController@getPrivateVideo')->name('getPrivateVideo');
-Route::post('/download-private','PageController@postPrivateVideo')->name('postPrivateVideo');
+Route::get('/download-video-facebook-private','PageController@getPrivateVideo')->name('getPrivateVideo');
+Route::post('/download-video-facebook-private','PageController@postPrivateVideo')->name('postPrivateVideo');
 
-Route::get('/find-id','PageController@getFindId')->name('getFindId');
-Route::post('/find-id','PageController@postFindId')->name('postFindId');
+Route::get('/find-id-facebook','PageController@getFindId')->name('getFindId');
+Route::post('/find-id-facebook','PageController@postFindId')->name('postFindId');
 
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin-home');

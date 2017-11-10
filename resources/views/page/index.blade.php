@@ -18,7 +18,7 @@
                                         video public?</a>
                                 </h4>
                             </div>
-                            <div id="collapse1" class="panel-collapse collapse in">
+                            <div id="collapse1" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>You don't install any software or plugins. Only URL facebook, you can download
                                         videos or clip facebook.Copy URL then paste into form above. After few seconds,
@@ -87,7 +87,7 @@
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Video facebook hot !</a>
                                 </h4>
                             </div>
-                            <div id="collapse5" class="panel-collapse collapse in">
+                            <div id="collapse5" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>You can see videos hot above. This is videos facebook public. Thank you for reading !</p>
                                 </div>

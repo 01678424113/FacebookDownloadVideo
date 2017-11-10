@@ -12,7 +12,7 @@
                             <img src="{{$logo}}" style="max-width: 25px"
                                  alt="Facebook Video Downloader - Online video downloader"
                                  title="Facebook Video Downloader - Facebook Download "></a>
-                        Facebook Video Downloader - Download Videos 2017
+                        {{$h1_index->value_setting}}
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Download Clip - Facebook Download Online</small>
@@ -31,9 +31,7 @@
                         </form>
                         <br>
                         <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
-                        <p class="hidden-xs" style="font-size: 19.3px;margin-top: 5px">FbVideoDownload.Net, you can
-                            download clip, videos facebook and save to file mp4 them anywhere. We also support find your
-                            id by URL profile facebook. We will help you do everything on facebook with speediest !</p>
+                        <p class="hidden-xs" style="font-size: 19.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                     @endif
                 </center>
             </div>
