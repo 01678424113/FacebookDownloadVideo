@@ -18,7 +18,7 @@
                                         video public?</a>
                                 </h4>
                             </div>
-                            <div id="collapse1" class="panel-collapse collapse">
+                            <div id="collapse1" class="panel-collapse collapse in">
                                 <div class="panel-body">
                                     <p>You don't install any software or plugins. Only URL facebook, you can download
                                         videos or clip facebook.Copy URL then paste into form above. After few seconds,
