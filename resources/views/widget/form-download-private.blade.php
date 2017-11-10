@@ -19,14 +19,15 @@
                         <form action="{{route('postPrivateVideo')}}" method="post">
                             {{csrf_field()}}
                             <div class="input-group col-lg-6">
-                                <textarea name="html_page_video" class="form-control" id="" cols="20"
+                                <textarea style="border-color: #3498DB;" name="html_page_video" class="form-control" id="" cols="20"
                                           rows="5"></textarea>
-                                <button class="btn btn-primary input-lg" id="btn-download" style="height: 50px;margin-top: 10px"
+                                <button class="btn btn-info input-lg" id="btn-download" style="height: 50px;margin-top: 10px"
                                         type="submit">Download now
                                 </button>
                             </div>
                         </form>
                         <br>
+                        <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                     @endif
                 </center>
             </div>

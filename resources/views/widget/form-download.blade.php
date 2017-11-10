@@ -22,7 +22,7 @@
                         <form action="{{route('postPublicVideo')}}" method="post">
                             {{csrf_field()}}
                             <div class="input-group col-lg-8">
-                                <input name="url_video" class="form-control input-lg"
+                                <input style="border-color: #3498DB;" name="url_video" class="form-control input-lg"
                                        placeholder="https://www.facebook.com/theanh28.page/videos/1666456930066887/"
                                        type="url">
                                 <span class="input-group-btn"><button class="btn btn-info input-lg" id="btn-download"

@@ -19,14 +19,14 @@
                         <form action="{{route('postFindId')}}" method="post">
                             {{csrf_field()}}
                             <div class="input-group col-lg-8">
-                                <input name="url_find_id" class="form-control input-lg"
-                                       placeholder="Enter Facebook URL ..." type="url">
-                                <span class="input-group-btn"><button class="btn btn-primary input-lg" id="btn-download"
+                                <input style="border-color: #3498DB;" name="url_find_id" class="form-control input-lg"
+                                       placeholder="https://www.facebook.com/nguyenlan.dev" type="url">
+                                <span class="input-group-btn"><button class="btn btn-info input-lg" id="btn-download"
                                                                       type="submit">Find ID NOW</button></span>
                             </div>
                         </form>
                         <br>
-                        <p style="font-size: 20.3px;">Example: https://www.facebook.com/nguyenlan.dev</p>
+                        <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                     @endif
                 </center>
             </div>
