@@ -15,7 +15,7 @@
     <meta name="revisit-after" content="1 days">
     <link rel="canonical" href="{{asset('video/'.$video_show->video_id.'/'.$video_show->title_slug.'.html')}}" />
     <meta property="og:locale" content="id_ID" />
-    <meta property="og:image" content="images/logo/image-header.png" />
+    <meta property="og:image" content="http://fbdownloadvideo.net/images/logo/image-header.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{$video_show->title_video}}" />
     <meta property="og:description" content="{{$video_show->description}}" />

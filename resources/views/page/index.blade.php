@@ -75,7 +75,7 @@
                             <div id="collapse4" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>If you encounter this error. Please check the URL and send URL to us into
-                                        facebook message. We apologize for this and will fix it soon.
+                                        facebook message <a href="https://www.facebook.com/nguyenlam.dev">click here</a>. We apologize for this and will fix it soon.
                                     </p>
                                     <p>Thank you for reading !</p>
                                 </div>
