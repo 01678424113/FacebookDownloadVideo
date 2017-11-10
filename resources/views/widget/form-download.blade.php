@@ -31,7 +31,7 @@
                         </form>
                         <br>
                         <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
-                        <p class="hidden-xs" style="font-size: 19.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
+                        <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                     @endif
                 </center>
             </div>

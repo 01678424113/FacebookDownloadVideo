@@ -23,6 +23,14 @@ class HomeController extends Controller
         $settings = Setting::where('setting_page','index')->get();
         view()->share('settings',$settings);
 
+        $title_index = $settings[0]->value_setting;
+        if(!empty($_GET['page'])){
+            $title_index = str_replace('%page%', "page ".$_GET['page'], $title_index);
+        }else{
+            $title_index = str_replace('%page%', "", $title_index);
+        }
+        view()->share('title_index',$title_index);
+
         $h1_index = Setting::where('key_setting','h1_index')->first();
         $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
         view()->share('h1_index',$h1_index);
@@ -40,7 +48,6 @@ class HomeController extends Controller
         $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
         return view('page.404',['hot_videos'=>$hot_videos]);
     }
-
     public function instructionPublic()
     {
         $response = [

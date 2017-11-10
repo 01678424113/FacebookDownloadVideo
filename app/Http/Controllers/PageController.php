@@ -25,6 +25,14 @@ class PageController extends Controller
         $settings = Setting::where('setting_page', 'index')->get();
         view()->share('settings', $settings);
 
+        $title_index = $settings[0]->value_setting;
+        if(!empty($_GET['page'])){
+            $title_index = str_replace('%page%', "page ".$_GET['page'], $title_index);
+        }else{
+            $title_index = str_replace('%page%', "", $title_index);
+        }
+        view()->share('title_index',$title_index);
+
         $h1_index = Setting::where('key_setting','h1_index')->first();
         $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
         view()->share('h1_index',$h1_index);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="shortcut icon" href="{{$logo}}" />
-    <title>{{$settings[0]->value_setting}}</title>
+    <title>{{$title_index}}</title>
     <meta name="description" content="{{$settings[1]->value_setting}}">
     <meta name="keywords" content="{{$settings[2]->value_setting}}">
     <meta charset="utf-8">
