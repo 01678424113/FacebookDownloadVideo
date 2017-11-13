@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">
-                @if(session('source'))
-                    <a class="btn btn-default" href="{{route('getPublicVideo')}}">Return download video another.</a>
-                @endif
+                {{--    @if(session('source'))
+                        <a class="btn btn-default" href="{{route('getPublicVideo')}}">Return download video another.</a>
+                    @endif--}}
                 <center>
 
                     <h1 style="font-size:24px;margin-top:1%;">
@@ -18,21 +18,19 @@
                         <small>Download Clip - Facebook Download Online</small>
                         <br>
                     </h2>
-                    @if(!session('source'))
-                        <form action="{{route('postPublicVideo')}}" method="post">
-                            {{csrf_field()}}
-                            <div class="input-group col-lg-8">
-                                <input style="border-color: #3498DB;" name="url_video" class="form-control input-lg"
-                                       placeholder="https://www.facebook.com/theanh28.page/videos/1666456930066887/"
-                                       type="url">
-                                <span class="input-group-btn"><button class="btn btn-info input-lg" id="btn-download"
-                                                                      type="submit">Download now</button></span>
-                            </div>
-                        </form>
-                        <br>
-                        <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
-                        <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
-                    @endif
+                    <form action="{{route('postPublicVideo')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="input-group col-lg-8">
+                            <input style="border-color: #3498DB;" name="url_video" class="form-control input-lg"
+                                   placeholder="https://www.facebook.com/theanh28.page/videos/1666456930066887/"
+                                   type="url">
+                            <span class="input-group-btn"><button class="btn btn-info input-lg" id="btn-download"
+                                                                  type="submit">Download now</button></span>
+                        </div>
+                    </form>
+                    <br>
+                    <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
+                    <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                 </center>
             </div>
         </div>

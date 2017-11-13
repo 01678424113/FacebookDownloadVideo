@@ -45,7 +45,6 @@
                             <th>Video ID</th>
                             <th>Thumbnails</th>
                             <th>Title</th>
-                            <th>Title slug</th>
                             <th>Download at</th>
                             <th style="width: 80px">Edit</th>
                             <th style="width: 80px">Delete</th>
@@ -62,7 +61,6 @@
                                     <td>
                                         <a target="_blank" href="{{route('showVideo',['video_id'=>$hotVideo->video_id,'title_slug'=>$hotVideo->title_slug.".html"])}}">{{$hotVideo->title_video}}</a>
                                     </td>
-                                    <td>{{$hotVideo->title_slug}}</td>
                                     <td>
                                         <div>{!! date('d/m/Y', $hotVideo->download_at) !!}</div>
                                     </td>

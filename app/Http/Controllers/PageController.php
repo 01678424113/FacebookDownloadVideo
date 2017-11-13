@@ -127,7 +127,6 @@ class PageController extends Controller
                             $description = explode('#', $description);
                             $description = $description[0];
                         }
-
                         $hot_video->meta_title = html_entity_decode($description);
                         $hot_video->title_slug = str_slug($description, "-");
 
@@ -321,7 +320,7 @@ class PageController extends Controller
             return redirect()->back()->with('source', $source)
                 ->with('video_id', $video_id);
         } catch (Exception $e) {
-
+dd($e);
             return redirect()->back()->with('error', 'Link is invalid or video not public !');
         }
     }

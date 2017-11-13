@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">
-                @if(session('source'))
-                    <a class="btn btn-default" href="{{route('getPrivateVideo')}}">Return download video another.</a>
-                @endif
+                {{--   @if(session('source'))
+                       <a class="btn btn-default" href="{{route('getPrivateVideo')}}">Return download video another.</a>
+                   @endif--}}
                 <center>
                     <h1 style="font-size:24px;margin-top:1%;">
                         <a href="{{route('home')}}">
@@ -16,21 +16,21 @@
                     <h2 style="margin-top: 0;font-size:26px;">
                         <small>Facebook Private Video Downloader</small>
                     </h2>
-                    @if(!session('source'))
-                        <div></div>
-                        <form action="{{route('postPrivateVideo')}}" method="post">
-                            {{csrf_field()}}
-                            <div class="input-group col-lg-6">
-                                <textarea style="border-color: #3498DB;" name="html_page_video" class="form-control" id="" cols="20"
+                    <div></div>
+                    <form action="{{route('postPrivateVideo')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="input-group col-lg-6">
+                                <textarea style="border-color: #3498DB;" name="html_page_video" class="form-control"
+                                          id="" cols="20"
                                           rows="5"></textarea>
-                                <button class="btn btn-info input-lg" id="btn-download" style="height: 50px;margin-top: 10px"
-                                        type="submit">Download now
-                                </button>
-                            </div>
-                        </form>
-                        <br>
-                        <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
-                    @endif
+                            <button class="btn btn-info input-lg" id="btn-download"
+                                    style="height: 50px;margin-top: 10px"
+                                    type="submit">Download now
+                            </button>
+                        </div>
+                    </form>
+                    <br>
+                    <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
                 </center>
             </div>
         </div>

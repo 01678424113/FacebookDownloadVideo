@@ -25,8 +25,7 @@
                 </li>
                 <li {{--class="dropdown"--}}>
                     <a href="{{route('getPrivateVideo')}}" {{--class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Download video private <span
-                                class="caret"></span></a>
+                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Download video private</a>
                  {{--   <ul class="dropdown-menu">
                         <li>
                             <a href="{{route('getPrivateVideo')}}"><span
@@ -37,8 +36,7 @@
                 </li>
                 <li {{--class="dropdown"--}}>
                     <a href="{{route('getFindId')}}" {{--class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Find Facebook ID<span
-                                class="caret"></span></a>
+                       aria-expanded="false"--}}><span class="glyphicon glyphicon-option-vertical"></span> Find Facebook ID</a>
                    {{-- <ul class="dropdown-menu">
                         <li>
                             <a href="{{route('getFindId')}}"><span
