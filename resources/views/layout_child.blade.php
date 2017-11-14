@@ -22,7 +22,7 @@
     <meta property="og:url" content="{{asset('video/'.$video_show->video_id.'/'.$video_show->title_slug.'.html')}}" />
     <meta property="og:site_name" content="Facebook Video Downloader 2017" />
     <meta name="DC.title" content="{{$video_show->title_video}}" />
-
+    <meta name="author" content="{{$brand}}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
