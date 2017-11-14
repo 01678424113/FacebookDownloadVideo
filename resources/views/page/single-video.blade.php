@@ -25,12 +25,10 @@
                              data-href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                              style="max-width:800px" data-height="400" data-show-text="false">
                             <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
-                                        class="fb-xfbml-parse-ignore"><a
-                                        href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/">Baixar
-                                    videos do facebook</a>
-                                <p>Facebook video indir.</p>Posted by <a
-                                        href="{{route('home')}}">Facebook video downloader</a>
-                                Mp4 video downloader - <a href="{{route('home')}}">fbdownloadvideo.net</a>
+                                        class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/">Facebook video download</a>
+                               Posted by <a href="{{route('home')}}">FbDownLoadVideo.Net</a>
+                                Mp4 video downloader fastest
                             </blockquote>
                         </div>
                         <div style="display: flex;justify-content: center;margin-top: 10px;">

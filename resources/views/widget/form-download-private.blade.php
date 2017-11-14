@@ -30,7 +30,7 @@
                         </div>
                     </form>
                     <br>
-                    <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
+                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</b>
                 </center>
             </div>
         </div>

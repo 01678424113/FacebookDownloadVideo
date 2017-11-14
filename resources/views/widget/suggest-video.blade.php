@@ -1,6 +1,5 @@
 <div class="suggest-video">
-
-        <h2 style="font-size: 30px;">Suggest video</h2>
+        <h2 style="font-size: 30px;">Video FB Download More</h2>
         <hr>
         @foreach($hot_videos as $hot_video)
         <div class="row">
@@ -13,9 +12,9 @@
                 </a>
             </div>
             <div class="col-md-6 col-sm-6">
-                <h5>
+                <h3 style="font-size: 18px;margin-top: 5px;">
                     <a href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}">{{$hot_video->meta_title}}</a>
-                </h5>
+                </h3>
                 <small>{{$hot_video->created_at}}</small>
                 <br>
                 <small>{!! DateAgo::handle($hot_video->download_at) !!}</small>
@@ -24,6 +23,5 @@
         </div>
         <hr>
     @endforeach
-
 </div>
 {{--End Video suggest--}}

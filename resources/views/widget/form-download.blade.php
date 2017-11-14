@@ -15,7 +15,7 @@
                         {{$h1_index->value_setting}}
                     </h1>
                     <h2 style="margin-top: 0;font-size:26px;">
-                        <small>Download Clip - Facebook Download Online</small>
+                        <small>Download Video Facebook - Facebook Download Online</small>
                         <br>
                     </h2>
                     <form action="{{route('postPublicVideo')}}" method="post">
@@ -30,7 +30,7 @@
                     </form>
                     <br>
                     <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
-                    <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
+                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</b>
                 </center>
             </div>
         </div>
@@ -43,9 +43,8 @@
                                     class="fb-xfbml-parse-ignore"><a
                                     href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Facebook
                                 videos downloader software free</a>
-                            <p>Facebook private video downloader.</p>Posted by <a
-                                    href="{{route('home')}}">Facebook video downloader</a>
-                            FB video downloader free download - <a href="{{route('home')}}">FbDownloadVideo.Net</a>
+                           Posted by <a href="{{route('home')}}">FbDownLoadVideo.Net</a>
+                            FB video downloader free download
                         </blockquote>
                     </div>
                     <a class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px" href="{{session('source')}}"
