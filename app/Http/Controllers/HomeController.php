@@ -7,6 +7,7 @@ use App\HotVideo;
 use App\Setting;
 use Illuminate\Http\Request;
 use Ixudra\Curl\Facades\Curl;
+use Spatie\GoogleSearch\GoogleSearch;
 
 class HomeController extends Controller
 {
@@ -32,15 +33,16 @@ class HomeController extends Controller
         view()->share('title_index',$title_index);
 
         $h1_index = Setting::where('key_setting','h1_index')->first();
-        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
         view()->share('h1_index',$h1_index);
-        view()->share('content_index',$content_index);
     }
     public function index()
     {
 
+        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+        $response['content_index'] = $content_index->value_setting;
         $hot_videos = HotVideo::where('id','>',0)->orderBy('download_at','DESC')->paginate(12);
-        return view('page.index',['hot_videos'=>$hot_videos]);
+        $response['hot_videos'] = $hot_videos;
+        return view('page.index',$response);
     }
     public function error404()
     {
@@ -53,6 +55,8 @@ class HomeController extends Controller
         $response = [
             'title'=>'Instruction Public'
         ];
+        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+        $response['content_index'] = $content_index->value_setting;
         $hot_videos = HotVideo::all();
         $response['hot_videos'] = $hot_videos;
         return view('howToUse.instruction-public',$response);
@@ -63,6 +67,8 @@ class HomeController extends Controller
         $response = [
           'title'=>'Instruction Private'
         ];
+        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+        $response['content_index'] = $content_index->value_setting;
         $hot_videos = HotVideo::all();
         $response['hot_videos'] = $hot_videos;
         return view('howToUse.instruction-private',$response);
@@ -73,12 +79,14 @@ class HomeController extends Controller
         $response = [
             'title'=>'Instruction copy link video on mobile'
         ];
+        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+        $response['content_index'] = $content_index->value_setting;
         $hot_videos = HotVideo::all();
         $response['hot_videos'] = $hot_videos;
         return view('howToUse.instruction-link-mobile',$response);
     }
 
-     public function test(Request $request)
+     public function test()
     {
         /*$url = $request->test;
         $response = Curl::to($url)
@@ -86,9 +94,8 @@ class HomeController extends Controller
             ->get();
         echo $response;*/
 
-        foreach (HotVideo::where('video_id','>',0)->cursor() as $hotVideo){
-            echo $hotVideo->title_video;
-        }
+        $search = GoogleSearch::getResults('a');
+        dd($search);
 
 
 

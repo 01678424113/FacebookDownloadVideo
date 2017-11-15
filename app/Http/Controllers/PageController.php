@@ -34,9 +34,9 @@ class PageController extends Controller
         view()->share('title_index',$title_index);
 
         $h1_index = Setting::where('key_setting','h1_index')->first();
-        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+
         view()->share('h1_index',$h1_index);
-        view()->share('content_index',$content_index);
+
 
     }
 
@@ -47,6 +47,9 @@ class PageController extends Controller
         ];
         $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
         $response['hot_videos'] = $hot_videos;
+        $content_index = Setting::select('value_setting')->where('key_setting','content_index')->first();
+        $response['content_index'] = $content_index->value_setting;
+        dd($response);
         return view('page.index', $response);
 
     }
@@ -88,40 +91,11 @@ class PageController extends Controller
                     if ($likes > 50) {
                         $hot_video = new HotVideo();
                         $hot_video->video_id = $video_id;
-                        /*if (strlen($description) > 70) {
-                            if(strpos($description, '.' )){
-                                $description = explode('.', $description);
-                                if (strlen($description[0]) > 70){
-                                    $description = explode(' ', $description[0]);
-                                    $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
-                                }else{
-                                    $description = $description[0]." ".$description[1];
-                                }
-                            }elseif(strpos($description, ',' )){
-                                $description = explode(',', $description);
-                                if (strlen($description[0]) > 70){
-                                    $description = $description[0];
-                                }else{
-                                    $description = $description[0]." ".$description[1];
-                                }
-                            }elseif (strpos($description, ':' )){
-                                $description = explode(':', $description);
-                                if (strlen($description[0]) > 70){
-                                    $description = $description[0];
-                                }else{
-                                    $description = $description[0]." ".$description[1];
-                                }
-                            }elseif (strpos($description, '#' )){
-                                $description = explode('#', $description);
-                                $description = $description[0];
-                            } else{
-                                $description = explode(' ', $description);
-                                $description = $description[0]." ".$description[1]." ".$description[2]." ".$description[3]." ".$description[4]." ".$description[5]." ".$description[6];
-                            }
-                        }*/
-                        if (str_word_count($description) > 10) {
+
+                        if (str_word_count($description) > 15) {
                             $description = explode(" ", $description);
                             $description = $description[0] . " " . $description[1] . " " . $description[2] . " " . $description[3] . " " . $description[4] . " " . $description[5] . " " . $description[6] . " " . $description[7] . " " . $description[8] . " " . $description[9] . " ...";
+
                         }
                         if (strpos($description, '#')) {
                             $description = explode('#', $description);
@@ -198,6 +172,7 @@ class PageController extends Controller
                         $rd_keyword_1 = trim($keyword_1s[$rd_number_keyword_1]);
                         $rd_keyword_2 = trim($keyword_2s[$rd_number_keyword_2]);
                         $rd_keyword_link = trim($keyword_links[$rd_number_keyword_link]);
+
 
                         $title_rp_name = str_replace('%name%', $description, $rd_title);
                         $title_rp_domain = str_replace('%domainname%', $rd_domain, $title_rp_name);
@@ -332,12 +307,14 @@ dd($e);
         ];
         $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(12);
         $response['hot_videos'] = $hot_videos;
+
+        $response['content_index'] = "FbVideoDownload.Net - If you has video facebook private and you want to download NOW. We will help you download it. Thank you for reading !";
+
         return view('page.private-video', $response);
 
     }
 
-    public
-    function postPrivateVideo(Request $request)
+    public function postPrivateVideo(Request $request)
     {
         $html = $request->html_page_video;
         if (preg_match_all("/sd_src\:\"(.*?)\"/", $html, $matches)) {
@@ -360,19 +337,19 @@ dd($e);
         return redirect()->back()->with('error', 'Source is invalid!');
     }
 
-    public
-    function getFindId()
+    public function getFindId()
     {
         $hot_videos = HotVideo::where('id', '>', 0)->orderBy('created_at', 'DESC')->take(6)->get();
         $response = [
             'title' => 'Find ID Facebook By URL'
         ];
         $response['hot_videos'] = $hot_videos;
+        $response['content_index'] = "FbVideoDownload.Net - If you want download video facebook, find id facebook. We will help you do it. Thank you for reading !";
+
         return view('page.find-id-facebook', $response);
     }
 
-    public
-    function postFindId(Request $request)
+    public function postFindId(Request $request)
     {
         $url = $request->url_find_id;
         $username = substr($url, 25);

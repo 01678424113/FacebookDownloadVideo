@@ -15,7 +15,7 @@
                                                data-href="http://fbdownloadvideo.net" data-layout="button_count"
                                                data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>--}}
                                 <div style="margin-left: 5px" class="fb-share-button" data-href="http://fbdownloadvideo.net"
-                                     data-layout="button" data-size="large" data-mobile-iframe="true"><a
+                                     data-layout="button" data-size="large" data-mobile-iframe="true"><a title="FB Video HOT - FB Video Download Fastest"
                                             class="fb-xfbml-parse-ignore" target="_blank"
                                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a>
                                 </div>
@@ -26,20 +26,20 @@
                              style="max-width:800px" data-height="400" data-show-text="false">
                             <blockquote cite="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/"
                                         class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/">Facebook video download</a>
-                               Posted by <a href="{{route('home')}}">FbDownLoadVideo.Net</a>
+                                <a title="FB Video HOT - FB Video Download Fastest" href="https://www.facebook.com/facebook/videos/{{$video_show->video_id}}/">Facebook video download</a>
+                               Posted by <a title="FB Video HOT - FB Video Download Fastest" href="{{route('home')}}">FbDownLoadVideo.Net</a>
                                 Mp4 video downloader fastest
                             </blockquote>
                         </div>
                         <div style="display: flex;justify-content: center;margin-top: 10px;">
-                            <a class="btn btn-info" style="border-radius: 0;font-size: 20px;" href="{{$source}}"
+                            <a title="FB Download Video - FB Video Download Fastest" class="btn btn-info" style="border-radius: 0;font-size: 20px;" href="{{$source}}"
                                download="">Click Download Now</a>
                         </div>
 
-                        <h2><a href="#">[{{$created_time}}] {!! str_limit($video_show->h1_video,100,'...') !!}</a>
+                        <h2><a title="{{$video_show->h1_video}}" href="#">[{{$created_time}}] {!! str_limit($video_show->h1_video,100,'...') !!}</a>
                         </h2>
                         <div class="col-md-12">
-                            Post by <a href="{{route('home')}}">Admin</a>
+                            Post by <a "FB Download Video - FB Video Download Fastest" href="{{route('home')}}">Admin</a>
                             <hr>
                         </div>
                         <p>Description :</p>

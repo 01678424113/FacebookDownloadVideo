@@ -6,7 +6,7 @@
                      <a class="btn btn-default" href="{{route('getFindId')}}">Return find id another.</a>
                  @endif--}}
                 <center>
-                    <a href="{{route('home')}}"><img class="img-responsive" src="{{$logo}}"
+                    <a href="{{route('home')}}"  title="Facebook Video Downloader- Download Video Facebook"><img class="img-responsive" src="{{$logo}}"
                                                      alt="Find FB ID - Download Facebook Videos"
                                                      title="Find Facebook ID" width="70px"></a>
                     <h1 style="font-size:24px;margin-top:1%;">
@@ -25,7 +25,7 @@
                         </div>
                     </form>
                     <br>
-                    <p class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</p>
+                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index}}</b>
                 </center>
             </div>
         </div>

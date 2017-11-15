@@ -7,7 +7,7 @@
                    @endif--}}
                 <center>
                     <h1 style="font-size:24px;margin-top:1%;">
-                        <a href="{{route('home')}}">
+                        <a href="{{route('home')}}"  title="Facebook Video Downloader- Download Video Facebook">
                             <img src="{{$logo}}" style="max-width: 50px"
                                  alt="Facebook Video Downloader - Online video downloader"
                                  title="Facebook Video Downloader - Facebook Download "></a>
@@ -30,7 +30,7 @@
                         </div>
                     </form>
                     <br>
-                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</b>
+                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index}}</b>
                 </center>
             </div>
         </div>
@@ -42,7 +42,7 @@
                              alt="Facebook Video Private Downloader - Download Video ">
                         <div class="card-block">
                             <p class="card-text">{{session('description')}} - {{session('view')}} Views</p>
-                            <a href="{{session('source')}}" class="btn btn-success btn-block" download="">Download
+                            <a href="{{session('source')}}" class="btn btn-success btn-block" download=""  title="Facebook Video Downloader- Download Video Facebook">Download
                                 Now</a>
                         </div>
                     </div>

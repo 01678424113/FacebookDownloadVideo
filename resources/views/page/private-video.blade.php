@@ -13,7 +13,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">How to use
+                                    <a title="Facebook Video Donwload Online - FB Video Download" data-toggle="collapse" data-parent="#accordion" href="#collapse1">How to use
                                         download
                                         video public?</a>
                                 </h4>
@@ -23,7 +23,7 @@
                                     <p>You don't install any software or plugins. Only URL facebook, you can download
                                         videos or clip facebook.Copy URL then paste into form above. After few seconds,
                                         you can download it as fast as possible.</p>
-                                    <p>Please <a href="{{route('instructionPublic')}}">click here</a> to see the image
+                                    <p>Please <a title="Facebook Video Donwload Online - FB Video Download" href="{{route('instructionPublic')}}">click here</a> to see the image
                                         guide. Thank you for reading!
                                     </p>
                                 </div>
@@ -40,17 +40,17 @@
                             <div id="collapse2" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>Go to Facebook.com, find facebook user which you want to find. Copy their URL
-                                        profile and paste into form <a href="{{route('getFindId')}}">in here</a>>. Click
+                                        profile and paste into form <a title="Facebook Video Donwload Mp4 - FB Video Download" href="{{route('getFindId')}}">in here</a>>. Click
                                         "Find ID Now" and waiting few seconds. You can see the image guide below form
                                         "Find ID Now". Thank you for reading ! </p>
-                                    You can <a href="{{route('getFindId')}}">click here</a>
+                                    You can <a title="FB Download - FB Video Download" href="{{route('getFindId')}}">click here</a>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">How to use
+                                    <a title="FB Download - FB Video Download" data-toggle="collapse" data-parent="#accordion" href="#collapse3">How to use
                                         download
                                         video PRIVATE?</a>
                                 </h4>
@@ -58,9 +58,9 @@
                             <div id="collapse3" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>If you have the URL video private. You can see the image guild
-                                        <a href="{{route('instructionPrivate')}}"> in here </a> to load it.
+                                        <a title="FB Download - FB Video Download" href="{{route('instructionPrivate')}}"> in here </a> to load it.
                                     </p>
-                                    You can <a href="{{route('instructionPrivate')}}">click here</a>. Thank you for
+                                    You can <a title="FB Download - FB Video Download" href="{{route('instructionPrivate')}}">click here</a>. Thank you for
                                     reading !
                                 </div>
                             </div>
@@ -68,14 +68,14 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Link is invalid
+                                    <a title="FB Download Online - FB Video Download" data-toggle="collapse" data-parent="#accordion" href="#collapse4">Link is invalid
                                         or not exist !</a>
                                 </h4>
                             </div>
                             <div id="collapse4" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>If you encounter this error. Please check the URL and send URL to us into
-                                        facebook message <a href="https://www.facebook.com/nguyenlam.dev">click here</a>. We apologize for this and will fix it soon.
+                                        facebook message <a title="FB Download Mp4 - FB Video Download" href="https://www.facebook.com/nguyenlam.dev">click here</a>. We apologize for this and will fix it soon.
                                     </p>
                                     <p>Thank you for reading !</p>
                                 </div>
@@ -84,19 +84,19 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">How to copy link video on mobile ?</a>
+                                    <a title="How to copy link video on mobile ?" data-toggle="collapse" data-parent="#accordion" href="#collapse5">How to copy link video on mobile ?</a>
                                 </h4>
                             </div>
                             <div id="collapse5" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>You can <a href="{{route('instructionLinkMobile')}}">click here</a> to see the gif guild to copy link on mobile.!</p>
+                                    <p>You can <a title="How to copy link video on mobile ?" href="{{route('instructionLinkMobile')}}">click here</a> to see the gif guild to copy link on mobile.!</p>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Video facebook hot !</a>
+                                    <a title="Facebooke Download Video HOT" data-toggle="collapse" data-parent="#accordion" href="#collapse6">Video facebook hot !</a>
                                 </h4>
                             </div>
                             <div id="collapse6" class="panel-collapse collapse">

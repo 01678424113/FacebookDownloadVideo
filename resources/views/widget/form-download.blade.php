@@ -29,8 +29,10 @@
                         </div>
                     </form>
                     <br>
-                    <a href="{{route('getPrivateVideo')}}">Click here! If you want download video private.</a>
-                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index->value_setting}}</b>
+                    <a href="{{route('getPrivateVideo')}}"
+                       title="Facebook Video Private- Facebook Download Video">Click here! If you want download video private.</a>
+                    <br>
+                    <b class="hidden-xs" style="font-size: 17.3px;margin-top: 5px">{{$content_index}}</b>
                 </center>
             </div>
         </div>
@@ -40,15 +42,15 @@
                     <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/"
                          data-width="400" data-height="250" data-show-text="false">
                         <blockquote cite="https://www.facebook.com/facebook/videos/{{session('video_id')}}/"
-                                    class="fb-xfbml-parse-ignore"><a
+                                    class="fb-xfbml-parse-ignore"><a title="Facebook Video Public- Download Video Facebook"
                                     href="https://www.facebook.com/facebook/videos/{{session('video_id')}}/">Facebook
                                 videos downloader software free</a>
-                           Posted by <a href="{{route('home')}}">FbDownLoadVideo.Net</a>
+                           Posted by <a href="{{route('home')}}" title="Facebook Video Downloader- Download Video Facebook">FbDownLoadVideo.Net</a>
                             FB video downloader free download
                         </blockquote>
                     </div>
                     <a class="btn btn-success btn-block" style="border-radius: 0 0 2px 2px" href="{{session('source')}}"
-                       download="">Download</a>
+                       title="Facebook Video Downloader- Download Video Facebook" download="">Download</a>
                 </div>
             @endif
         </div>

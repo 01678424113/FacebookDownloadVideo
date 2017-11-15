@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Spatie\GoogleSearch\GoogleSearchServiceProvider::class,
 
     ],
 
@@ -231,6 +232,7 @@ return [
         'DateAgo' => App\Helpers\DateAgo::class,
         'ImageUpload' => App\Helpers\ImageUpload::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'GoogleSearch' => Spatie\GoogleSearch\Facades\GoogleSearch::class,
     ],
 
 ];
