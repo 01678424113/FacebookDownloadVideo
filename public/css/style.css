@@ -10,6 +10,8 @@ body .card-hot-video .card-block .card-text {
   background: #0000005e;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   width: calc(100% - 30px);
   cursor: pointer; }
 body .list-video-suggest a .btn-play {

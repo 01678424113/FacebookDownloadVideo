@@ -8,7 +8,7 @@
                 <center>
                     <h1 style="font-size:24px;margin-top:1%;">
                         <a href="{{route('home')}}">
-                            <img src="{{$logo}}" style="max-width: 25px"
+                            <img src="{{$logo}}" style="max-width: 50px"
                                  alt="Facebook Video Downloader - Online video downloader"
                                  title="Facebook Video Downloader - Facebook Download "></a>
                         {{$h1_index->value_setting}}

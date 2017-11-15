@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 list-video-suggest" style="max-height: 142px; overflow: hidden;">
                 <a href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}">
-                    <img class="card-img-top" src="{{$hot_video->thumbnails}}" style="max-width: 100%" alt="{{strip_tags($hot_video->alt)}}">
+                    <img class="card-img-top" src="{{$hot_video->picture}}" style="max-width: 100%" alt="{{strip_tags($hot_video->alt)}}">
                     <div class="btn-play">
                         <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                     </div>

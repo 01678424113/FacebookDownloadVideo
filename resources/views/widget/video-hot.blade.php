@@ -8,7 +8,7 @@
                     <div class="card card-hot-video">
                         <a
                                 href="{{route('showVideo',['video_id'=>$hot_video->video_id,'title_slug'=>$hot_video->title_slug.".html"])}}">
-                            <img class="card-img-top" src="{{$hot_video->thumbnails}}"
+                            <img class="card-img-top" src="{{$hot_video->picture}}"
                                  style="width: 100%;height: 210px;"
                                  alt="{{strip_tags($hot_video->alt)}}">
                         </a>
